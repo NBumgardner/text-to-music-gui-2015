@@ -2,7 +2,7 @@
 Want to hear your name as a song? This Python GUI turns text into melodies.
 
 ## Description
-File `textToMusicGUI.py` opens a GUI, which may turn text into solfege-symbols and play solfege aloud.
+File `v1-python/textToMusicGUI.py` opens a GUI, which may turn text into solfege-symbols and play solfege aloud.
 
 ### Screenshots
 Below are a couple of example screenshots:
@@ -20,7 +20,7 @@ You will need to locally install Python 2 or 3, as well as some free libraries, 
 To run a Python program, the computer you use needs the following installed:
 
 - Windows
-  - Note: I have not tested `textToMusicGUI.py` on a Mac. It may work.
+  - Note: I have not tested `v1-python/textToMusicGUI.py` on a Mac. It may work.
 - Python 3
   - Note: If it only has Python 2, then you must alter two lines of code and save the changes:
     - Uncomment Line 29
@@ -35,13 +35,13 @@ Python 2, Python 3, and all three modules are available online for free.
 ### Installation Steps
 Below are instructions to run the program:
 
-1. Download file `textToMusicGUI.py` to a (Windows) computer (with Python installed)
-2. (Optionally) Move or Copy `textToMusicGUI.py` to your Desktop
-3. Right-click `textToMusicGUI.py`
+1. Download file `v1-python/textToMusicGUI.py` to a (Windows) computer (with Python installed)
+2. (Optionally) Move or Copy `v1-python/textToMusicGUI.py` to your Desktop
+3. Right-click `v1-python/textToMusicGUI.py`
 4. Select `Edit with IDLE`
 5. Run the program by either:
   - ... pressing `F5`
   - ... click `Run`, then click `Run Module`
 
 ## Credits
-`textToMusicGUI.py` was first completed on June 6th, 2015 by Noah Bumgardner as a single-file application.
+`v1-python/textToMusicGUI.py` was first completed on June 6th, 2015 by Noah Bumgardner as a single-file application.
