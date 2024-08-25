@@ -62,4 +62,4 @@ Output: Caps locked list of strings, where each word is
 	Removes whitespace characters.
 """
 func prepareStr(s):
-	return s.strip_edges().to_upper().split()
+	return s.strip_edges().to_upper().split(' ')
