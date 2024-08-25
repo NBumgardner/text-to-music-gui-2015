@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_afo5a")
-full_name = "full_display_name"
+full_name = "Major"
 label_name = "Major"
 solfege_ascending_string = "Do Re Mi Fa So La Ti"

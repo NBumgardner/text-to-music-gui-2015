@@ -10,6 +10,8 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 
 @onready var audio_stream_player = $AudioStreamPlayer
 
+@export var musical_scale: ScaleData = null
+
 
 # Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
@@ -24,12 +26,11 @@ func _fill_buffer():
 
 
 func _ready():
-	# Copied from demo:
-	#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
-	audio_stream_player.stream.mix_rate = sample_hz
-	audio_stream_player.play()
-	playback = audio_stream_player.get_stream_playback()
+	_play_note_forever()
 	audio_stream_player.stop()
+	
+	if musical_scale != null:
+		$HBoxContainer/ScaleName.text = musical_scale.label_name
 
 
 func _process(delta):
@@ -44,8 +45,13 @@ func _on_button_pressed():
 		return
 
 	print_debug("Play a new note")
-	# Copied from demo:
-	#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
+	_play_note_forever()
+
+
+# Copied from demo:
+#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
+func _play_note_forever():
 	audio_stream_player.stream.mix_rate = sample_hz
 	audio_stream_player.play()
 	playback = audio_stream_player.get_stream_playback()
+	
