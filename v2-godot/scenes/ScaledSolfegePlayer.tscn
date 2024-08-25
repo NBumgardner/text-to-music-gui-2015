@@ -27,7 +27,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Play"
+text = "Stop"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamGenerator_clsq1")

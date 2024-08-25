@@ -39,5 +39,6 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	audio_stream_player.play()
-	pass # Replace with function body.
+	if audio_stream_player.playing:
+		audio_stream_player.stop()
+		return
