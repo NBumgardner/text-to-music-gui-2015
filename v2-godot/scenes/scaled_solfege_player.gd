@@ -23,13 +23,13 @@ func _fill_buffer():
 		to_fill -= 1
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	# Copied from demo:
 	#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 	audio_stream_player.stream.mix_rate = sample_hz
 	audio_stream_player.play()
 	playback = audio_stream_player.get_stream_playback()
+	audio_stream_player.stop()
 
 
 func _process(delta):
@@ -42,3 +42,10 @@ func _on_button_pressed():
 	if audio_stream_player.playing:
 		audio_stream_player.stop()
 		return
+
+	print_debug("Play a new note")
+	# Copied from demo:
+	#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
+	audio_stream_player.stream.mix_rate = sample_hz
+	audio_stream_player.play()
+	playback = audio_stream_player.get_stream_playback()
