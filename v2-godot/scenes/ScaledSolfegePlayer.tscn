@@ -14,9 +14,11 @@ grow_vertical = 2
 script = ExtResource("1_cxax3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
 
 [node name="ScaleName" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -24,6 +26,7 @@ text = "Scale"
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2

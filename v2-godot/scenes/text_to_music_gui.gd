@@ -6,10 +6,10 @@ signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
 
 var converter_methods = Convert.new()
 
-@onready var inputControlToTranslate = $VBoxContainer/RowUserInput/LineEdit
+@onready var inputControlToTranslate = $MarginContainer/VBoxContainer/RowUserInput/LineEdit
 
 # Get output rows excluding the first row of user input.
-@onready var playVars: Array = $VBoxContainer.get_children().slice(1)
+@onready var playVars: Array = $MarginContainer/VBoxContainer.get_children().slice(1)
 
 var _scaleInSolfege = [preload("../scales/major.tres")]
 

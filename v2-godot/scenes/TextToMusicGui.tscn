@@ -13,27 +13,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o4ijw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="RowUserInput" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/RowUserInput"]
+[node name="RowUserInput" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RowUserInput"]
 layout_mode = 2
 text = "Input Text:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/RowUserInput"]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/RowUserInput"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/RowUserInput"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/RowUserInput"]
 layout_mode = 2
 text = "Translate"
 
-[node name="ScaledSolfegePlayer" parent="VBoxContainer" instance=ExtResource("1_0qcx7")]
+[node name="ScaledSolfegePlayer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_0qcx7")]
 layout_mode = 2
 musical_scale = ExtResource("2_qhllm")
 
-[connection signal="pressed" from="VBoxContainer/RowUserInput/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="." method="_on_button_pressed"]
