@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ScaleData" load_steps=2 format=3 uid="uid://4b372yksbqwt"]
+
+[ext_resource type="Script" path="res://scales/scale_data.gd" id="1_afo5a"]
+
+[resource]
+script = ExtResource("1_afo5a")
+full_name = "full_display_name"
+label_name = "Major"
+solfege_ascending_string = "Do Re Mi Fa So La Ti"
