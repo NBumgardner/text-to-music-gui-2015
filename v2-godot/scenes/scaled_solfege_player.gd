@@ -1,9 +1,13 @@
 extends Control
 
+# Copied from demo:
+#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 var sample_hz = 22050.0 # Keep the number of samples to mix low, GDScript is not super fast.
 var pulse_hz = 440.0
 var phase = 0.0
 
+# Copied from demo:
+#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _ready().
 
 @onready var play_button = $HBoxContainer/Button
