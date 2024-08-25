@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hhhl5t2v4nm"]
+
+[ext_resource type="Script" path="res://scenes/scaled_solfege_player.gd" id="1_cxax3"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
+
+[node name="ScaledSolfegePlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxax3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScaleName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Major"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamGenerator_clsq1")
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

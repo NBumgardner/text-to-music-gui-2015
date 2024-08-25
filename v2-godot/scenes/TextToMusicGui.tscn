@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://do5m2nvcbssud"]
+[gd_scene load_steps=2 format=3 uid="uid://do5m2nvcbssud"]
+
+[ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,3 +28,6 @@ layout_mode = 2
 [node name="Button" type="Button" parent="VBoxContainer/RowUserInput"]
 layout_mode = 2
 text = "Translate"
+
+[node name="ScaledSolfegePlayer" parent="VBoxContainer" instance=ExtResource("1_0qcx7")]
+layout_mode = 2
