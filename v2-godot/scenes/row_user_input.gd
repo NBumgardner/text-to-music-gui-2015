@@ -1,6 +1,14 @@
 extends HBoxContainer
 
-const Convert = preload("res://musical_translations/convert.gd")
+const Convert = preload("../musical_translations/convert.gd")
+
+signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
+
+var convert = Convert.new()
+
+@export var playVars = []
+
+var _scaleInSolfege = [preload("../scales/major.tres")]
 
 const _caseSensitive = false
 
@@ -27,24 +35,25 @@ func _on_button_pressed():
 
 	# Caps locked list of strings.
 	if (not _caseSensitive):
-		text2 = Convert.prepareStr(text)
+		text2 = convert.prepareStr(text)
 
 	var text3 = []
 	# List of integer lists.
 	# Values: 0 to 25.
 	for word in text2:
-		var a = Convert.myStrToInt(word, 26)
+		var a = convert.myStrToInt(word, 26)
 		text3.append(a)
 	print('Input Text in number format:', text3)
 
 	# Replace other 4 Entry fields. Translates text3.
 	var a = 0
-	for e in self.playVars:
-		var oldE = e.get()
-		if oldE != '':
-			print('   ', oldE, 'will be replaced.')
-		var scaleUsed = self._scaleInSolfege[a]
-		var result = Convert.iListsToSolfege(text3, scaleUsed)
+	for e in playVars:
+		# var oldE = e.get()
+		# if oldE != '':
+		#	print('   ', oldE, 'will be replaced.')
+		var scaleUsed = _scaleInSolfege[a]
+		var result = convert.iListsToSolfege(text3, scaleUsed.solfege_ascending_string.split(" "))
 		$LineEdit.text = result
+		set_play_vars.emit(result)
 		a += 1
 	print('Translation complete.')

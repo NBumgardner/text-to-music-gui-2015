@@ -48,7 +48,7 @@ func myStrToInt(s, scale=12):
 	# For each character in s
 	for char in s:
 		var num = char.to_utf8_buffer()[0] - 65
-		if (not (-1 < num < 26)):
+		if num <= -1 or num >= 26:
 			# Invalid character detected. Skip it.
 			continue
 		result.append(num % scale)
@@ -62,4 +62,4 @@ Output: Caps locked list of strings, where each word is
 	Removes whitespace characters.
 """
 func prepareStr(s):
-	return s.trim().to_upperc().split()
+	return s.strip_edges().to_upper().split()

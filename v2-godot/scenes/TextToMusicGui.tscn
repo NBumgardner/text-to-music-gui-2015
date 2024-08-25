@@ -20,6 +20,7 @@ offset_bottom = 40.0
 [node name="RowUserInput" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("1_mvb7y")
+playVars = [null]
 
 [node name="Label" type="Label" parent="VBoxContainer/RowUserInput"]
 layout_mode = 2
