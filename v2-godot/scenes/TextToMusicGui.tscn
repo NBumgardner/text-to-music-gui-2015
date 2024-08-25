@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://do5m2nvcbssud"]
+[gd_scene load_steps=4 format=3 uid="uid://do5m2nvcbssud"]
 
 [ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
+[ext_resource type="Script" path="res://scenes/row_user_input.gd" id="1_mvb7y"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://scales/major.tres" id="2_qhllm"]
 
 [node name="Control" type="Control"]
@@ -18,6 +19,7 @@ offset_bottom = 40.0
 
 [node name="RowUserInput" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+script = ExtResource("1_mvb7y")
 
 [node name="Label" type="Label" parent="VBoxContainer/RowUserInput"]
 layout_mode = 2
@@ -33,3 +35,5 @@ text = "Translate"
 [node name="ScaledSolfegePlayer" parent="VBoxContainer" instance=ExtResource("1_0qcx7")]
 layout_mode = 2
 musical_scale = ExtResource("2_qhllm")
+
+[connection signal="pressed" from="VBoxContainer/RowUserInput/Button" to="VBoxContainer/RowUserInput" method="_on_button_pressed"]
