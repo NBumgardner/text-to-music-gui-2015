@@ -42,17 +42,11 @@ func _on_button_pressed():
 	# Replace other 4 Entry fields. Translates text3.
 	var a = 0
 	for e in playVars:
-		# var oldE = e.get()
-		# if oldE != '':
-		#	print('   ', oldE, 'will be replaced.')
 		var scaleUsed = _scaleInSolfege[a]
 		var result = converter_methods.iListsToSolfege(
 			text3,
 			scaleUsed.solfege_ascending_string.split(" ")
 		)
-		# print_debug(result)
-		# $LineEdit.text = result
-		# print(e)
 		e.set_line_edit_text(result)
 		set_play_vars.emit(result)
 		a += 1
