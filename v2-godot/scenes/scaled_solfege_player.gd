@@ -1,4 +1,4 @@
-extends Control
+class_name ScaledSolfegePlayer extends Control
 
 # Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
@@ -15,6 +15,10 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 @onready var audio_stream_player = $AudioStreamPlayer
 
 @export var musical_scale: ScaleData = null
+
+
+func set_line_edit_text(incoming_text: String) -> void:
+	$HBoxContainer/LineEdit.text = incoming_text
 
 
 # Copied from demo:
@@ -37,7 +41,7 @@ func _ready():
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
 
 
-func _process(delta):
+func _process(_delta):
 	# Copied from demo:
 	#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 	_fill_buffer()

@@ -46,8 +46,8 @@ func iListsToSolfege(intsLists, scaleNames):
 func myStrToInt(s, scale=12):
 	var result = []
 	# For each character in s
-	for char in s:
-		var num = char.to_utf8_buffer()[0] - 65
+	for character in s:
+		var num = character.to_utf8_buffer()[0] - 65
 		if num <= -1 or num >= 26:
 			# Invalid character detected. Skip it.
 			continue

@@ -1,30 +1,24 @@
-extends HBoxContainer
+extends Control
 
 const Convert = preload("../musical_translations/convert.gd")
 
 signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
 
-var convert = Convert.new()
+var converter_methods = Convert.new()
 
-@export var playVars = []
+@onready var inputControlToTranslate = $VBoxContainer/RowUserInput/LineEdit
+
+# Get output rows excluding the first row of user input.
+@onready var playVars: Array = $VBoxContainer.get_children().slice(1)
 
 var _scaleInSolfege = [preload("../scales/major.tres")]
 
 const _caseSensitive = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_button_pressed():
 	# Get string to be translated.
-	var text = $LineEdit.text
+	var text = inputControlToTranslate.text
 	if text == '': # Guardian.
 		print_debug('NO INPUT FOUND. Please enter text for translation.')
 		return
@@ -35,13 +29,13 @@ func _on_button_pressed():
 
 	# Caps locked list of strings.
 	if (not _caseSensitive):
-		text2 = convert.prepareStr(text)
+		text2 = converter_methods.prepareStr(text)
 
 	var text3 = []
 	# List of integer lists.
 	# Values: 0 to 25.
 	for word in text2:
-		var a = convert.myStrToInt(word, 26)
+		var a = converter_methods.myStrToInt(word, 26)
 		text3.append(a)
 	print('Input Text in number format:', text3)
 
@@ -52,8 +46,14 @@ func _on_button_pressed():
 		# if oldE != '':
 		#	print('   ', oldE, 'will be replaced.')
 		var scaleUsed = _scaleInSolfege[a]
-		var result = convert.iListsToSolfege(text3, scaleUsed.solfege_ascending_string.split(" "))
-		$LineEdit.text = result
+		var result = converter_methods.iListsToSolfege(
+			text3,
+			scaleUsed.solfege_ascending_string.split(" ")
+		)
+		# print_debug(result)
+		# $LineEdit.text = result
+		# print(e)
+		e.set_line_edit_text(result)
 		set_play_vars.emit(result)
 		a += 1
 	print('Translation complete.')
