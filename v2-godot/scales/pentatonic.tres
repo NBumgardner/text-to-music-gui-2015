@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ScaleData" load_steps=2 format=3 uid="uid://draq241ds48g0"]
+
+[ext_resource type="Script" path="res://scales/scale_data.gd" id="1_ijj06"]
+
+[resource]
+script = ExtResource("1_ijj06")
+full_name = "Pentatonic"
+label_name = "Pentatonic"
+solfege_ascending_string = "Do Re Mi So La"

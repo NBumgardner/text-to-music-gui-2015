@@ -11,7 +11,12 @@ var converter_methods = Convert.new()
 # Get output rows excluding the first row of user input.
 @onready var playVars: Array = $MarginContainer/VBoxContainer.get_children().slice(1)
 
-var _scaleInSolfege = [preload("../scales/major.tres")]
+var _scaleInSolfege = [
+	preload("../scales/chromatic.tres"),
+	preload("../scales/major.tres"),
+	preload("../scales/minor.tres"),
+	preload("../scales/pentatonic.tres")
+]
 
 const _caseSensitive = false
 

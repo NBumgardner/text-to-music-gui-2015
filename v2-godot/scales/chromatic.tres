@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ScaleData" load_steps=2 format=3 uid="uid://ce174jagpmlxr"]
+
+[ext_resource type="Script" path="res://scales/scale_data.gd" id="1_blq42"]
+
+[resource]
+script = ExtResource("1_blq42")
+full_name = "Chromatic"
+label_name = "Chromatic"
+solfege_ascending_string = "Do di Re ri Mi Fa fi So si La li Ti"
