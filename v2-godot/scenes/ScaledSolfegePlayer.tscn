@@ -4,21 +4,16 @@
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
 
-[node name="ScaledSolfegePlayer" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ScaledSolfegePlayer" type="PanelContainer"]
+offset_right = 371.0
+offset_bottom = 31.0
 script = ExtResource("1_cxax3")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamGenerator_clsq1")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="ScaleName" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -31,8 +26,5 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Toggle Playing One Infinite Note"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamGenerator_clsq1")
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
