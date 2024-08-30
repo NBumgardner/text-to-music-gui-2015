@@ -17,6 +17,27 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 @export var musical_scale: ScaleData = null
 
 
+const _solfege_note_to_chromatic_index_dictionary = {
+	"Do": 0,
+	"di": 1,
+	"ra": 1,
+	"Re": 2,
+	"ri": 3,
+	"me": 3,
+	"Mi": 4,
+	"Fa": 5,
+	"fi": 6,
+	"se": 6,
+	"So": 7,
+	"si": 8,
+	"le": 8,
+	"La": 9,
+	"li": 10,
+	"te": 10,
+	"Ti": 11,
+}
+
+
 func set_line_edit_text(incoming_text: String) -> void:
 	$HBoxContainer/LineEdit.text = incoming_text
 
@@ -34,7 +55,7 @@ func _fill_buffer():
 
 
 func _ready():
-	_play_note_forever()
+	_init_note()
 	audio_stream_player.stop()
 	
 	if musical_scale != null:
@@ -47,19 +68,56 @@ func _process(_delta):
 	_fill_buffer()
 
 
+func _init_note():
+	_start_note(sample_hz)
+	_stop_note()
+
+
+func _solfege_note_to_chromatic_index(solfege_note):
+	if not _solfege_note_to_chromatic_index_dictionary.has(solfege_note):
+		return -1
+
+	return _solfege_note_to_chromatic_index_dictionary.get(solfege_note)
+
+
+func _solfege_note_to_hz(solfege_note):
+	var chromatic_index = _solfege_note_to_chromatic_index(solfege_note)
+	if chromatic_index == -1:
+		return 0
+
+	return sample_hz + 1000 * chromatic_index
+	
+
 func _on_button_pressed():
 	if audio_stream_player.playing:
-		audio_stream_player.stop()
+		_stop_note()
 		return
 
-	print_debug("Play a new note")
-	_play_note_forever()
+	var requested_song_solfege = $HBoxContainer/LineEdit.text
+
+	if $HBoxContainer/LineEdit.text != '' and musical_scale.solfege_ascending_string != '':
+		print("Request to play:", requested_song_solfege)
+
+	var requested_song_solfege_note_list = requested_song_solfege.split(" ")
+	
+	var targetHz = sample_hz
+	
+	if len(requested_song_solfege_note_list) == 0:
+		print_debug("Empty play content is ignored.")
+		return
+
+	var first_solfege_note = requested_song_solfege_note_list[0]
+	targetHz = _solfege_note_to_hz(first_solfege_note)
+
+	print_debug("Play a new note of", first_solfege_note, "hz", targetHz)
+	_start_note(targetHz)
 
 
-# Copied from demo:
-#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
-func _play_note_forever():
-	audio_stream_player.stream.mix_rate = sample_hz
+func _start_note(hz):
+	audio_stream_player.stream.mix_rate = hz
 	audio_stream_player.play()
 	playback = audio_stream_player.get_stream_playback()
-	
+
+
+func _stop_note():
+	audio_stream_player.stop()
