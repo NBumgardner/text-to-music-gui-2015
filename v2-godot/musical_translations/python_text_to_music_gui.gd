@@ -47,6 +47,28 @@ func beepList(P, s):
 		winsound.Beep(f, s)
 
 
+# cDict means ChromaticDictionary
+const cDict = {
+	"Do": 0,
+	"di": 1,
+	"ra": 1,
+	"Re": 2,
+	"ri": 3,
+	"me": 3,
+	"Mi": 4,
+	"Fa": 5,
+	"fi": 6,
+	"se": 6,
+	"So": 7,
+	"si": 8,
+	"le": 8,
+	"La": 9,
+	"li": 10,
+	"te": 10,
+	"Ti": 11,
+}
+
+
 func f():
 	print(scale, 'scale button was pressed.')
 	inputSolfege = entryFieldNumber.get()
@@ -138,25 +160,6 @@ func readSolfegeIn(self, chromatic=True):
 	  vaild solfege symbols (or cDict keys).
 	  '(rest)' is also a valid token.
 	"""
-	# cDict means ChromaticDictionary
-	cDict = {}
-	cDict['Do'] = 0
-	cDict['di'] = 1
-	cDict['ra'] = 1
-	cDict['Re'] = 2
-	cDict['ri'] = 3
-	cDict['me'] = 3
-	cDict['Mi'] = 4
-	cDict['Fa'] = 5
-	cDict['fi'] = 6
-	cDict['se'] = 6
-	cDict['So'] = 7
-	cDict['si'] = 8
-	cDict['le'] = 8
-	cDict['La'] = 9
-	cDict['li'] = 10
-	cDict['te'] = 10
-	cDict['Ti'] = 11
 	func readSolfege_v2(sing):
 		notes = sing.split()
 		song = []
