@@ -16,26 +16,11 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 
 @export var musical_scale: ScaleData = null
 
+@onready var dictionary_solfege_note_to_chromatic_index = preload(
+	"res://musical_translations/dictionary_solfege_note_to_chromatic_index.json"
+)
 
-const _solfege_note_to_chromatic_index_dictionary = {
-	"Do": 0,
-	"di": 1,
-	"ra": 1,
-	"Re": 2,
-	"ri": 3,
-	"me": 3,
-	"Mi": 4,
-	"Fa": 5,
-	"fi": 6,
-	"se": 6,
-	"So": 7,
-	"si": 8,
-	"le": 8,
-	"La": 9,
-	"li": 10,
-	"te": 10,
-	"Ti": 11,
-}
+var _solfege_note_to_chromatic_index_dictionary
 
 
 func set_line_edit_text(incoming_text: String) -> void:
@@ -55,6 +40,11 @@ func _fill_buffer():
 
 
 func _ready():
+	var json = JSON.new()
+	print(typeof(dictionary_solfege_note_to_chromatic_index))
+	var _error_solfege_note_to_chromatic_index_dictionary = json.parse(dictionary_solfege_note_to_chromatic_index)
+	_solfege_note_to_chromatic_index_dictionary = json.data
+
 	_init_note()
 	audio_stream_player.stop()
 	
