@@ -154,13 +154,13 @@ func prepareStr(s):
 	return s.strip().upper().split()
 
 
-func readSolfegeIn(self, chromatic=True):
-	"""
-	Returns a function, which performs a string of
-	  vaild solfege symbols (or cDict keys).
-	  '(rest)' is also a valid token.
-	"""
-	return readSolfege_v2
+#func readSolfegeIn(self, chromatic=True):
+#	"""
+#	Returns a function, which performs a string of
+#	  vaild solfege symbols (or cDict keys).
+#	  '(rest)' is also a valid token.
+#	"""
+#	return readSolfege_v2
 
 
 func readSolfege_v2(sing):
