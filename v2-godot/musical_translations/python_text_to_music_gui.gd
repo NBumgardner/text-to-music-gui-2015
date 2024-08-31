@@ -160,26 +160,28 @@ func readSolfegeIn(self, chromatic=True):
 	  vaild solfege symbols (or cDict keys).
 	  '(rest)' is also a valid token.
 	"""
-	func readSolfege_v2(sing):
-		notes = sing.split()
-		song = []
-		pitches = []
-		# Gather notes and rests
-		for note in notes:
-			cNumber = cDict.get(note)
-			if cNumber != None:
-				pitches.append(cNumber)
-			elif note == '(rest)':
-				song.append(pitches)
-				pitches = []
-		song.append(pitches)
-		# Output beeps from computer.
-		wait = self._noteLength / 1000.0
-		for part in song:
-			beepList(part, self._noteLength)
-			time.sleep(wait)
-		return
 	return readSolfege_v2
+
+
+func readSolfege_v2(sing):
+	notes = sing.split()
+	song = []
+	pitches = []
+	# Gather notes and rests
+	for note in notes:
+		cNumber = cDict.get(note)
+		if cNumber != None:
+			pitches.append(cNumber)
+		elif note == '(rest)':
+			song.append(pitches)
+			pitches = []
+	song.append(pitches)
+	# Output beeps from computer.
+	wait = self._noteLength / 1000.0
+	for part in song:
+		beepList(part, self._noteLength)
+		time.sleep(wait)
+	return
 
 
 func translateButton(self):
