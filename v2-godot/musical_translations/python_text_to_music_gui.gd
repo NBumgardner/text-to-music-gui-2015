@@ -101,6 +101,24 @@ func myStrToInt(s, scale=12):
 	return result
 
 
+func playScale_v4(self, scale, entryFieldNumber):
+	"""
+	scale: Valid list of strings, pre-sorted from
+	  lowest to hightest pitch.
+	entryFieldNumber.get(): Will access one Entry
+	  field in the App.
+	Output: Returns a function to perform the solfege
+	  written in the adjacent Entry field.
+	"""
+	func f():
+		print(scale, 'scale button was pressed.')
+		inputSolfege = entryFieldNumber.get()
+		perform = self.readSolfegeIn()
+		perform(inputSolfege)
+		return
+	return f
+
+
 # From 'convert_v2.py'
 func prepareStr(s):
 	"""
@@ -112,156 +130,136 @@ func prepareStr(s):
 	return s.strip().upper().split()
 
 
-func App(_master):
-	func __init__(self, master):
-		"""Creates 3x5 grid of widgets."""
-		# Initialize values.
-		self._caseSensitive = False
-		self._noteLength = 500
-		self.userInput = StringVar()
-		self.playVars = []
-		headers = ['Scale Name', 'Solfege', 'Hear']
-		scales = ['Chromatic', 'Major', 'Nat. Minor', 'Pentatonic']
-		SCALE_CHROM_UP = "Do di Re ri Mi Fa fi So si La li Ti".split()
-		SCALE_MAJOR = "Do Re Mi Fa So La Ti".split()
-		SCALE_MINOR_NA = "Do Re me Fa So le te".split()
-		SCALE_MAJOR_PENTA = "Do Re Mi So La".split()
+
+func readSolfegeIn(self, chromatic=True):
+	"""
+	Returns a function, which performs a string of
+	  vaild solfege symbols (or cDict keys).
+	  '(rest)' is also a valid token.
+	"""
+	# cDict means ChromaticDictionary
+	cDict = {}
+	cDict['Do'] = 0
+	cDict['di'] = 1
+	cDict['ra'] = 1
+	cDict['Re'] = 2
+	cDict['ri'] = 3
+	cDict['me'] = 3
+	cDict['Mi'] = 4
+	cDict['Fa'] = 5
+	cDict['fi'] = 6
+	cDict['se'] = 6
+	cDict['So'] = 7
+	cDict['si'] = 8
+	cDict['le'] = 8
+	cDict['La'] = 9
+	cDict['li'] = 10
+	cDict['te'] = 10
+	cDict['Ti'] = 11
+	func readSolfege_v2(sing):
+		notes = sing.split()
+		song = []
+		pitches = []
+		# Gather notes and rests
+		for note in notes:
+			cNumber = cDict.get(note)
+			if cNumber != None:
+				pitches.append(cNumber)
+			elif note == '(rest)':
+				song.append(pitches)
+				pitches = []
+		song.append(pitches)
+		# Output beeps from computer.
+		wait = self._noteLength / 1000.0
+		for part in song:
+			beepList(part, self._noteLength)
+			time.sleep(wait)
+		return
+	return readSolfege_v2
+
+
+func translateButton(self):
+	"""
+	Reads string from the first Entry widget.
+	ToDo: set() the other 4 entry fields.
+	"""
+	# Get string to be translated.
+	text = self.userInput.get()
+	if text == '': # Guardian.
+		print('NO INPUT FOUND. Please enter text for translation.')
+	else:
+		print(text, 'will be translated into solfege.')
+
+		# Caps locked list of strings.
+		if (not self._caseSensitive):
+			text2 = prepareStr(text)
+
+		text3 = []
+		# List of integer lists.
+		# Values: 0 to 25.
+		for word in text2:
+			a = myStrToInt(word, 26)
+			text3.append(a)
+		print('Input Text in number format:', text3)
+
+		# Replace other 4 Entry fields. Translates text3.
+		a = 0
+		for e in self.playVars:
+			oldE = e.get()
+			if oldE != '':
+				print('   ', oldE, 'will be replaced.')
+			e.delete(0,END)
+			scaleUsed = self._scaleInSolfege[a]
+			result = iListsToSolfege(text3, scaleUsed)
+			e.insert(0,result)
+			a += 1
+		print('Translation complete.')
+
+
+func _ready():
+	"""Creates 3x5 grid of widgets."""
+	# Initialize values.
+	self._caseSensitive = False
+	self._noteLength = 500
+	self.userInput = StringVar()
+	self.playVars = []
+	headers = ['Scale Name', 'Solfege', 'Hear']
+	scales = ['Chromatic', 'Major', 'Nat. Minor', 'Pentatonic']
+	SCALE_CHROM_UP = "Do di Re ri Mi Fa fi So si La li Ti".split()
+	SCALE_MAJOR = "Do Re Mi Fa So La Ti".split()
+	SCALE_MINOR_NA = "Do Re me Fa So le te".split()
+	SCALE_MAJOR_PENTA = "Do Re Mi So La".split()
+	
+	self._scaleInSolfege = [SCALE_CHROM_UP, SCALE_MAJOR,
+					  SCALE_MINOR_NA, SCALE_MAJOR_PENTA]
+	r = 0
+
+	# Create row for user-input.
+	Label(master, text='Input Text:', relief=RIDGE,
+		  width=11).grid(row=r, column=0)
+	Entry(master, relief=SUNKEN, textvariable=self.userInput,
+		  width=20).grid(row=r, column=1)
+	Button(master, text='Translate', relief=RIDGE, bg='blue',
+		   command=self.translateButton,
+		   width=9).grid(row=r, column=2)
+	r += 1
+
+	# Create other rows.
+	for s in scales:
+		Label(master, text=s, relief=RIDGE,
+			  width=15).grid(row=r, column=0)
+		x = Entry(master, relief=SUNKEN,
+			  width=20)
+		# playVars.append(x)
+		self.playVars.append(x)
+		x.grid(row=r, column=1)
+		Button(master, text='Play', relief=RIDGE, bg='green',
+			   command=self.playScale_v4(s, self.playVars[-1]),
+			   width=5).grid(row=r, column=2)
 		
-		self._scaleInSolfege = [SCALE_CHROM_UP, SCALE_MAJOR,
-						  SCALE_MINOR_NA, SCALE_MAJOR_PENTA]
-		r = 0
-
-		# Create row for user-input.
-		Label(master, text='Input Text:', relief=RIDGE,
-			  width=11).grid(row=r, column=0)
-		Entry(master, relief=SUNKEN, textvariable=self.userInput,
-			  width=20).grid(row=r, column=1)
-		Button(master, text='Translate', relief=RIDGE, bg='blue',
-			   command=self.translateButton,
-			   width=9).grid(row=r, column=2)
 		r += 1
-
-		# Create other rows.
-		for s in scales:
-			Label(master, text=s, relief=RIDGE,
-				  width=15).grid(row=r, column=0)
-			x = Entry(master, relief=SUNKEN,
-				  width=20)
-			# playVars.append(x)
-			self.playVars.append(x)
-			x.grid(row=r, column=1)
-			Button(master, text='Play', relief=RIDGE, bg='green',
-				   command=self.playScale_v4(s, self.playVars[-1]),
-				   width=5).grid(row=r, column=2)
-			
-			r += 1
-
-	func playScale_v4(self, scale, entryFieldNumber):
-		"""
-		scale: Valid list of strings, pre-sorted from
-		  lowest to hightest pitch.
-		entryFieldNumber.get(): Will access one Entry
-		  field in the App.
-		Output: Returns a function to perform the solfege
-		  written in the adjacent Entry field.
-		"""
-		func f():
-			print(scale, 'scale button was pressed.')
-			inputSolfege = entryFieldNumber.get()
-			perform = self.readSolfegeIn()
-			perform(inputSolfege)
-			return
-		return f
-
-	func readSolfegeIn(self, chromatic=True):
-		"""
-		Returns a function, which performs a string of
-		  vaild solfege symbols (or cDict keys).
-		  '(rest)' is also a valid token.
-		"""
-		# cDict means ChromaticDictionary
-		cDict = {}
-		cDict['Do'] = 0
-		cDict['di'] = 1
-		cDict['ra'] = 1
-		cDict['Re'] = 2
-		cDict['ri'] = 3
-		cDict['me'] = 3
-		cDict['Mi'] = 4
-		cDict['Fa'] = 5
-		cDict['fi'] = 6
-		cDict['se'] = 6
-		cDict['So'] = 7
-		cDict['si'] = 8
-		cDict['le'] = 8
-		cDict['La'] = 9
-		cDict['li'] = 10
-		cDict['te'] = 10
-		cDict['Ti'] = 11
-		func readSolfege_v2(sing):
-			notes = sing.split()
-			song = []
-			pitches = []
-			# Gather notes and rests
-			for note in notes:
-				cNumber = cDict.get(note)
-				if cNumber != None:
-					pitches.append(cNumber)
-				elif note == '(rest)':
-					song.append(pitches)
-					pitches = []
-			song.append(pitches)
-			# Output beeps from computer.
-			wait = self._noteLength / 1000.0
-			for part in song:
-				beepList(part, self._noteLength)
-				time.sleep(wait)
-			return
-		return readSolfege_v2
-
-	func translateButton(self):
-		"""
-		Reads string from the first Entry widget.
-		ToDo: set() the other 4 entry fields.
-		"""
-		# Get string to be translated.
-		text = self.userInput.get()
-		if text == '': # Guardian.
-			print('NO INPUT FOUND. Please enter text for translation.')
-		else:
-			print(text, 'will be translated into solfege.')
-
-			# Caps locked list of strings.
-			if (not self._caseSensitive):
-				text2 = prepareStr(text)
-
-			text3 = []
-			# List of integer lists.
-			# Values: 0 to 25.
-			for word in text2:
-				a = myStrToInt(word, 26)
-				text3.append(a)
-			print('Input Text in number format:', text3)
-
-			# Replace other 4 Entry fields. Translates text3.
-			a = 0
-			for e in self.playVars:
-				oldE = e.get()
-				if oldE != '':
-					print('   ', oldE, 'will be replaced.')
-				e.delete(0,END)
-				scaleUsed = self._scaleInSolfege[a]
-				result = iListsToSolfege(text3, scaleUsed)
-				e.insert(0,result)
-				a += 1
-			print('Translation complete.')
+	return
 
 
-func main():
-	# master = Tk()
-	App(master) # Creates the app.
-	# 'mainloop()' prevents the user from typing more
-	#   prompts until the GUI closes.
-	mainloop()
-
-main()
+func App(_master):
+	return
