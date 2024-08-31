@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_je0ry")
-full_name = "te"
 chromatic_index = 10
+full_name = "te"
+tonal_degree_name = "subtonic"

@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_xfgen")
-full_name = "Fa"
 chromatic_index = 5
+full_name = "Fa"
+tonal_degree_name = "subdominant"

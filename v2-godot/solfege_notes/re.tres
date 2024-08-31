@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_m4wsw")
-full_name = "Re"
 chromatic_index = 2
+full_name = "Re"
+tonal_degree_name = "supertonic"

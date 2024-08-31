@@ -1,3 +1,9 @@
-[gd_resource type="Resource" format=3 uid="uid://dysdnyd2no3bp"]
+[gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://dysdnyd2no3bp"]
+
+[ext_resource type="Script" path="res://solfege_notes/solfege_note_data.gd" id="1_32rbt"]
 
 [resource]
+script = ExtResource("1_32rbt")
+chromatic_index = 0
+full_name = "Do"
+tonal_degree_name = "tonic"

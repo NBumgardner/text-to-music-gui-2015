@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_r54ml")
-full_name = "Ti"
 chromatic_index = 11
+full_name = "Ti"
+tonal_degree_name = "leading-tone"

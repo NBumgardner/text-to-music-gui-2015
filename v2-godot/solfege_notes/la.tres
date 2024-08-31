@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_wylo7")
-full_name = "La"
 chromatic_index = 9
+full_name = "La"
+tonal_degree_name = "submediant"

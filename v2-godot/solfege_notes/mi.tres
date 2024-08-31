@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_ormlm")
-full_name = "me"
-chromatic_index = 3
+chromatic_index = 4
+full_name = "Mi"
+tonal_degree_name = "mediant"
