@@ -31,11 +31,11 @@ Ajustability-A:
 # from Tkinter import *
 # If using Python 2: Uncomment the line above,
 #                    comment the line below.
-from tkinter import *
-import time, winsound
+# from tkinter import *
+# import time, winsound
 
 
-def beepList(P, s):
+func beepList(P, s):
 	"""
 	Plays notes from P, a list of integers.
 	  0 is 'A4', +-1 is a half step away.
@@ -47,7 +47,7 @@ def beepList(P, s):
 		winsound.Beep(f, s)
 
 
-def iltsolfege(intsList, scaleNames):
+func iltsolfege(intsList, scaleNames):
 	"""
 	Translates each list of integers, within a list, into a
 	  string of solfege names.
@@ -71,7 +71,7 @@ def iltsolfege(intsList, scaleNames):
 	return result
 
 
-def iListsToSolfege(intsLists, scaleNames):
+func iListsToSolfege(intsLists, scaleNames):
 	"""
 	iListsToSolfege means Integers_Lists_To_Solfege
 
@@ -85,7 +85,7 @@ def iListsToSolfege(intsLists, scaleNames):
 
 
 # From 'convert_v2.py'
-def myStrToInt(s, scale=12):
+func myStrToInt(s, scale=12):
 	"""
 	'scale' means the number of unique tones
 	  in the scale used.
@@ -102,7 +102,7 @@ def myStrToInt(s, scale=12):
 
 
 # From 'convert_v2.py'
-def prepareStr(s):
+func prepareStr(s):
 	"""
 	Input:  String.
 	Output: Caps locked list of strings, where each word is
@@ -112,8 +112,8 @@ def prepareStr(s):
 	return s.strip().upper().split()
 
 
-class App:
-	def __init__(self, master):
+func App(_master):
+	func __init__(self, master):
 		"""Creates 3x5 grid of widgets."""
 		# Initialize values.
 		self._caseSensitive = False
@@ -156,7 +156,7 @@ class App:
 			
 			r += 1
 
-	def playScale_v4(self, scale, entryFieldNumber):
+	func playScale_v4(self, scale, entryFieldNumber):
 		"""
 		scale: Valid list of strings, pre-sorted from
 		  lowest to hightest pitch.
@@ -165,7 +165,7 @@ class App:
 		Output: Returns a function to perform the solfege
 		  written in the adjacent Entry field.
 		"""
-		def f():
+		func f():
 			print(scale, 'scale button was pressed.')
 			inputSolfege = entryFieldNumber.get()
 			perform = self.readSolfegeIn()
@@ -173,7 +173,7 @@ class App:
 			return
 		return f
 
-	def readSolfegeIn(self, chromatic=True):
+	func readSolfegeIn(self, chromatic=True):
 		"""
 		Returns a function, which performs a string of
 		  vaild solfege symbols (or cDict keys).
@@ -198,7 +198,7 @@ class App:
 		cDict['li'] = 10
 		cDict['te'] = 10
 		cDict['Ti'] = 11
-		def readSolfege_v2(sing):
+		func readSolfege_v2(sing):
 			notes = sing.split()
 			song = []
 			pitches = []
@@ -219,7 +219,7 @@ class App:
 			return
 		return readSolfege_v2
 
-	def translateButton(self):
+	func translateButton(self):
 		"""
 		Reads string from the first Entry widget.
 		ToDo: set() the other 4 entry fields.
@@ -257,8 +257,8 @@ class App:
 			print('Translation complete.')
 
 
-def main():
-	master = Tk()
+func main():
+	# master = Tk()
 	App(master) # Creates the app.
 	# 'mainloop()' prevents the user from typing more
 	#   prompts until the GUI closes.
