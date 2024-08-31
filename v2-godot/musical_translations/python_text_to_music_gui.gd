@@ -278,5 +278,5 @@ func _ready():
 	return
 
 
-func App(_master):
-	return
+#func App(_master):
+#	return
