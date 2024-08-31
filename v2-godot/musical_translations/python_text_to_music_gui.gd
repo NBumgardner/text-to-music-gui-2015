@@ -241,27 +241,38 @@ func _ready():
 	r = 0
 
 	# Create row for user-input.
-	Label(master, text='Input Text:', relief=RIDGE,
-		  width=11).grid(row=r, column=0)
-	Entry(master, relief=SUNKEN, textvariable=self.userInput,
-		  width=20).grid(row=r, column=1)
-	Button(master, text='Translate', relief=RIDGE, bg='blue',
+	var label = Label(master, text='Input Text:', relief=RIDGE,
+		  width=11)
+	# .grid(row=r, column=0)
+	add_child(label)
+	var entry = LineEdit(master, relief=SUNKEN, textvariable=self.userInput,
+		  width=20)
+	# .grid(row=r, column=1)
+	add_child(entry)
+	var button = Button(master, text='Translate', relief=RIDGE, bg='blue',
 		   command=self.translateButton,
-		   width=9).grid(row=r, column=2)
+		   width=9)
+	# .grid(row=r, column=2)
+	add_child(button)
 	r += 1
 
 	# Create other rows.
 	for s in scales:
-		Label(master, text=s, relief=RIDGE,
-			  width=15).grid(row=r, column=0)
-		x = Entry(master, relief=SUNKEN,
+		var label = Label(master, text=s, relief=RIDGE,
+			  width=15)
+		# .grid(row=r, column=0)
+		add_child(label)
+		var x = Entry(master, relief=SUNKEN,
 			  width=20)
 		# playVars.append(x)
 		self.playVars.append(x)
-		x.grid(row=r, column=1)
-		Button(master, text='Play', relief=RIDGE, bg='green',
+		# x.grid(row=r, column=1)
+		add_child(x)
+		var button = Button(master, text='Play', relief=RIDGE, bg='green',
 			   command=self.playScale_v4(s, self.playVars[-1]),
-			   width=5).grid(row=r, column=2)
+			   width=5)
+		# .grid(row=r, column=2)
+		add_child(button)
 		
 		r += 1
 	return
