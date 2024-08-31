@@ -47,6 +47,14 @@ func beepList(P, s):
 		winsound.Beep(f, s)
 
 
+func f():
+	print(scale, 'scale button was pressed.')
+	inputSolfege = entryFieldNumber.get()
+	perform = self.readSolfegeIn()
+	perform(inputSolfege)
+	return
+
+
 func iltsolfege(intsList, scaleNames):
 	"""
 	Translates each list of integers, within a list, into a
@@ -110,12 +118,6 @@ func playScale_v4(self, scale, entryFieldNumber):
 	Output: Returns a function to perform the solfege
 	  written in the adjacent Entry field.
 	"""
-	func f():
-		print(scale, 'scale button was pressed.')
-		inputSolfege = entryFieldNumber.get()
-		perform = self.readSolfegeIn()
-		perform(inputSolfege)
-		return
 	return f
 
 
