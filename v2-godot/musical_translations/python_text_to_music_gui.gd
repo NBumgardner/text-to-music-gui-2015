@@ -109,16 +109,16 @@ func myStrToInt(s, scale=12):
 	return result
 
 
-func playScale_v4(self, scale, entryFieldNumber):
-	"""
-	scale: Valid list of strings, pre-sorted from
-	  lowest to hightest pitch.
-	entryFieldNumber.get(): Will access one Entry
-	  field in the App.
-	Output: Returns a function to perform the solfege
-	  written in the adjacent Entry field.
-	"""
-	return f
+#func playScale_v4(self, scale, entryFieldNumber):
+#	"""
+#	scale: Valid list of strings, pre-sorted from
+#	  lowest to hightest pitch.
+#	entryFieldNumber.get(): Will access one Entry
+#	  field in the App.
+#	Output: Returns a function to perform the solfege
+#	  written in the adjacent Entry field.
+#	"""
+#	return f
 
 
 # From 'convert_v2.py'
@@ -130,7 +130,6 @@ func prepareStr(s):
 			Removes whitespace characters.
 	"""
 	return s.strip().upper().split()
-
 
 
 func readSolfegeIn(self, chromatic=True):
