@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://ubpu1kgalm4k"]
+
+[ext_resource type="Script" path="res://solfege_notes/solfege_note_data.gd" id="1_m4wsw"]
+
+[resource]
+script = ExtResource("1_m4wsw")
+full_name = "Re"
+chromatic_index = 2
