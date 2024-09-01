@@ -1,9 +1,9 @@
 class_name ScaledSolfegePlayer extends Control
 
-const godot_sample_hz = 22050.0
-
-var default_pulse_hz = 440.0
-var note_frequency = default_pulse_hz
+# Copied from demo:
+#  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
+var sample_hz = 22050.0 # Keep the number of samples to mix low, GDScript is not super fast.
+var pulse_hz = 440.0
 var phase = 0.0
 
 # Copied from demo:
@@ -21,10 +21,10 @@ func set_line_edit_text(incoming_text: String) -> void:
 	$HBoxContainer/LineEdit.text = incoming_text
 
 
-# Inspired by demo:
+# Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 func _fill_buffer() -> void:
-	var increment = note_frequency / godot_sample_hz
+	var increment = pulse_hz / sample_hz
 
 	var to_fill = playback.get_frames_available()
 	while to_fill > 0:
@@ -48,17 +48,8 @@ func _process(_delta):
 
 
 func _init_note():
-	_start_note(default_pulse_hz)
+	_start_note(sample_hz)
 	_stop_note()
-
-
-func _set_frequency(solfege_note: String) -> void:
-	var chromatic_index = _solfege_note_to_chromatic_index(solfege_note)
-	if chromatic_index == -1:
-		return
-
-	var frequency = int(default_pulse_hz * (pow(2, (chromatic_index / 12.))))
-	note_frequency = frequency
 
 
 func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
@@ -83,8 +74,7 @@ func _solfege_note_to_hz(solfege_note: String) -> int:
 	if chromatic_index == -1:
 		return 0
 
-	var frequency = int(440 * (pow(2, (chromatic_index / 12.))))
-	return frequency
+	return sample_hz + 1000 * chromatic_index
 
 
 func _on_button_pressed() -> void:
@@ -98,16 +88,18 @@ func _on_button_pressed() -> void:
 		print("Request to play:", requested_song_solfege)
 
 	var requested_song_solfege_note_list = requested_song_solfege.split(" ")
-
+	
+	var targetHz = sample_hz
+	
 	if len(requested_song_solfege_note_list) == 0:
 		print_debug("Empty play content is ignored.")
 		return
 
 	var first_solfege_note = requested_song_solfege_note_list[0]
-	_set_frequency(first_solfege_note)
+	targetHz = _solfege_note_to_hz(first_solfege_note)
 
-	print_debug("Play a new note of", first_solfege_note, "hz", note_frequency)
-	_start_note(note_frequency)
+	print_debug("Play a new note of", first_solfege_note, "hz", targetHz)
+	_start_note(targetHz)
 
 
 func _start_note(hz: int) -> void:
