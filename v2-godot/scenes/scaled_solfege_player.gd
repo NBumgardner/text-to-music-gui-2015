@@ -23,7 +23,7 @@ func set_line_edit_text(incoming_text: String) -> void:
 
 # Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
-func _fill_buffer():
+func _fill_buffer() -> void:
 	var increment = pulse_hz / sample_hz
 
 	var to_fill = playback.get_frames_available()
@@ -52,7 +52,7 @@ func _init_note():
 	_stop_note()
 
 
-func _solfege_note_to_chromatic_index(solfege_note):
+func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 	var solfege_strings = musical_scale.solfege_ascending_string.split(
 		" ",
 		false
@@ -69,7 +69,7 @@ func _solfege_note_to_chromatic_index(solfege_note):
 	].chromatic_index
 
 
-func _solfege_note_to_hz(solfege_note):
+func _solfege_note_to_hz(solfege_note: String) -> int:
 	var chromatic_index = _solfege_note_to_chromatic_index(solfege_note)
 	if chromatic_index == -1:
 		return 0
@@ -77,7 +77,7 @@ func _solfege_note_to_hz(solfege_note):
 	return sample_hz + 1000 * chromatic_index
 	
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	if audio_stream_player.playing:
 		_stop_note()
 		return
@@ -102,11 +102,11 @@ func _on_button_pressed():
 	_start_note(targetHz)
 
 
-func _start_note(hz):
+func _start_note(hz: int) -> void:
 	audio_stream_player.stream.mix_rate = hz
 	audio_stream_player.play()
 	playback = audio_stream_player.get_stream_playback()
 
 
-func _stop_note():
+func _stop_note() -> void:
 	audio_stream_player.stop()
