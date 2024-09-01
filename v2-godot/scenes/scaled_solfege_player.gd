@@ -36,7 +36,7 @@ func _fill_buffer() -> void:
 func _ready():
 	_init_note()
 	audio_stream_player.stop()
-	
+
 	if musical_scale != null:
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
 
@@ -63,7 +63,7 @@ func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 		return -1
 
 	var solfege_string_match_index = solfege_strings.find(solfege_note)
-	
+
 	return musical_scale.solfege_ascending_notes[
 		solfege_string_match_index
 	].chromatic_index
@@ -88,9 +88,9 @@ func _on_button_pressed() -> void:
 		print("Request to play:", requested_song_solfege)
 
 	var requested_song_solfege_note_list = requested_song_solfege.split(" ")
-	
+
 	var targetHz = sample_hz
-	
+
 	if len(requested_song_solfege_note_list) == 0:
 		print_debug("Empty play content is ignored.")
 		return
