@@ -75,7 +75,7 @@ func _solfege_note_to_hz(solfege_note: String) -> int:
 		return 0
 
 	return sample_hz + 1000 * chromatic_index
-	
+
 
 func _on_button_pressed() -> void:
 	if audio_stream_player.playing:
