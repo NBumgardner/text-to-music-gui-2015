@@ -53,10 +53,20 @@ func _init_note():
 
 
 func _solfege_note_to_chromatic_index(solfege_note):
-	if not _solfege_note_to_chromatic_index_dictionary.has(solfege_note):
+	var solfege_strings = musical_scale.solfege_ascending_string.split(
+		" ",
+		false
+	)
+	var has_solfege_string_match = solfege_strings.has(solfege_note)
+
+	if not has_solfege_string_match:
 		return -1
 
-	return _solfege_note_to_chromatic_index_dictionary.get(solfege_note)
+	var solfege_string_match_index = solfege_strings.find(solfege_note)
+	
+	return musical_scale.solfege_ascending_notes[
+		solfege_string_match_index
+	].chromatic_index
 
 
 func _solfege_note_to_hz(solfege_note):
