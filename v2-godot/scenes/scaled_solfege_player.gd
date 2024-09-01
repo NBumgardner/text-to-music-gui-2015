@@ -16,12 +16,6 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 
 @export var musical_scale: ScaleData = null
 
-@onready var dictionary_solfege_note_to_chromatic_index = preload(
-	"res://musical_translations/dictionary_solfege_note_to_chromatic_index.json"
-)
-
-var _solfege_note_to_chromatic_index_dictionary
-
 
 func set_line_edit_text(incoming_text: String) -> void:
 	$HBoxContainer/LineEdit.text = incoming_text
@@ -40,11 +34,6 @@ func _fill_buffer():
 
 
 func _ready():
-	var json = JSON.new()
-	print(typeof(dictionary_solfege_note_to_chromatic_index))
-	var _error_solfege_note_to_chromatic_index_dictionary = json.parse(dictionary_solfege_note_to_chromatic_index)
-	_solfege_note_to_chromatic_index_dictionary = json.data
-
 	_init_note()
 	audio_stream_player.stop()
 	
