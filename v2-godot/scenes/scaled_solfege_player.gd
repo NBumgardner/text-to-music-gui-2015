@@ -21,25 +21,19 @@ func set_line_edit_text(incoming_text: String) -> void:
 	$HBoxContainer/LineEdit.text = incoming_text
 
 
-func _append_frames(frame_count = 100):
-	var increment = pulse_hz / sample_hz
-
-	var to_fill = playback.get_frames_available()
-	while to_fill > 0 and frame_count > 0:
-		playback.push_frame(Vector2.ONE * sin(phase * TAU)) # Audio frames are stereo.
-		phase = fmod(phase + increment, 1.0)
-		to_fill -= 1
-		frame_count -= 1
-
-
 # Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
 func _fill_buffer() -> void:
-	return
+	var increment = pulse_hz / sample_hz
+
+	var to_fill = playback.get_frames_available()
+	while to_fill > 0:
+		playback.push_frame(Vector2.ONE * sin(phase * TAU)) # Audio frames are stereo.
+		phase = fmod(phase + increment, 1.0)
+		to_fill -= 1
 
 
 func _ready():
-	_append_frames()
 	_init_note()
 	audio_stream_player.stop()
 
@@ -109,7 +103,6 @@ func _on_button_pressed() -> void:
 
 
 func _start_note(hz: int) -> void:
-	_append_frames()
 	audio_stream_player.stream.mix_rate = hz
 	audio_stream_player.play()
 	playback = audio_stream_player.get_stream_playback()
