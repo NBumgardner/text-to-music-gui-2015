@@ -6,7 +6,7 @@ signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
 
 var converter_methods = Convert.new()
 
-@onready var inputControlToTranslate: LineEdit = (
+@onready var input_control_to_translate: LineEdit = (
 	$MarginContainer/VBoxContainer/RowUserInput/LineEdit
 )
 
@@ -15,19 +15,19 @@ var converter_methods = Convert.new()
 	$MarginContainer/VBoxContainer.get_children().slice(1)
 )
 
-var _scaleInSolfege: Array[ScaleData] = []
+var _scale_in_solfege: Array[ScaleData] = []
 
 
 func _ready():
-	var incomingScalesInSolfege: Array = (play_var_list.map(
+	var incoming_scales_in_solfege: Array = (play_var_list.map(
 		func(playVar: Node) -> ScaleData: return playVar.musical_scale
 	))
-	_scaleInSolfege.assign(incomingScalesInSolfege)
+	_scale_in_solfege.assign(incoming_scales_in_solfege)
 
 
 func _on_button_pressed() -> void:
 	# Get string to be translated.
-	var raw_text: String = inputControlToTranslate.text
+	var raw_text: String = input_control_to_translate.text
 	if raw_text == '': # Guardian.
 		print_debug('NO INPUT FOUND. Please enter text for translation.')
 		return
@@ -59,7 +59,7 @@ func _on_button_pressed() -> void:
 	# Translates lists of numbers calculated from words.
 	var scale_list_index: int = 0
 	for play_var in play_var_list:
-		var scaleUsed: ScaleData = _scaleInSolfege[scale_list_index]
+		var scaleUsed: ScaleData = _scale_in_solfege[scale_list_index]
 		var result: String = converter_methods.iListsToSolfege(
 			numbers_translated_from_upper_cased_words_list,
 			scaleUsed.solfege_ascending_string.split(" ")
