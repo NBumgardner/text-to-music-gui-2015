@@ -67,4 +67,4 @@ func _on_button_pressed() -> void:
 		play_var.set_line_edit_text(result)
 		set_play_vars.emit(result)
 		scale_list_index += 1
-	print_debug('Translation of', scale_list_index, 'scales complete.')
+	print_debug('Translation of ', scale_list_index, ' scales complete.')
