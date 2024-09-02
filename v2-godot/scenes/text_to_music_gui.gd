@@ -46,7 +46,7 @@ func _on_button_pressed():
 		text3.append(a)
 	print('Input Text in number format:', text3)
 
-	# Replace other 4 Entry fields. Translates text3.
+	# Replace other Entry fields. Translates text3.
 	var a = 0
 	for e in playVars:
 		var scaleUsed = _scaleInSolfege[a]
