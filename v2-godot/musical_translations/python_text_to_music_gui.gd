@@ -193,33 +193,34 @@ func translateButton(self):
 	text = self.userInput.get()
 	if text == '': # Guardian.
 		print('NO INPUT FOUND. Please enter text for translation.')
-	else:
-		print(text, 'will be translated into solfege.')
+		return
 
-		# Caps locked list of strings.
-		if (not self._caseSensitive):
-			text2 = prepareStr(text)
+	print(text, 'will be translated into solfege.')
 
-		text3 = []
-		# List of integer lists.
-		# Values: 0 to 25.
-		for word in text2:
-			a = myStrToInt(word, 26)
-			text3.append(a)
-		print('Input Text in number format:', text3)
+	# Caps locked list of strings.
+	if (not self._caseSensitive):
+		text2 = prepareStr(text)
 
-		# Replace other 4 Entry fields. Translates text3.
-		a = 0
-		for e in self.playVars:
-			oldE = e.get()
-			if oldE != '':
-				print('   ', oldE, 'will be replaced.')
-			e.delete(0,END)
-			scaleUsed = self._scaleInSolfege[a]
-			result = iListsToSolfege(text3, scaleUsed)
-			e.insert(0,result)
-			a += 1
-		print('Translation complete.')
+	text3 = []
+	# List of integer lists.
+	# Values: 0 to 25.
+	for word in text2:
+		a = myStrToInt(word, 26)
+		text3.append(a)
+	print('Input Text in number format:', text3)
+
+	# Replace other 4 Entry fields. Translates text3.
+	a = 0
+	for e in self.playVars:
+		oldE = e.get()
+		if oldE != '':
+			print('   ', oldE, 'will be replaced.')
+		e.delete(0,END)
+		scaleUsed = self._scaleInSolfege[a]
+		result = iListsToSolfege(text3, scaleUsed)
+		e.insert(0,result)
+		a += 1
+	print('Translation complete.')
 
 
 func _ready():
