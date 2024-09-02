@@ -84,3 +84,5 @@ func _translate_words_list_into_numbers_list_list(word_list):
 		'Input Text in number format:',
 		numbers_translated_from_word_list
 	)
+
+	return numbers_translated_from_word_list
