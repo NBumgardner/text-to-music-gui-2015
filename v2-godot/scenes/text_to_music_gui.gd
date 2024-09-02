@@ -6,7 +6,7 @@ signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
 
 var converter_methods = Convert.new()
 
-@onready var inputControlToTranslate = (
+@onready var inputControlToTranslate: LineEdit = (
 	$MarginContainer/VBoxContainer/RowUserInput/LineEdit
 )
 
