@@ -6,10 +6,14 @@ signal set_play_vars(musical_scale: ScaleData, solfege_string: String)
 
 var converter_methods = Convert.new()
 
-@onready var inputControlToTranslate = $MarginContainer/VBoxContainer/RowUserInput/LineEdit
+@onready var inputControlToTranslate = (
+	$MarginContainer/VBoxContainer/RowUserInput/LineEdit
+)
 
 # Get output rows excluding the first row of user input.
-@onready var play_var_list: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
+@onready var play_var_list: Array[Node] = (
+	$MarginContainer/VBoxContainer.get_children().slice(1)
+)
 
 var _scaleInSolfege: Array[ScaleData] = []
 
@@ -36,9 +40,17 @@ func _on_button_pressed():
 	# List of integer lists.
 	# Values: 0 to 25.
 	for upper_cased_word in upper_cased_word_list:
-		var numbers_in_valid_range_list = converter_methods.myStrToInt(upper_cased_word, 26)
-		numbers_translated_from_upper_cased_words_list.append(numbers_in_valid_range_list)
-	print('Input Text in number format:', numbers_translated_from_upper_cased_words_list)
+		var numbers_in_valid_range_list = converter_methods.myStrToInt(
+			upper_cased_word,
+			26
+		)
+		numbers_translated_from_upper_cased_words_list.append(
+			numbers_in_valid_range_list
+		)
+	print_debug(
+		'Input Text in number format:',
+		numbers_translated_from_upper_cased_words_list
+	)
 
 	# Replace other Entry fields.
 	# Translates lists of numbers calculated from words.
