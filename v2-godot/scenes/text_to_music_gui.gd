@@ -9,16 +9,18 @@ var converter_methods = Convert.new()
 @onready var inputControlToTranslate = $MarginContainer/VBoxContainer/RowUserInput/LineEdit
 
 # Get output rows excluding the first row of user input.
-@onready var playVars: Array = $MarginContainer/VBoxContainer.get_children().slice(1)
+@onready var playVars: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
 
-var _scaleInSolfege = [
-	preload("../scales/chromatic.tres"),
-	preload("../scales/major.tres"),
-	preload("../scales/minor.tres"),
-	preload("../scales/pentatonic.tres")
-]
+var _scaleInSolfege: Array[ScaleData] = []
 
 const _caseSensitive = false
+
+
+func _ready():
+	var incomingScalesInSolfege: Array = (playVars.map(
+		func(playVar: Node) -> ScaleData: return playVar.musical_scale
+	))
+	_scaleInSolfege.assign(incomingScalesInSolfege)
 
 
 func _on_button_pressed():
