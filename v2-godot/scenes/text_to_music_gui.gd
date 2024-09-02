@@ -9,15 +9,13 @@ var converter_methods = Convert.new()
 @onready var inputControlToTranslate = $MarginContainer/VBoxContainer/RowUserInput/LineEdit
 
 # Get output rows excluding the first row of user input.
-@onready var playVars: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
+@onready var play_var_list: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
 
 var _scaleInSolfege: Array[ScaleData] = []
 
-const _caseSensitive = false
-
 
 func _ready():
-	var incomingScalesInSolfege: Array = (playVars.map(
+	var incomingScalesInSolfege: Array = (play_var_list.map(
 		func(playVar: Node) -> ScaleData: return playVar.musical_scale
 	))
 	_scaleInSolfege.assign(incomingScalesInSolfege)
@@ -25,36 +23,33 @@ func _ready():
 
 func _on_button_pressed():
 	# Get string to be translated.
-	var text = inputControlToTranslate.text
-	if text == '': # Guardian.
+	var raw_text = inputControlToTranslate.text
+	if raw_text == '': # Guardian.
 		print_debug('NO INPUT FOUND. Please enter text for translation.')
 		return
 
-	print_debug(text, 'will be translated into solfege.')
+	print_debug(raw_text, 'will be translated into solfege.')
 	
-	var text2 = ""
+	var upper_cased_word_list = converter_methods.prepareStr(raw_text)
 
-	# Caps locked list of strings.
-	if (not _caseSensitive):
-		text2 = converter_methods.prepareStr(text)
-
-	var text3 = []
+	var numbers_translated_from_upper_cased_words_list = []
 	# List of integer lists.
 	# Values: 0 to 25.
-	for word in text2:
-		var a = converter_methods.myStrToInt(word, 26)
-		text3.append(a)
-	print('Input Text in number format:', text3)
+	for upper_cased_word in upper_cased_word_list:
+		var numbers_in_valid_range_list = converter_methods.myStrToInt(upper_cased_word, 26)
+		numbers_translated_from_upper_cased_words_list.append(numbers_in_valid_range_list)
+	print('Input Text in number format:', numbers_translated_from_upper_cased_words_list)
 
-	# Replace other Entry fields. Translates text3.
-	var a = 0
-	for e in playVars:
-		var scaleUsed = _scaleInSolfege[a]
+	# Replace other Entry fields.
+	# Translates lists of numbers calculated from words.
+	var scale_list_index = 0
+	for play_var in play_var_list:
+		var scaleUsed = _scaleInSolfege[scale_list_index]
 		var result = converter_methods.iListsToSolfege(
-			text3,
+			numbers_translated_from_upper_cased_words_list,
 			scaleUsed.solfege_ascending_string.split(" ")
 		)
-		e.set_line_edit_text(result)
+		play_var.set_line_edit_text(result)
 		set_play_vars.emit(result)
-		a += 1
+		scale_list_index += 1
 	print('Translation complete.')
