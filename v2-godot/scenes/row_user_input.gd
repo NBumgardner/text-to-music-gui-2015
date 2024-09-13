@@ -14,3 +14,4 @@ func _on_button_pressed():
 		return
 
 	print_debug('Requesting to translate: ', raw_text)
+	request_to_translate.emit(raw_text)

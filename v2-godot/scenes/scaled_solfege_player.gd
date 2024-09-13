@@ -118,8 +118,8 @@ func _stop_note() -> void:
 	audio_stream_player.stop()
 
 
-# Copied from ancestor `Control`.
 func _on_row_user_input_request_to_translate(raw_text):
+	print_debug('Parsing: ', raw_text)
 	var upper_cased_word_list: PackedStringArray = converter_methods.prepareStr(
 		raw_text
 	)
@@ -131,22 +131,19 @@ func _on_row_user_input_request_to_translate(raw_text):
 	_set_other_entry_fields(numbers_translated_from_upper_cased_words_list)
 
 
-# Copied from ancestor `Control`.
 # Replace other Entry fields.
 # Translates lists of numbers, usually calculated from words, into solfege.
 func _set_other_entry_fields(numbers_list_list) -> void:
 	var scale_list_index: int = 0
 
-	var scaleUsed: ScaleData = _scale_in_solfege[scale_list_index]
 	var result: String = converter_methods.iListsToSolfege(
 		numbers_list_list,
-		scaleUsed.solfege_ascending_string.split(" ")
+		musical_scale.solfege_ascending_string.split(" ")
 	)
 	set_line_edit_text(result)
 
 	print_debug('Translation of ', scale_list_index, ' scales complete.')
 
-# Copied from ancestor `Control`.
 func _translate_words_list_into_numbers_list_list(word_list):
 	# Strict typing of `Array[Array[int]]` is not supported.
 	var numbers_translated_from_word_list = []
