@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-signal request_to_translate
+signal request_to_translate(raw_text)
 
 @onready var input_control_to_translate: LineEdit = (
 	$LineEdit

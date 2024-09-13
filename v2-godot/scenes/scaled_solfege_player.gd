@@ -16,6 +16,12 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 
 @export var musical_scale: ScaleData = null
 
+const Convert = preload("../musical_translations/convert.gd")
+
+var converter_methods = Convert.new()
+
+var _scale_in_solfege: Array[ScaleData] = []
+
 
 func set_line_edit_text(incoming_text: String) -> void:
 	$HBoxContainer/LineEdit.text = incoming_text
@@ -110,3 +116,57 @@ func _start_note(hz: int) -> void:
 
 func _stop_note() -> void:
 	audio_stream_player.stop()
+
+
+# Copied from ancestor `Control`.
+func _on_row_user_input_request_to_translate(raw_text):
+	var upper_cased_word_list: PackedStringArray = converter_methods.prepareStr(
+		raw_text
+	)
+
+	var numbers_translated_from_upper_cased_words_list = (
+		_translate_words_list_into_numbers_list_list(upper_cased_word_list)
+	)
+
+	_set_other_entry_fields(numbers_translated_from_upper_cased_words_list)
+
+
+# Copied from ancestor `Control`.
+# Replace other Entry fields.
+# Translates lists of numbers, usually calculated from words, into solfege.
+func _set_other_entry_fields(numbers_list_list) -> void:
+	var scale_list_index: int = 0
+
+	var scaleUsed: ScaleData = _scale_in_solfege[scale_list_index]
+	var result: String = converter_methods.iListsToSolfege(
+		numbers_list_list,
+		scaleUsed.solfege_ascending_string.split(" ")
+	)
+	set_line_edit_text(result)
+
+	print_debug('Translation of ', scale_list_index, ' scales complete.')
+
+# Copied from ancestor `Control`.
+func _translate_words_list_into_numbers_list_list(word_list):
+	# Strict typing of `Array[Array[int]]` is not supported.
+	var numbers_translated_from_word_list = []
+
+	# List of integer lists.
+	# Values: 0 to 25.
+	for word in word_list:
+		# Type of `Array[int]` will be appended into an unsupported type of
+		#  `Array[Array[int]]`.
+		var numbers_in_valid_range_list = converter_methods.myStrToInt(
+			word,
+			26
+		)
+		numbers_translated_from_word_list.append(
+			numbers_in_valid_range_list
+		)
+
+	print_debug(
+		'Input Text in number format:',
+		numbers_translated_from_word_list
+	)
+
+	return numbers_translated_from_word_list
