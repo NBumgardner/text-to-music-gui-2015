@@ -65,5 +65,8 @@ layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
 
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer3" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer4" method="_on_row_user_input_request_to_translate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="MarginContainer/VBoxContainer/RowUserInput" method="_on_button_pressed"]
