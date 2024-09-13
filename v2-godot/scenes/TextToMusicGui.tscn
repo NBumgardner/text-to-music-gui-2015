@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://do5m2nvcbssud"]
+[gd_scene load_steps=8 format=3 uid="uid://do5m2nvcbssud"]
 
 [ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
 [ext_resource type="Script" path="res://scenes/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://scales/major.tres" id="2_qhllm"]
+[ext_resource type="Script" path="res://scenes/row_user_input.gd" id="2_wv5dp"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://scales/chromatic.tres" id="3_ym40v"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://scales/pentatonic.tres" id="6_0swa3"]
@@ -33,6 +34,7 @@ layout_mode = 2
 
 [node name="RowUserInput" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_wv5dp")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RowUserInput"]
 layout_mode = 2
@@ -63,3 +65,4 @@ layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="MarginContainer/VBoxContainer/RowUserInput" method="_on_button_pressed"]
