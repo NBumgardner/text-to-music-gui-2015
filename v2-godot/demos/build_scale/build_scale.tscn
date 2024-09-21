@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvb7wid1i1vqn"]
+
+[ext_resource type="Script" path="res://demos/build_scale/build_scale.gd" id="1_nqoyb"]
+
+[sub_resource type="AudioStream" id="AudioStream_r023n"]
+
+[node name="BuildScale" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqoyb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PrependNoteButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Prepend Note C4"
+
+[node name="ResetButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="PlayButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_r023n")
+
+[connection signal="pressed" from="HBoxContainer/PrependNoteButton" to="." method="_on_prepend_note_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
