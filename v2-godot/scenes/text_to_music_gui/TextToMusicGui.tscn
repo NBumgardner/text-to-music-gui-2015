@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
 [ext_resource type="Script" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
+[ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
-[ext_resource type="Script" path="res://scenes/row_user_input/row_user_input.gd" id="2_wv5dp"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
@@ -32,21 +32,8 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="RowUserInput" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="RowUserInput" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_gjebr")]
 layout_mode = 2
-script = ExtResource("2_wv5dp")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RowUserInput"]
-layout_mode = 2
-text = "Input Text:"
-
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/RowUserInput"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/RowUserInput"]
-layout_mode = 2
-text = "Translate"
 
 [node name="ScaledSolfegePlayer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_0qcx7")]
 layout_mode = 2
@@ -68,5 +55,3 @@ musical_scale = ExtResource("6_0swa3")
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer3" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer4" method="_on_row_user_input_request_to_translate"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/RowUserInput/Button" to="MarginContainer/VBoxContainer/RowUserInput" method="_on_button_pressed"]
