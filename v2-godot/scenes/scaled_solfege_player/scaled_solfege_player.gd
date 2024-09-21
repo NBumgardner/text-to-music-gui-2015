@@ -16,7 +16,7 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 
 @export var musical_scale: ScaleData = null
 
-const Convert = preload("../musical_translations/convert.gd")
+const Convert = preload("../../musical_translations/convert.gd")
 
 var converter_methods = Convert.new()
 

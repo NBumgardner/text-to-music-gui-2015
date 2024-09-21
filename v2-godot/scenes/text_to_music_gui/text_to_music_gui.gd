@@ -1,6 +1,6 @@
 extends Control
 
-const Convert = preload("../musical_translations/convert.gd")
+const Convert = preload("../../musical_translations/convert.gd")
 
 var converter_methods = Convert.new()
 
