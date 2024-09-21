@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://t3vhe04h4y86"]
 
-[ext_resource type="Script" path="res://solfege_notes/solfege_note_data.gd" id="1_gb1ld"]
+[ext_resource type="Script" path="res://data/solfege_notes/solfege_note_data.gd" id="1_gb1ld"]
 
 [resource]
 script = ExtResource("1_gb1ld")

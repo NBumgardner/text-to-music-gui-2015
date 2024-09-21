@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
 [ext_resource type="Script" path="res://scenes/text_to_music_gui.gd" id="1_o4ijw"]
-[ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://scales/major.tres" id="2_qhllm"]
+[ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
 [ext_resource type="Script" path="res://scenes/row_user_input.gd" id="2_wv5dp"]
-[ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://scales/chromatic.tres" id="3_ym40v"]
-[ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://scales/minor.tres" id="5_l0uts"]
-[ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://scales/pentatonic.tres" id="6_0swa3"]
+[ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
+[ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
+[ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

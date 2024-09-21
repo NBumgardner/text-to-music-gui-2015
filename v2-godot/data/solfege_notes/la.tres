@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://chptvjj20w6rs"]
 
-[ext_resource type="Script" path="res://solfege_notes/solfege_note_data.gd" id="1_wylo7"]
+[ext_resource type="Script" path="res://data/solfege_notes/solfege_note_data.gd" id="1_i5yqj"]
 
 [resource]
-script = ExtResource("1_wylo7")
+script = ExtResource("1_i5yqj")
 chromatic_index = 9
 full_name = "La"
 tonal_degree_name = "submediant"

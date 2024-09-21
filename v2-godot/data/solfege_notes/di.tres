@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://brbvablsmksun"]
 
-[ext_resource type="Script" path="res://solfege_notes/solfege_note_data.gd" id="1_4yq44"]
+[ext_resource type="Script" path="res://data/solfege_notes/solfege_note_data.gd" id="1_yjri4"]
 
 [resource]
-script = ExtResource("1_4yq44")
+script = ExtResource("1_yjri4")
 chromatic_index = 1
 full_name = "di"
 tonal_degree_name = ""
