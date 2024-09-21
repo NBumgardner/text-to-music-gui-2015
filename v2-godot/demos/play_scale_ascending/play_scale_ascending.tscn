@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwusrbytyfyc3"]
+
+[ext_resource type="Script" path="res://demos/play_scale_ascending/play_scale_ascending.gd" id="1_6bw1b"]
+[ext_resource type="AudioStream" uid="uid://b3qu7q11wt30k" path="res://data/audio_streams/demo_pentatontic_scale_ascending.tres" id="2_iwgoy"]
+
+[node name="PlayScaleAscending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bw1b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iwgoy")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play Scale, Pentatontic Ascending, Demo"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

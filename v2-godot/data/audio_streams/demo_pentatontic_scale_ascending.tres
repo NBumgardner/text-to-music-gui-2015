@@ -1,0 +1,16 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://b3qu7q11wt30k"]
+
+[ext_resource type="AudioStream" uid="uid://chr0uui7kgvvb" path="res://audio/c-nat-4.wav" id="1_45b2h"]
+[ext_resource type="AudioStream" uid="uid://dlrefr7xh1t7w" path="res://audio/d-nat-4.wav" id="2_q8dow"]
+[ext_resource type="AudioStream" uid="uid://bdgrvbi6mv22g" path="res://audio/e-nat-4.wav" id="3_n1bs0"]
+[ext_resource type="AudioStream" uid="uid://cm5kmbkc3vjnk" path="res://audio/g-nat-4.wav" id="4_0604x"]
+[ext_resource type="AudioStream" uid="uid://c7quq2b02ugfh" path="res://audio/a-nat-4.wav" id="5_x212j"]
+
+[resource]
+playback_mode = 2
+streams_count = 5
+stream_0/stream = ExtResource("1_45b2h")
+stream_1/stream = ExtResource("2_q8dow")
+stream_2/stream = ExtResource("3_n1bs0")
+stream_3/stream = ExtResource("4_0604x")
+stream_4/stream = ExtResource("5_x212j")
