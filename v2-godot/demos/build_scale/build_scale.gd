@@ -10,23 +10,16 @@ func _on_play_button_pressed():
 		return
 
 	print_debug('Playing audio.')
-	# $AudioStreamPlayer.play()
-	# $AudioStreamPlayer.get_stream_playback().switch_to_clip_by_name("C-nat-4")
-	$AudioStreamPlayer.play()
-	$AudioStreamPlayer.get_stream_playback().switch_to_clip_by_name("D-nat-4")
 	$AudioStreamPlayer.play()
 
 
 func _on_prepend_note_button_pressed():
-	print_debug('NOT setting audio.')
-	return
+	if $AudioStreamPlayer.stream != null:
+		print_debug('Overwriting an existing audio stream.')
+	else:
+		print_debug('Setting audio.')
 
-	# if $AudioStreamPlayer.stream != null:
-	#	print_debug('Overwriting an existing audio stream.')
-	# else:
-	#	print_debug('Setting audio.')
-
-	# $AudioStreamPlayer.stream = note_c_natueral_4
+	$AudioStreamPlayer.stream = note_c_natueral_4
 
 
 func _on_reset_button_pressed():
