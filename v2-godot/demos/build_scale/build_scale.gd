@@ -14,6 +14,8 @@ func _ready():
 
 	$AudioStreamPlayer.set_stream(scale_to_build)
 
+	$VBoxContainer/ContainedNotes/LineEdit.text = 'Do Re'
+
 
 func _build_stream_sequential() -> AudioStreamRandomizer:
 	var scale_to_build = AudioStreamRandomizer.new()
@@ -46,3 +48,5 @@ func _on_reset_button_pressed():
 
 	print_debug('Resetting audio.')
 	$AudioStreamPlayer.set_stream(_build_stream_sequential())
+
+	$VBoxContainer/ContainedNotes/LineEdit.text = ''
