@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ChromaticIndexToPitch" load_steps=14 format=3 uid="uid://by8fcxiyl4idb"]
+
+[ext_resource type="Script" path="res://data/chromatic_index_to_pitch/chromatic_index_to_pitch.gd" id="1_1qf5f"]
+[ext_resource type="AudioStream" uid="uid://chr0uui7kgvvb" path="res://audio/c-nat-4.wav" id="1_iolnj"]
+[ext_resource type="AudioStream" uid="uid://dqcunvlfaw6v" path="res://audio/d-flat-4.wav" id="2_t1rgk"]
+[ext_resource type="AudioStream" uid="uid://dlrefr7xh1t7w" path="res://audio/d-nat-4.wav" id="3_deikp"]
+[ext_resource type="AudioStream" uid="uid://cinlupef3gy8c" path="res://audio/e-flat-4.wav" id="4_ovqb6"]
+[ext_resource type="AudioStream" uid="uid://bdgrvbi6mv22g" path="res://audio/e-nat-4.wav" id="5_ftssq"]
+[ext_resource type="AudioStream" uid="uid://doc4imvhs4w4v" path="res://audio/f-nat-4.wav" id="6_w4mny"]
+[ext_resource type="AudioStream" uid="uid://cuhp1xrj0k2y6" path="res://audio/g-flat-4.wav" id="7_x6tpj"]
+[ext_resource type="AudioStream" uid="uid://cm5kmbkc3vjnk" path="res://audio/g-nat-4.wav" id="8_pld76"]
+[ext_resource type="AudioStream" uid="uid://bn7lmsq7j380t" path="res://audio/a-flat-4.wav" id="9_u00gi"]
+[ext_resource type="AudioStream" uid="uid://c7quq2b02ugfh" path="res://audio/a-nat-4.wav" id="10_q4q3p"]
+[ext_resource type="AudioStream" uid="uid://bde7e8kyxh1lm" path="res://audio/b-flat-4.wav" id="11_xn44n"]
+[ext_resource type="AudioStream" uid="uid://ct7ncqalrrcra" path="res://audio/b-nat-4.wav" id="12_n72s7"]
+
+[resource]
+script = ExtResource("1_1qf5f")
+description = "How does the array of pitches sound in order?"
+pitch_list = Array[AudioStream]([ExtResource("1_iolnj"), ExtResource("2_t1rgk"), ExtResource("3_deikp"), ExtResource("4_ovqb6"), ExtResource("5_ftssq"), ExtResource("6_w4mny"), ExtResource("7_x6tpj"), ExtResource("8_pld76"), ExtResource("9_u00gi"), ExtResource("10_q4q3p"), ExtResource("11_xn44n"), ExtResource("12_n72s7")])
