@@ -11,10 +11,19 @@ const scale_pentatonic = preload("res://data/scales/pentatonic.tres")
 func _ready():
 	var scale_to_build = _build_stream_sequential()
 	var notes_to_append_list = []
+	var chromatic_index_maximum = chromatic_index_to_streams.pitch_list.size()
+
+	if chromatic_index_maximum == 0:
+		print_debug(
+			'Error: chromatic_index_to_streams of ',
+			chromatic_index_to_streams.description,
+			' is missing audio files.'
+		)
+
 	notes_to_append_list = scale_pentatonic.solfege_ascending_notes.map(
 		func(solfegeNote: SolfegeNoteData):
 			return chromatic_index_to_streams.pitch_list[
-				solfegeNote.chromatic_index
+				solfegeNote.chromatic_index % chromatic_index_maximum
 			]
 	)
 
