@@ -1,20 +1,31 @@
 # Demo of how to set a note via code to be played.
 extends Control
 
+const chromatic_index_to_streams = preload(
+	"res://data/chromatic_index_to_pitch/c4_compressed.tres"
+)
 const note_c_natural_4 = preload("res://audio/c-nat-4.wav")
-const note_d_natural_4 = preload("res://audio/d-nat-4.wav")
+const scale_pentatonic = preload("res://data/scales/pentatonic.tres")
 
 
 func _ready():
 	var scale_to_build = _build_stream_sequential()
-	var notes_to_append_list = [note_c_natural_4, note_d_natural_4]
+	var notes_to_append_list = []
+	notes_to_append_list = scale_pentatonic.solfege_ascending_notes.map(
+		func(solfegeNote: SolfegeNoteData):
+			return chromatic_index_to_streams.pitch_list[
+				solfegeNote.chromatic_index
+			]
+	)
 
 	for note_index in notes_to_append_list.size():
 		scale_to_build.add_stream(note_index, notes_to_append_list[note_index])
 
 	$AudioStreamPlayer.set_stream(scale_to_build)
 
-	$VBoxContainer/ContainedNotes/LineEdit.text = 'Do Re'
+	$VBoxContainer/ContainedNotes/LineEdit.text = (
+		scale_pentatonic.solfege_ascending_string
+	)
 
 
 func _build_stream_sequential() -> AudioStreamRandomizer:
