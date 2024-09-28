@@ -5,7 +5,8 @@ const chromatic_index_to_streams = preload(
 	"res://data/chromatic_index_to_pitch/c4_compressed.tres"
 )
 const note_c_natural_4 = preload("res://audio/c-nat-4.wav")
-const scale_pentatonic = preload("res://data/scales/pentatonic.tres")
+
+@export var musical_scale: ScaleData = preload("res://data/scales/pentatonic.tres")
 
 
 func _ready():
@@ -20,7 +21,7 @@ func _ready():
 			' is missing audio files.'
 		)
 
-	notes_to_append_list = scale_pentatonic.solfege_ascending_notes.map(
+	notes_to_append_list = musical_scale.solfege_ascending_notes.map(
 		func(solfegeNote: SolfegeNoteData):
 			return chromatic_index_to_streams.pitch_list[
 				solfegeNote.chromatic_index % chromatic_index_maximum
@@ -33,7 +34,7 @@ func _ready():
 	$AudioStreamPlayer.set_stream(scale_to_build)
 
 	$VBoxContainer/ContainedNotes/LineEdit.text = (
-		scale_pentatonic.solfege_ascending_string
+		musical_scale.solfege_ascending_string
 	)
 
 
