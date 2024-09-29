@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgdinbkusv8kj"]
+
+[ext_resource type="Script" path="res://demos/play_any_note/play_any_note.gd" id="1_20r11"]
+[ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="1_n0q5y"]
+
+[node name="PlayAnyNote" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20r11")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonC4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "C4"
+
+[node name="ButtonD4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "D4"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_n0q5y")
+
+[connection signal="pressed" from="GridContainer/ButtonC4" to="." method="_on_button_c_4_pressed"]
+[connection signal="pressed" from="GridContainer/ButtonC4" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/ButtonD4" to="." method="_on_button_d_4_pressed"]
