@@ -15,3 +15,7 @@ func _on_button_pressed():
 
 	print_debug('Requesting to translate: ', raw_text)
 	request_to_translate.emit(raw_text)
+
+
+func _on_line_edit_text_submitted(new_text):
+	$Button.pressed.emit()
