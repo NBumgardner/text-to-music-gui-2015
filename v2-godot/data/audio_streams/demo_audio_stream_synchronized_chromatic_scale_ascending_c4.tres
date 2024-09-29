@@ -1,3 +1,41 @@
-[gd_resource type="AudioStreamSynchronized" format=3 uid="uid://dbbl00734sbme"]
+[gd_resource type="AudioStreamSynchronized" load_steps=13 format=3 uid="uid://dbbl00734sbme"]
+
+[ext_resource type="AudioStream" uid="uid://chr0uui7kgvvb" path="res://audio/c-nat-4.wav" id="1_5l276"]
+[ext_resource type="AudioStream" uid="uid://dqcunvlfaw6v" path="res://audio/d-flat-4.wav" id="2_orfjn"]
+[ext_resource type="AudioStream" uid="uid://bde7e8kyxh1lm" path="res://audio/b-flat-4.wav" id="3_jy4vy"]
+[ext_resource type="AudioStream" uid="uid://ct7ncqalrrcra" path="res://audio/b-nat-4.wav" id="4_6d7ge"]
+[ext_resource type="AudioStream" uid="uid://dlrefr7xh1t7w" path="res://audio/d-nat-4.wav" id="5_t7pgh"]
+[ext_resource type="AudioStream" uid="uid://cinlupef3gy8c" path="res://audio/e-flat-4.wav" id="6_lyhr7"]
+[ext_resource type="AudioStream" uid="uid://bdgrvbi6mv22g" path="res://audio/e-nat-4.wav" id="7_c3j6k"]
+[ext_resource type="AudioStream" uid="uid://doc4imvhs4w4v" path="res://audio/f-nat-4.wav" id="8_ay7xj"]
+[ext_resource type="AudioStream" uid="uid://cuhp1xrj0k2y6" path="res://audio/g-flat-4.wav" id="9_74ayl"]
+[ext_resource type="AudioStream" uid="uid://cm5kmbkc3vjnk" path="res://audio/g-nat-4.wav" id="10_htlim"]
+[ext_resource type="AudioStream" uid="uid://bn7lmsq7j380t" path="res://audio/a-flat-4.wav" id="11_gqrhb"]
+[ext_resource type="AudioStream" uid="uid://c7quq2b02ugfh" path="res://audio/a-nat-4.wav" id="12_66qyy"]
 
 [resource]
+stream_count = 12
+stream_0/stream = ExtResource("1_5l276")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_orfjn")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("5_t7pgh")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("6_lyhr7")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("7_c3j6k")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("8_ay7xj")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("9_74ayl")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("10_htlim")
+stream_7/volume = 0.0
+stream_8/stream = ExtResource("11_gqrhb")
+stream_8/volume = 0.0
+stream_9/stream = ExtResource("12_66qyy")
+stream_9/volume = 0.0
+stream_10/stream = ExtResource("3_jy4vy")
+stream_10/volume = 0.0
+stream_11/stream = ExtResource("4_6d7ge")
+stream_11/volume = 0.0
