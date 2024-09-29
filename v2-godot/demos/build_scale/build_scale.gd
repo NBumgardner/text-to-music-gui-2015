@@ -6,7 +6,9 @@ const chromatic_index_to_streams = preload(
 )
 const note_c_natural_4 = preload("res://audio/c-nat-4.wav")
 
-@export var musical_scale: ScaleData = preload("res://data/scales/pentatonic.tres")
+@export var musical_scale: ScaleData = preload(
+	"res://data/scales/pentatonic.tres"
+)
 
 
 func _ready():
