@@ -5,16 +5,21 @@ const chromatic_index_to_streams = preload(
 	"res://data/chromatic_index_to_pitch/c4_compressed.tres"
 )
 const note_c_natural_4 = preload("res://audio/c-nat-4.wav")
+const solfege_note_to_prepend: SolfegeNoteData = preload(
+	"res://data/solfege_notes/di.tres"
+)
 
 @export var musical_scale: ScaleData = preload(
 	"res://data/scales/pentatonic.tres"
 )
 
+var contained_notes_string = ''
 var solfege_notes_of_stream: Array[SolfegeNoteData] = []
 
 
 func _ready():
 	solfege_notes_of_stream = musical_scale.solfege_ascending_notes
+	contained_notes_string = musical_scale.solfege_ascending_string
 	var scale_to_build = _build_stream_sequential_from_solfege_note_data(
 		solfege_notes_of_stream
 	)
@@ -22,7 +27,7 @@ func _ready():
 	$AudioStreamPlayer.set_stream(scale_to_build)
 
 	$VBoxContainer/ContainedNotes/LineEdit.text = (
-		musical_scale.solfege_ascending_string
+		contained_notes_string
 	)
 
 
@@ -78,7 +83,26 @@ func _on_prepend_note_button_pressed():
 	else:
 		print_debug('Setting audio.')
 
-	$AudioStreamPlayer.stream.add_stream(-1, note_c_natural_4)
+	solfege_notes_of_stream.push_front(solfege_note_to_prepend)
+	print_debug('Prepended list of notes: ', solfege_notes_of_stream)
+
+	var scale_to_build = _build_stream_sequential_from_solfege_note_data(
+		solfege_notes_of_stream
+	)
+	print_debug('Prepended list of notes to set: ', scale_to_build)
+
+	contained_notes_string = (
+		solfege_note_to_prepend.full_name
+		+ ' '
+		+ contained_notes_string
+	)
+
+	$AudioStreamPlayer.set_stream(null)
+	$AudioStreamPlayer.set_stream(scale_to_build)
+
+	$VBoxContainer/ContainedNotes/LineEdit.text = (
+		contained_notes_string
+	)
 
 
 func _on_reset_button_pressed():

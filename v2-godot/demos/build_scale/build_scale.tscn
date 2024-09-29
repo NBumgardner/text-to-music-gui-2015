@@ -21,7 +21,7 @@ layout_mode = 2
 
 [node name="PrependNoteButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Prepend Note C4"
+text = "Prepend Note C#4"
 
 [node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
