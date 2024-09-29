@@ -167,3 +167,7 @@ func _translate_words_list_into_numbers_list_list(word_list):
 	)
 
 	return numbers_translated_from_word_list
+
+
+func _on_line_edit_text_submitted(new_text):
+	$HBoxContainer/Button.pressed.emit()
