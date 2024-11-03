@@ -10,12 +10,20 @@ func _mute_streams():
 		$AudioStreamPlayer.stream.set_sync_stream_volume(stream_index, _volume_mute_decibel)
 
 
+#region Button pressed
+
 func _on_button_c_4_pressed():
 	_play_note_at_index(0)
 
 
 func _on_button_d_4_pressed():
 	_play_note_at_index(2)
+
+
+func _on_button_e_4_pressed():
+	_play_note_at_index(4)
+
+#endregion Button pressed
 
 
 func _play_note_at_index(note_index: int) -> void:

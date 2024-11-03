@@ -25,9 +25,14 @@ text = "C4"
 layout_mode = 2
 text = "D4"
 
+[node name="ButtonE4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "E4"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_n0q5y")
 
 [connection signal="pressed" from="GridContainer/ButtonC4" to="." method="_on_button_c_4_pressed"]
 [connection signal="pressed" from="GridContainer/ButtonC4" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GridContainer/ButtonD4" to="." method="_on_button_d_4_pressed"]
+[connection signal="pressed" from="GridContainer/ButtonE4" to="." method="_on_button_e_4_pressed"]
