@@ -5,6 +5,9 @@
 class_name ScaledIndexPlayer extends Control
 
 
+@export var note_length_seconds: float = 0.75
+
+
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
 @onready var play_button = $HBoxContainer/Button
@@ -17,7 +20,6 @@ const _ignored_character_ord_list = [
 	32, # Single space
 	44 # Comma
 ]
-const _note_length_seconds: float = 1
 const _volume_mute_decibel = -60
 const _volume_normal_decibel = 0
 
@@ -35,7 +37,7 @@ func _ready():
 func _process(delta: float) -> void:
 	time_since_last_note_started += delta
 
-	if (time_since_last_note_started >= _note_length_seconds
+	if ((time_since_last_note_started >= note_length_seconds)
 		and not queue_of_note_indexes_to_play.is_empty()):
 		_play_note_at_index(queue_of_note_indexes_to_play.pop_front())
 
