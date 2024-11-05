@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmcwjoa831eky"]
+
+[ext_resource type="Script" path="res://scenes/scaled_index_player/scaled_index_player.gd" id="1_wjdv2"]
+[ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_175eo"]
+
+[node name="ScaledIndexPlayer" type="PanelContainer"]
+offset_right = 371.0
+offset_bottom = 31.0
+script = ExtResource("1_wjdv2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_175eo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
