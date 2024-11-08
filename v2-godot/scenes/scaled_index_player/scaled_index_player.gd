@@ -16,6 +16,7 @@ class_name ScaledIndexPlayer extends Control
 @export var musical_scale: ScaleData = null
 
 
+const _convert = preload("../../musical_translations/convert.gd")
 const _ignored_character_ord_list = [
 	32, # Single space
 	44 # Comma
@@ -24,6 +25,7 @@ const _volume_mute_decibel = -60
 const _volume_normal_decibel = 0
 
 
+var _converter_methods = _convert.new()
 var _scale_in_solfege: Array[ScaleData] = []
 var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
@@ -77,4 +79,11 @@ func _on_line_edit_text_submitted(new_text):
 
 
 func _on_row_user_input_request_to_translate(raw_text):
-	_set_line_edit(raw_text)
+	var sanitized_text = ''.join(_converter_methods.prepareStr(raw_text))
+
+	var translated_text = ''.join(_converter_methods.myStrToInt(
+		sanitized_text,
+		26
+	))
+
+	_set_line_edit(translated_text)
