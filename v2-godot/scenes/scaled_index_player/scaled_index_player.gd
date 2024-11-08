@@ -57,6 +57,10 @@ func _play_note_at_index(note_index: int) -> void:
 	time_since_last_note_started = 0
 
 
+func _set_line_edit(text: String) -> void:
+	line_edit.text = text
+
+
 func _on_button_pressed() -> void:
 	pass
 	print_debug('line_edit.text:', line_edit.text)
@@ -70,3 +74,7 @@ func _on_button_pressed() -> void:
 
 func _on_line_edit_text_submitted(new_text):
 	$HBoxContainer/Button.pressed.emit()
+
+
+func _on_row_user_input_request_to_translate(raw_text):
+	_set_line_edit(raw_text)
