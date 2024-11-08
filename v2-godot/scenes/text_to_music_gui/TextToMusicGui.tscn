@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://do5m2nvcbssud"]
+[gd_scene load_steps=9 format=3 uid="uid://do5m2nvcbssud"]
 
 [ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
 [ext_resource type="Script" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
+[ext_resource type="PackedScene" uid="uid://bmcwjoa831eky" path="res://scenes/scaled_index_player/ScaledIndexPlayer.tscn" id="8_043i3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,8 +33,18 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text to Music GUI"
+horizontal_alignment = 1
+
 [node name="RowUserInput" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_gjebr")]
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scaled Solfege Players Below"
+horizontal_alignment = 1
 
 [node name="ScaledSolfegePlayer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_0qcx7")]
 layout_mode = 2
@@ -50,6 +61,14 @@ musical_scale = ExtResource("5_l0uts")
 [node name="ScaledSolfegePlayer4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_0qcx7")]
 layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scaled Index Players Below"
+horizontal_alignment = 1
+
+[node name="ScaledIndexPlayer" parent="MarginContainer/VBoxContainer" instance=ExtResource("8_043i3")]
+layout_mode = 2
 
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]
