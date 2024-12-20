@@ -53,8 +53,8 @@ text = "Note indexes remaining:"
 layout_mode = 2
 text = "[1, 2, 3]"
 
-[connection signal="pressed" from="HBoxContainer/GridContainer/ButtonC4" to="." method="_on_button_c_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/GridContainer/ButtonC4" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/GridContainer/ButtonC4" to="." method="_on_button_c_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/GridContainer/ButtonD4" to="." method="_on_button_d_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/GridContainer/ButtonE4" to="." method="_on_button_e_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonPlayAllSequentially" to="." method="_on_button_play_all_sequentially_pressed"]
