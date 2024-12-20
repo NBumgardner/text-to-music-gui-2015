@@ -10,7 +10,8 @@ class_name ScaledIndexPlayer extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
-@onready var notes_to_play: Label = $HBoxContainer/NotesToPlay
+@onready var notes_to_play: Control = $HBoxContainer/VBoxContainer/NotesToPlay
+@onready var notes_to_play_header: Label = $HBoxContainer/VBoxContainer/Header
 @onready var play_button = $HBoxContainer/Button
 
 
@@ -39,6 +40,8 @@ func _ready():
 	if musical_scale != null:
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
 		_note_index_modulo = musical_scale.length
+
+	notes_to_play_header.visible = false
 
 
 func _process(delta: float) -> void:
@@ -129,3 +132,11 @@ func _on_row_user_input_request_to_translate(raw_text):
 	)
 
 	_set_line_edit(translated_text)
+
+
+func _on_v_box_container_mouse_entered():
+	notes_to_play_header.visible = true
+
+
+func _on_v_box_container_mouse_exited():
+	notes_to_play_header.visible = false
