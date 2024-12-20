@@ -28,6 +28,7 @@ const _volume_normal_decibel = 0
 
 
 var _converter_methods = _convert.new()
+var _note_index_modulo = 8
 var _scale_in_solfege: Array[ScaleData] = []
 var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
@@ -36,6 +37,7 @@ var time_since_last_note_started: float = 0
 func _ready():
 	if musical_scale != null:
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
+		_note_index_modulo = musical_scale.length
 
 
 func _process(delta: float) -> void:
@@ -66,14 +68,25 @@ func _set_line_edit(text: String) -> void:
 
 
 func _on_button_pressed() -> void:
-	pass
 	print_debug('line_edit.text:', line_edit.text)
-	print_debug('line_edit.text.split():', line_edit.text.split())
-	for character in line_edit.text:
-		if _ignored_character_ord_list.has(character):
+	var translated_notes = line_edit.text.split(_translated_notes_separator)
+	print_debug('line_edit.text split by separator:', translated_notes)
+
+	for translated_note in translated_notes:
+		if _ignored_character_ord_list.has(translated_note):
 			continue
 
-		queue_of_note_indexes_to_play.append(int(character))
+		var wrapped_around_note = int(translated_note) % _note_index_modulo
+
+		print_debug(
+			'Append wrapped around note ',
+			translated_note,
+			' as ',
+			str(wrapped_around_note)
+		)
+		queue_of_note_indexes_to_play.append(
+			wrapped_around_note
+		)
 
 
 func _on_line_edit_text_submitted(new_text):
