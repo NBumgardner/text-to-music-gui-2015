@@ -10,6 +10,7 @@ class_name ScaledIndexPlayer extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
+@onready var notes_to_play: Label = $HBoxContainer/NotesToPlay
 @onready var play_button = $HBoxContainer/Button
 
 
@@ -65,6 +66,25 @@ func _play_note_at_index(note_index: int) -> void:
 
 func _set_line_edit(text: String) -> void:
 	line_edit.text = text
+	_set_notes_to_play()
+
+
+func _set_notes_to_play() -> void:
+	var notes_to_play_text_segments = []
+	var translated_notes = line_edit.text.split(_translated_notes_separator)
+	for translated_note in translated_notes:
+		if _ignored_character_ord_list.has(translated_note):
+			continue
+
+		var wrapped_around_note = int(translated_note) % _note_index_modulo
+
+		notes_to_play_text_segments.append(
+			wrapped_around_note
+		)
+	var notes_to_play_text_joined = _translated_notes_separator.join(
+		notes_to_play_text_segments
+	)
+	notes_to_play.text = notes_to_play_text_joined
 
 
 func _on_button_pressed() -> void:
@@ -89,7 +109,12 @@ func _on_button_pressed() -> void:
 		)
 
 
+func _on_line_edit_text_changed(new_text):
+	_set_notes_to_play()
+
+
 func _on_line_edit_text_submitted(new_text):
+	_set_notes_to_play()
 	$HBoxContainer/Button.pressed.emit()
 
 

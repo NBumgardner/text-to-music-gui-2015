@@ -22,9 +22,13 @@ text = "Scale"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="NotesToPlay" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Play"
 
+[connection signal="text_changed" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
