@@ -19,8 +19,10 @@ class_name ScaledIndexPlayer extends Control
 const _convert = preload("../../musical_translations/convert.gd")
 const _ignored_character_ord_list = [
 	32, # Single space
-	44 # Comma
+	44, # Comma
+	_translated_notes_separator
 ]
+const _translated_notes_separator = ' '
 const _volume_mute_decibel = -60
 const _volume_normal_decibel = 0
 
@@ -81,9 +83,11 @@ func _on_line_edit_text_submitted(new_text):
 func _on_row_user_input_request_to_translate(raw_text):
 	var sanitized_text = ''.join(_converter_methods.prepareStr(raw_text))
 
-	var translated_text = ''.join(_converter_methods.myStrToInt(
-		sanitized_text,
-		26
-	))
+	var translated_text = _translated_notes_separator.join(
+		_converter_methods.myStrToInt(
+			sanitized_text,
+			26
+		)
+	)
 
 	_set_line_edit(translated_text)
