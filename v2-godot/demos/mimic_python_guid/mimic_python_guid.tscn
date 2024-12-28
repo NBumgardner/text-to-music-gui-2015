@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq6ah7ygjxbak"]
+
+[ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="1_tugsn"]
+[ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/play_button_theme.tres" id="2_4p3mt"]
+
+[node name="MimicPythonGuid" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Input Text:"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_tugsn")
+text = "Translate"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Chromatic"
+horizontal_alignment = 1
+
+[node name="LineEdit2" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_4p3mt")
+text = "Play"
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Major"
+horizontal_alignment = 1
+
+[node name="LineEdit3" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_4p3mt")
+text = "Play"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Nat. Minor"
+horizontal_alignment = 1
+
+[node name="LineEdit4" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_4p3mt")
+text = "Play"
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Pentatonic"
+horizontal_alignment = 1
+
+[node name="LineEdit5" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_4p3mt")
+text = "Play"
