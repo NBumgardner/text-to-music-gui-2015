@@ -41,8 +41,6 @@ func _ready():
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
 		_note_index_modulo = musical_scale.length
 
-	notes_to_play_header.visible = false
-
 
 func _process(delta: float) -> void:
 	time_since_last_note_started += delta
@@ -132,11 +130,3 @@ func _on_row_user_input_request_to_translate(raw_text):
 	)
 
 	_set_line_edit(translated_text)
-
-
-func _on_v_box_container_mouse_entered():
-	notes_to_play_header.visible = true
-
-
-func _on_v_box_container_mouse_exited():
-	notes_to_play_header.visible = false
