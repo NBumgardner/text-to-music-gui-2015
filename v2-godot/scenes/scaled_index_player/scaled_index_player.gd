@@ -9,9 +9,9 @@ class_name ScaledIndexPlayer extends Control
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var line_edit: LineEdit = $HBoxContainer/LineEdit
-@onready var notes_to_play: Control = $HBoxContainer/VBoxContainer/NotesToPlay
-@onready var notes_to_play_header: Label = $HBoxContainer/VBoxContainer/Header
+@onready var line_edit: LineEdit = $HBoxContainer/VBoxContainer/LineEdit
+@onready var notes_to_play: Control = $HBoxContainer/VBoxContainer2/NotesToPlay
+@onready var notes_to_play_header: Label = $HBoxContainer/VBoxContainer2/Header
 @onready var play_button = $HBoxContainer/Button
 
 

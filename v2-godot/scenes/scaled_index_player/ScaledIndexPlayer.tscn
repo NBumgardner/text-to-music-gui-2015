@@ -18,20 +18,28 @@ layout_mode = 2
 layout_mode = 2
 text = "Scale"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Header" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Index of Each Alphabet Letter"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Notes to Play"
 horizontal_alignment = 1
 
-[node name="NotesToPlay" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="NotesToPlay" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 2
@@ -41,8 +49,8 @@ text_overrun_behavior = 3
 layout_mode = 2
 text = "Play"
 
-[connection signal="text_changed" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer2" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer2" to="." method="_on_v_box_container_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
