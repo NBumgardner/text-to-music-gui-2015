@@ -2,6 +2,11 @@
 extends Control
 
 
+@export var _mock_scale_chromatic: ScaleData = preload(
+	"res://data/scales/chromatic.tres"
+)
+
+
 @onready var input_text_line_edit: LineEdit = $GridContainer/LineEdit
 @onready var scale_line_edit_list = [
 	$GridContainer/LineEdit2,
@@ -20,7 +25,7 @@ const _translated_notes_separator = ' '
 
 
 var _converter_methods = _convert.new()
-var _mock_scale_used_chromatic = "Do di Re ri Mi Fa fi So si La li Ti".split(
+var _mock_scale_used_chromatic = _mock_scale_chromatic.solfege_ascending_string.split(
 	' '
 )
 
