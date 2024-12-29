@@ -15,10 +15,12 @@ const _convert = preload("../../musical_translations/convert.gd")
 
 
 const _available_alphabet_letter_count = 26
+const _debug_message_indentation = '    '
 const _translated_notes_separator = ' '
 
 
 var _converter_methods = _convert.new()
+var _mock_scale_used_chromatic = "Do di Re ri Mi Fa fi So si La li Ti".split()
 
 
 func _on_translate_button_pressed():
@@ -38,6 +40,23 @@ func _on_translate_button_pressed():
 			_converter_methods.myStrToInt(word, _available_alphabet_letter_count)
 		)
 	print_debug('Input Text in number format: ', words_as_number_format_list)
+
+	var scale_line_edit_relative_row_index = 0
+	for scale_line_edit in scale_line_edit_list:
+		if scale_line_edit.text != '':
+			print(
+				_debug_message_indentation,
+				scale_line_edit.text,
+				' will be replaced.'
+			)
+		var scale_used = _mock_scale_used_chromatic
+		var scale_line_edit_updated_text = _converter_methods.iListsToSolfege(
+			words_as_number_format_list,
+			scale_used
+		)
+		scale_line_edit.text = scale_line_edit_updated_text
+		scale_line_edit_relative_row_index += 1
+	print_debug('Translation complete.')
 
 	var sanitized_text = ''.join(
 		sanitized_word_list
