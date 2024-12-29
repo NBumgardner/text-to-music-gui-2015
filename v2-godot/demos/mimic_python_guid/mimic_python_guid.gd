@@ -20,7 +20,9 @@ const _translated_notes_separator = ' '
 
 
 var _converter_methods = _convert.new()
-var _mock_scale_used_chromatic = "Do di Re ri Mi Fa fi So si La li Ti".split()
+var _mock_scale_used_chromatic = "Do di Re ri Mi Fa fi So si La li Ti".split(
+	' '
+)
 
 
 func _on_translate_button_pressed():
@@ -54,22 +56,21 @@ func _on_translate_button_pressed():
 			words_as_number_format_list,
 			scale_used
 		)
+		print_debug(
+			'DEBUG01: row ',
+			scale_line_edit_relative_row_index,
+			', ',
+			'words_as_number_format_list: ',
+			words_as_number_format_list,
+			', using solfege of: ',
+			scale_used,
+			' translated into scale_line_edit_updated_text: ',
+			scale_line_edit_updated_text,
+			'.'
+		)
 		scale_line_edit.text = scale_line_edit_updated_text
 		scale_line_edit_relative_row_index += 1
 	print_debug('Translation complete.')
-
-	var sanitized_text = ''.join(
-		sanitized_word_list
-	)
-
-	var translated_text = _translated_notes_separator.join(
-		_converter_methods.myStrToInt(
-			sanitized_text,
-			_available_alphabet_letter_count
-		)
-	)
-
-	_set_scales_line_edits(translated_text)
 
 
 func _set_scales_line_edits(translated_text):
