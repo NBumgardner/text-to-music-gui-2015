@@ -25,8 +25,10 @@ const _translated_notes_separator = ' '
 
 
 var _converter_methods = _convert.new()
-var _mock_scale_used_chromatic = _mock_scale_chromatic.solfege_ascending_string.split(
-	' '
+var _mock_scale_used_chromatic = (
+	_mock_scale_chromatic.solfege_ascending_string.split(
+		' '
+	)
 )
 
 
@@ -44,7 +46,10 @@ func _on_translate_button_pressed():
 	var words_as_number_format_list = []
 	for word in sanitized_word_list:
 		words_as_number_format_list.append(
-			_converter_methods.myStrToInt(word, _available_alphabet_letter_count)
+			_converter_methods.myStrToInt(
+				word,
+				_available_alphabet_letter_count
+			)
 		)
 	print_debug('Input Text in number format: ', words_as_number_format_list)
 
