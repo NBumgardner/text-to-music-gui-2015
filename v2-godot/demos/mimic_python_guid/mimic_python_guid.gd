@@ -22,6 +22,12 @@ var _converter_methods = _convert.new()
 
 
 func _on_translate_button_pressed():
+	if input_text_line_edit.text == '':
+		print_debug('NO INPUT FOUND. Please enter text for translation.')
+		return
+
+	print_debug(input_text_line_edit.text, ' will be translated into solfege.')
+
 	var sanitized_text = ''.join(
 		_converter_methods.prepareStr(input_text_line_edit.text)
 	)
