@@ -28,8 +28,19 @@ func _on_translate_button_pressed():
 
 	print_debug(input_text_line_edit.text, ' will be translated into solfege.')
 
+	var sanitized_word_list = _converter_methods.prepareStr(
+		input_text_line_edit.text
+	)
+
+	var words_as_number_format_list = []
+	for word in sanitized_word_list:
+		words_as_number_format_list.append(
+			_converter_methods.myStrToInt(word, 26)
+		)
+	print_debug('Input Text in number format: ', words_as_number_format_list)
+
 	var sanitized_text = ''.join(
-		_converter_methods.prepareStr(input_text_line_edit.text)
+		sanitized_word_list
 	)
 
 	var translated_text = _translated_notes_separator.join(
