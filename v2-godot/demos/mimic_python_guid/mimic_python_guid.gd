@@ -67,16 +67,16 @@ func _on_translate_button_pressed():
 			scale_used
 		)
 		print_debug(
-			'DEBUG01: row ',
+			_debug_message_indentation,
+			'Row index ',
 			scale_line_edit_relative_row_index,
-			', ',
-			'words_as_number_format_list: ',
+			' translated numbers ',
 			words_as_number_format_list,
-			', using solfege of: ',
-			scale_used,
-			' translated into scale_line_edit_updated_text: ',
+			' into solfege \'',
 			scale_line_edit_updated_text,
-			'.'
+			'\' mapped from ',
+			scale_used.size(),
+			' solfege symbols.'
 		)
 		scale_line_edit.text = scale_line_edit_updated_text
 		scale_line_edit_relative_row_index += 1
