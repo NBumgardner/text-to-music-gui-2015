@@ -40,30 +40,6 @@ func iListsToSolfege(intsLists, scaleNames):
 
 
 """
-Translate each list of integers, within a list, into a
-	string of solfege names.
-Insert `(rest)` between each word.
-
->>> iListsToSolfege([[0, 1, 2]], "Do Re Mi Fa So La Ti".split())
-"Do Re Mi"
->>> iListsToSolfege([[0], [0], [0]], "Do Re Mi Fa So La Ti".split())
-"Do (rest) Do (rest) Do"
-"""
-func integer_lists_to_solfege_string(intsList, scaleNames):
-	var modulo_as_total_count_of_scale_degrees = len(scaleNames)
-	var result_solfege_list_where_each_item_was_a_word = []
-	for nums in intsList:
-		var temp = []
-		for num in nums:
-			var noteIndex = num % modulo_as_total_count_of_scale_degrees
-			temp += [scaleNames[noteIndex]]
-		temp = ' '.join(temp)
-		result_solfege_list_where_each_item_was_a_word.append(temp)
-	
-	return ' (rest) '.join(result_solfege_list_where_each_item_was_a_word)
-
-
-"""
 'scale' means the number of unique tones
 	in the scale used.
 """
