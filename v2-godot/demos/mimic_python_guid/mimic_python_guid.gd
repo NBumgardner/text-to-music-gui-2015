@@ -12,6 +12,7 @@ extends Control
 
 
 const _convert = preload("../../musical_translations/convert.gd")
+const _play_button_theme = preload("res://themes/play_button_theme.tres")
 
 
 const _available_alphabet_letter_count = 26
@@ -29,6 +30,11 @@ func _get_scale_button_list() -> Array:
 		func (child): return child is Button
 	)
 	return grid_cells_line_edit_list.slice(1)
+
+
+func _get_scale_cells_list() -> Array:
+	var grid_cells_list = $GridContainer.get_children()
+	return grid_cells_list.slice(3)
 
 
 func _get_scale_line_edit_list() -> Array:
@@ -71,25 +77,32 @@ func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 			' rows mismatches with ',
 			scale_button_list_size,
 			' scale buttons and ',
-			scale_label_list.size(),
+			scale_label_list_size,
 			' scale labels.'
-		)
-		assert(
-			scale_list_size == scale_button_list_size
-				and scale_list_size == scale_label_list_size,
-			'Warning: Length of scale list does not match the length of '
-				+ 'scale buttons and labels.'
 		)
 
 	for scale_relative_row_index in range(scale_list_size):
+		if scale_relative_row_index >= scale_label_list.size():
+			$GridContainer.add_child(Label.new())
+			$GridContainer.add_child(LineEdit.new())
+			$GridContainer.add_child(Button.new())
+
+			scale_button_list = _get_scale_button_list()
+			scale_label_list = _get_scale_label_list()
+
 		scale_button_list[scale_relative_row_index].pressed.connect(
 			_on_play_scale.bind(scale_relative_row_index)
 		)
+		scale_button_list[scale_relative_row_index].text = 'Play'
+		scale_button_list[scale_relative_row_index].set_theme(_play_button_theme)
 
 		scale_label_list[scale_relative_row_index].text = scale_list[
 			scale_relative_row_index
 		].label_name
 		scale_relative_row_index += 1
+
+	for scale_cell in _get_scale_cells_list():
+		scale_cell.visible = true
 
 
 func _on_play_scale(scale_relative_row_index: int) -> void:
