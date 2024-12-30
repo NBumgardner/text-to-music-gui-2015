@@ -17,6 +17,7 @@ const _play_button_theme = preload("res://themes/play_button_theme.tres")
 
 const _available_alphabet_letter_count = 26
 const _debug_message_indentation = '    '
+const _play_button_text = 'Play'
 const _translated_notes_separator = ' '
 
 
@@ -60,43 +61,29 @@ func _ready() -> void:
 func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 	_scale_line_edit_list = _get_scale_line_edit_list()
 
-	var scale_button_list = _get_scale_button_list()
-	var scale_label_list = _get_scale_label_list()
-	
-	var scale_button_list_size = scale_button_list.size()
-	var scale_label_list_size = scale_label_list.size()
 	var scale_list_size = scale_list.size()
 
-	if (
-		scale_list_size != scale_button_list_size
-		or scale_list_size != scale_label_list_size
-	):
-		print_debug(
-			'Warning: Scale list of ',
-			scale_list_size,
-			' rows mismatches with ',
-			scale_button_list_size,
-			' scale buttons and ',
-			scale_label_list_size,
-			' scale labels.'
-		)
+	# Empty scale rows from grid.
+	for scale_cell in _get_scale_cells_list():
+		$GridContainer.remove_child(scale_cell)
 
+	# Add connected scale rows to grid.
 	for scale_relative_row_index in range(scale_list_size):
-		if scale_relative_row_index >= scale_label_list.size():
-			$GridContainer.add_child(Label.new())
-			$GridContainer.add_child(LineEdit.new())
-			$GridContainer.add_child(Button.new())
+		$GridContainer.add_child(Label.new())
+		$GridContainer.add_child(LineEdit.new())
+		$GridContainer.add_child(Button.new())
 
-			scale_button_list = _get_scale_button_list()
-			scale_label_list = _get_scale_label_list()
+		var scale_button_list = _get_scale_button_list()
 
 		scale_button_list[scale_relative_row_index].pressed.connect(
 			_on_play_scale.bind(scale_relative_row_index)
 		)
-		scale_button_list[scale_relative_row_index].text = 'Play'
+		scale_button_list[scale_relative_row_index].text = _play_button_text
 		scale_button_list[scale_relative_row_index].set_theme(
 			_play_button_theme
 		)
+
+		var scale_label_list = _get_scale_label_list()
 
 		scale_label_list[scale_relative_row_index].set_horizontal_alignment(
 			HORIZONTAL_ALIGNMENT_CENTER
@@ -105,9 +92,6 @@ func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 			scale_relative_row_index
 		].label_name
 		scale_relative_row_index += 1
-
-	for scale_cell in _get_scale_cells_list():
-		scale_cell.visible = true
 
 
 func _on_play_scale(scale_relative_row_index: int) -> void:
