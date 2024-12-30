@@ -59,13 +59,11 @@ func _ready() -> void:
 
 
 func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
-	_scale_line_edit_list = _get_scale_line_edit_list()
-
-	var scale_list_size = scale_list.size()
-
 	# Empty scale rows from grid.
 	for scale_cell in _get_scale_cells_list():
 		$GridContainer.remove_child(scale_cell)
+
+	var scale_list_size = scale_list.size()
 
 	# Add connected scale rows to grid.
 	for scale_relative_row_index in range(scale_list_size):
@@ -92,6 +90,8 @@ func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 			scale_relative_row_index
 		].label_name
 		scale_relative_row_index += 1
+
+	_scale_line_edit_list = _get_scale_line_edit_list()
 
 
 func _on_play_scale(scale_relative_row_index: int) -> void:
