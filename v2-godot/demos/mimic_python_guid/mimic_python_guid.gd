@@ -20,8 +20,15 @@ const _translated_notes_separator = ' '
 
 
 var _converter_methods = _convert.new()
-var _scale_in_solfege_list = []
 var _scale_line_edit_list = []
+
+
+func _get_scale_button_list():
+	var grid_cells_list = $GridContainer.get_children()
+	var grid_cells_line_edit_list = grid_cells_list.filter(
+		func (child): return child is Button
+	)
+	return grid_cells_line_edit_list.slice(1)
 
 
 func _get_scale_line_edit_list():
@@ -41,15 +48,31 @@ func _get_scale_label_list():
 
 
 func _ready():
+	_initialize_scale_rows()
+
+
+func _initialize_scale_rows():
 	_scale_line_edit_list = _get_scale_line_edit_list()
 
+	var scale_button_list = _get_scale_button_list()
 	var scale_label_list = _get_scale_label_list()
 
 	for scale_relative_row_index in range(scale_label_list.size()):
+		scale_button_list[scale_relative_row_index].pressed.connect(
+			_on_play_scale.bind(scale_relative_row_index)
+		)
+
 		scale_label_list[scale_relative_row_index].text = _scale_list[
 			scale_relative_row_index
 		].label_name
 		scale_relative_row_index += 1
+
+
+func _on_play_scale(scale_relative_row_index: int):
+	print_debug(
+		_get_scale_label_list()[scale_relative_row_index].text,
+		' scale button was pressed.'
+	)
 
 
 func _on_translate_button_pressed():
