@@ -94,8 +94,13 @@ func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 			_on_play_scale.bind(scale_relative_row_index)
 		)
 		scale_button_list[scale_relative_row_index].text = 'Play'
-		scale_button_list[scale_relative_row_index].set_theme(_play_button_theme)
+		scale_button_list[scale_relative_row_index].set_theme(
+			_play_button_theme
+		)
 
+		scale_label_list[scale_relative_row_index].set_horizontal_alignment(
+			HORIZONTAL_ALIGNMENT_CENTER
+		)
 		scale_label_list[scale_relative_row_index].text = scale_list[
 			scale_relative_row_index
 		].label_name
