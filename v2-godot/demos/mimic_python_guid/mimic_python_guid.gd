@@ -23,7 +23,7 @@ var _converter_methods = _convert.new()
 var _scale_line_edit_list = []
 
 
-func _get_scale_button_list():
+func _get_scale_button_list() -> Array:
 	var grid_cells_list = $GridContainer.get_children()
 	var grid_cells_line_edit_list = grid_cells_list.filter(
 		func (child): return child is Button
@@ -31,7 +31,7 @@ func _get_scale_button_list():
 	return grid_cells_line_edit_list.slice(1)
 
 
-func _get_scale_line_edit_list():
+func _get_scale_line_edit_list() -> Array:
 	var grid_cells_list = $GridContainer.get_children()
 	var grid_cells_line_edit_list = grid_cells_list.filter(
 		func (child): return child is LineEdit
@@ -39,7 +39,7 @@ func _get_scale_line_edit_list():
 	return grid_cells_line_edit_list.slice(1)
 
 
-func _get_scale_label_list():
+func _get_scale_label_list() -> Array:
 	var grid_cells_list = $GridContainer.get_children()
 	var grid_cells_label_list = grid_cells_list.filter(
 		func (child): return child is Label
@@ -47,11 +47,11 @@ func _get_scale_label_list():
 	return grid_cells_label_list.slice(1)
 
 
-func _ready():
-	_initialize_scale_rows()
+func _ready() -> void:
+	_initialize_scale_rows(_scale_list)
 
 
-func _initialize_scale_rows():
+func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 	_scale_line_edit_list = _get_scale_line_edit_list()
 
 	var scale_button_list = _get_scale_button_list()
@@ -62,20 +62,20 @@ func _initialize_scale_rows():
 			_on_play_scale.bind(scale_relative_row_index)
 		)
 
-		scale_label_list[scale_relative_row_index].text = _scale_list[
+		scale_label_list[scale_relative_row_index].text = scale_list[
 			scale_relative_row_index
 		].label_name
 		scale_relative_row_index += 1
 
 
-func _on_play_scale(scale_relative_row_index: int):
+func _on_play_scale(scale_relative_row_index: int) -> void:
 	print_debug(
 		_get_scale_label_list()[scale_relative_row_index].text,
 		' scale button was pressed.'
 	)
 
 
-func _on_translate_button_pressed():
+func _on_translate_button_pressed() -> void:
 	if input_text_line_edit.text == '':
 		print_debug('NO INPUT FOUND. Please enter text for translation.')
 		return
@@ -130,6 +130,6 @@ func _on_translate_button_pressed():
 	print_debug('Translation complete.')
 
 
-func _set_scales_line_edits(translated_text):
+func _set_scales_line_edits(translated_text) -> void:
 	for scale_line_edit in _scale_line_edit_list:
 		scale_line_edit.text = translated_text
