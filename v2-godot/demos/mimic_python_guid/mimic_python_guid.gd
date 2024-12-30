@@ -56,8 +56,32 @@ func _initialize_scale_rows(scale_list: Array[ScaleData]) -> void:
 
 	var scale_button_list = _get_scale_button_list()
 	var scale_label_list = _get_scale_label_list()
+	
+	var scale_button_list_size = scale_button_list.size()
+	var scale_label_list_size = scale_label_list.size()
+	var scale_list_size = scale_list.size()
 
-	for scale_relative_row_index in range(scale_label_list.size()):
+	if (
+		scale_list_size != scale_button_list_size
+		or scale_list_size != scale_label_list_size
+	):
+		print_debug(
+			'Warning: Scale list of ',
+			scale_list_size,
+			' rows mismatches with ',
+			scale_button_list_size,
+			' scale buttons and ',
+			scale_label_list.size(),
+			' scale labels.'
+		)
+		assert(
+			scale_list_size == scale_button_list_size
+				and scale_list_size == scale_label_list_size,
+			'Warning: Length of scale list does not match the length of '
+				+ 'scale buttons and labels.'
+		)
+
+	for scale_relative_row_index in range(scale_list_size):
 		scale_button_list[scale_relative_row_index].pressed.connect(
 			_on_play_scale.bind(scale_relative_row_index)
 		)
