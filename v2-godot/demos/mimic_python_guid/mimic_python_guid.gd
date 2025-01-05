@@ -17,7 +17,6 @@ const _play_button_theme = preload("res://themes/play_button_theme.tres")
 
 const _available_alphabet_letter_count = 26
 const _debug_message_indentation = '    '
-const _note_length_milliseconds = 500
 const _play_button_text = 'Play'
 const _translated_notes_separator = ' '
 
@@ -100,43 +99,6 @@ func _on_play_scale(scale_relative_row_index: int) -> void:
 		_get_scale_label_list()[scale_relative_row_index].text,
 		' scale button was pressed.'
 	)
-	var input_solfege = _scale_line_edit_list[scale_relative_row_index].text
-	var notes = input_solfege.split(
-		' '
-	)
-
-	var chromatic_dictionary = {}
-	chromatic_dictionary['Do'] = 0
-	chromatic_dictionary['di'] = 1
-	chromatic_dictionary['Re'] = 2
-
-	var pitches = []
-	var song = []
-
-	for note in notes:
-		var chromatic_dictionary_number = chromatic_dictionary.get(note)
-
-		if chromatic_dictionary_number != null:
-			pitches.append(chromatic_dictionary_number)
-			continue
-
-		if note == '(rest)':
-			song.append(pitches)
-			pitches = []
-
-	song.append(pitches)
-
-	var wait = _note_length_milliseconds / 1000.0
-	for part in song:
-		print_debug(
-			'Should play beep of ',
-			part,
-			' with length ',
-			_note_length_milliseconds,
-			' milliseconds.'
-		)
-		# beepList(part, _note_length_milliseconds)
-		OS.delay_msec(wait)
 
 
 func _on_translate_button_pressed() -> void:
