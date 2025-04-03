@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwusrbytyfyc3"]
 
-[ext_resource type="Script" path="res://demos/play_scale_ascending/play_scale_ascending.gd" id="1_6bw1b"]
+[ext_resource type="Script" uid="uid://bap8riyls7k3l" path="res://demos/play_scale_ascending/play_scale_ascending.gd" id="1_6bw1b"]
 [ext_resource type="AudioStream" uid="uid://b3qu7q11wt30k" path="res://data/audio_streams/demo_pentatontic_scale_ascending.tres" id="2_iwgoy"]
 
 [node name="PlayScaleAscending" type="Control"]

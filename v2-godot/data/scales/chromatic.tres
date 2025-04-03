@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ScaleData" load_steps=15 format=3 uid="uid://ce174jagpmlxr"]
 
-[ext_resource type="Script" path="res://data/scales/scale_data.gd" id="1_blq42"]
-[ext_resource type="Script" path="res://data/solfege_notes/solfege_note_data.gd" id="2_16wd3"]
+[ext_resource type="Script" uid="uid://b8hohshqxpt6t" path="res://data/scales/scale_data.gd" id="1_blq42"]
+[ext_resource type="Script" uid="uid://bkqb6wl4kumye" path="res://data/solfege_notes/solfege_note_data.gd" id="2_16wd3"]
 [ext_resource type="Resource" uid="uid://dysdnyd2no3bp" path="res://data/solfege_notes/do.tres" id="2_epihw"]
 [ext_resource type="Resource" uid="uid://brbvablsmksun" path="res://data/solfege_notes/di.tres" id="3_0eora"]
 [ext_resource type="Resource" uid="uid://ubpu1kgalm4k" path="res://data/solfege_notes/re.tres" id="4_gcg3h"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dq6ah7ygjxbak"]
 
-[ext_resource type="Script" path="res://demos/mimic_python_guid/mimic_python_guid.gd" id="1_sfe5s"]
+[ext_resource type="Script" uid="uid://cp0e7t8ysiu11" path="res://demos/mimic_python_guid/mimic_python_guid.gd" id="1_sfe5s"]
 [ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="1_tugsn"]
 [ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/play_button_theme.tres" id="2_4p3mt"]
-[ext_resource type="Script" path="res://data/scales/scale_data.gd" id="2_hsx1j"]
+[ext_resource type="Script" uid="uid://b8hohshqxpt6t" path="res://data/scales/scale_data.gd" id="2_hsx1j"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_4fl02"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="4_xer2f"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_sg5oo"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dl63nkeaw7nt"]
 
-[ext_resource type="Script" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
+[ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
 
 [node name="RowUserInput" type="HBoxContainer"]
 script = ExtResource("1_7ehdk")

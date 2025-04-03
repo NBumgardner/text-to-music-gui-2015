@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ChromaticIndexToPitch" load_steps=14 format=3 uid="uid://by8fcxiyl4idb"]
 
-[ext_resource type="Script" path="res://data/chromatic_index_to_pitch/chromatic_index_to_pitch.gd" id="1_1qf5f"]
+[ext_resource type="Script" uid="uid://cd6iv5qhyf3kp" path="res://data/chromatic_index_to_pitch/chromatic_index_to_pitch.gd" id="1_1qf5f"]
 [ext_resource type="AudioStream" uid="uid://chr0uui7kgvvb" path="res://audio/c-nat-4.wav" id="1_iolnj"]
 [ext_resource type="AudioStream" uid="uid://dqcunvlfaw6v" path="res://audio/d-flat-4.wav" id="2_t1rgk"]
 [ext_resource type="AudioStream" uid="uid://dlrefr7xh1t7w" path="res://audio/d-nat-4.wav" id="3_deikp"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvb7wid1i1vqn"]
 
-[ext_resource type="Script" path="res://demos/build_scale/build_scale.gd" id="1_nqoyb"]
+[ext_resource type="Script" uid="uid://pc1drgbsjmoj" path="res://demos/build_scale/build_scale.gd" id="1_nqoyb"]
 
 [node name="BuildScale" type="Control"]
 layout_mode = 3
