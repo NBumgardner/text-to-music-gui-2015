@@ -40,7 +40,6 @@ const _volume_normal_decibel = 0
 
 var _converter_methods = _convert.new()
 var _note_index_modulo = 8
-var _scale_in_solfege: Array[ScaleData] = []
 var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
 
@@ -98,9 +97,6 @@ func _set_notes_to_play() -> void:
 		notes_to_play_text_segments.append(
 			wrapped_around_note
 		)
-	var notes_to_play_text_joined = _translated_notes_separator.join(
-		notes_to_play_text_segments
-	)
 
 
 func _on_button_pressed() -> void:
@@ -133,11 +129,11 @@ func _on_button_pressed() -> void:
 		)
 
 
-func _on_line_edit_text_changed(new_text):
+func _on_line_edit_text_changed(_new_text):
 	_set_notes_to_play()
 
 
-func _on_line_edit_text_submitted(new_text):
+func _on_line_edit_text_submitted(_new_text):
 	_set_notes_to_play()
 	$HBoxContainer/Button.pressed.emit()
 
