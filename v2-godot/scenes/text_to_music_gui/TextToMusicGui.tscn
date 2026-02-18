@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://do5m2nvcbssud"]
 
-[ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/scaled_solfege_player_first_note/ScaledSolfegePlayerFirstNote.tscn" id="1_0qcx7"]
 [ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
-[ext_resource type="PackedScene" uid="uid://bmcwjoa831eky" path="res://scenes/scaled_index_player/ScaledIndexPlayer.tscn" id="8_043i3"]
 [ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="9_iv8pr"]
 
 [node name="Control" type="Control" unique_id=1523121573]
@@ -42,40 +40,6 @@ horizontal_alignment = 1
 [node name="RowUserInput" parent="MarginContainer/VBoxContainer" unique_id=51070308 instance=ExtResource("2_gjebr")]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=191675863]
-layout_mode = 2
-text = "Scaled Solfege First Note Players Below"
-horizontal_alignment = 1
-
-[node name="ScaledSolfegePlayer" parent="MarginContainer/VBoxContainer" unique_id=198448035 instance=ExtResource("1_0qcx7")]
-layout_mode = 2
-musical_scale = ExtResource("3_ym40v")
-
-[node name="ScaledSolfegePlayer2" parent="MarginContainer/VBoxContainer" unique_id=144412157 instance=ExtResource("1_0qcx7")]
-layout_mode = 2
-musical_scale = ExtResource("2_qhllm")
-
-[node name="ScaledSolfegePlayer3" parent="MarginContainer/VBoxContainer" unique_id=1535910951 instance=ExtResource("1_0qcx7")]
-layout_mode = 2
-musical_scale = ExtResource("5_l0uts")
-
-[node name="ScaledSolfegePlayer4" parent="MarginContainer/VBoxContainer" unique_id=351084334 instance=ExtResource("1_0qcx7")]
-layout_mode = 2
-musical_scale = ExtResource("6_0swa3")
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2087641936]
-layout_mode = 2
-text = "Scaled Index Players Below"
-horizontal_alignment = 1
-
-[node name="ScaledIndexPlayer" parent="MarginContainer/VBoxContainer" unique_id=522333924 instance=ExtResource("8_043i3")]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=532269954]
-layout_mode = 2
-text = "Scaled Solfege Players Below"
-horizontal_alignment = 1
-
 [node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=1996285598 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("3_ym40v")
@@ -92,11 +56,6 @@ musical_scale = ExtResource("5_l0uts")
 layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
 
-[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer3" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer4" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledIndexPlayer" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer5" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
