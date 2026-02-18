@@ -19,12 +19,14 @@ signal play_button_pressed()
 @export var queue_play := false
 
 
+## Musical scale to render a name and decide how to translate characters into
+##  solfege.
+@export var musical_scale: ScaleData = null
+
+
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
 @onready var play_button = $HBoxContainer/Button
-
-
-@export var musical_scale: ScaleData = null
 
 
 const _convert = preload("../../musical_translations/convert.gd")
