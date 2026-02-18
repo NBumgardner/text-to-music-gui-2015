@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScaleData" load_steps=10 format=3 uid="uid://s48avb3dhwdi"]
+[gd_resource type="Resource" script_class="ScaleData" format=3 uid="uid://s48avb3dhwdi"]
 
 [ext_resource type="Script" uid="uid://b8hohshqxpt6t" path="res://data/scales/scale_data.gd" id="1_7lcy0"]
 [ext_resource type="Script" uid="uid://bkqb6wl4kumye" path="res://data/solfege_notes/solfege_note_data.gd" id="2_vqk4r"]

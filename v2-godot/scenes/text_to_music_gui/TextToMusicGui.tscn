@@ -78,6 +78,7 @@ horizontal_alignment = 1
 
 [node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
+musical_scale = ExtResource("2_qhllm")
 
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]

@@ -44,7 +44,7 @@ var time_since_last_note_started: float = 0
 func _ready():
 	if musical_scale != null:
 		$HBoxContainer/ScaleName.text = musical_scale.label_name
-		_note_index_modulo = musical_scale.length
+		_note_index_modulo = musical_scale.solfege_ascending_notes.size()
 
 
 func _process(delta: float) -> void:
