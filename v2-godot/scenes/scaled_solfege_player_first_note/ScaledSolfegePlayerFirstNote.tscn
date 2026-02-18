@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5hhhl5t2v4nm"]
 
-[ext_resource type="Script" uid="uid://b0fq4rmr6qyhj" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_cxax3"]
+[ext_resource type="Script" uid="uid://b0fq4rmr6qyhj" path="res://scenes/scaled_solfege_player_first_note/scaled_solfege_player_first_note.gd" id="1_cxax3"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://do5m2nvcbssud"]
 
-[ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="1_0qcx7"]
+[ext_resource type="PackedScene" uid="uid://c5hhhl5t2v4nm" path="res://scenes/scaled_solfege_player_first_note/ScaledSolfegePlayerFirstNote.tscn" id="1_0qcx7"]
 [ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
