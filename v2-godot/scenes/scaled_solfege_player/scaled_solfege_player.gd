@@ -108,7 +108,8 @@ func _on_button_pressed() -> void:
 	print_debug('line_edit.text split by separator:', translated_notes)
 
 	for translated_note in translated_notes:
-		if _ignored_character_ord_list.has(translated_note):
+		if (_ignored_character_ord_list.has(translated_note)
+				or translated_note == ''):
 			continue
 
 		var translated_note_chromatic_index = _solfege_note_to_chromatic_index(
