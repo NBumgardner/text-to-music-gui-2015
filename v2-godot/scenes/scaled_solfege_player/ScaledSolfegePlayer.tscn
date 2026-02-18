@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://bgu8attn1nggm"]
 
 [ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
-
-[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
+[ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_ueegv"]
 
 [node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
 offset_right = 371.0
 offset_bottom = 31.0
 script = ExtResource("1_qs24r")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=883915260]
-stream = SubResource("AudioStreamGenerator_clsq1")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=640665284]
+stream = ExtResource("2_ueegv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163571453]
 layout_mode = 2
