@@ -1,7 +1,8 @@
-# Plays chromatic indexes from 0-9.
-#
-# Spaces and commas are ignored.
-# Unknown characters play index 0.
+## Plays chromatic indexes from 0-9.
+##
+## Spaces and commas are ignored.
+## Unknown characters play index 0.
+## Pressing the [i]Play[/i] [Button] will interrupt the currently playing notes.
 class_name ScaledIndexPlayer extends Control
 
 
@@ -50,6 +51,13 @@ func _process(delta: float) -> void:
 		_play_note_at_index(queue_of_note_indexes_to_play.pop_front())
 
 
+## Stop playing all audio notes of the scene.
+func stop_notes():
+	queue_of_note_indexes_to_play = []
+	time_since_last_note_started = note_length_seconds
+	audio_stream_player.stop()
+
+
 func _mute_streams():
 	for stream_index in audio_stream_player.stream.get_stream_count():
 		audio_stream_player.stream.set_sync_stream_volume(stream_index, _volume_mute_decibel)
@@ -89,6 +97,7 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_pressed() -> void:
+	stop_notes()
 	print_debug('line_edit.text:', line_edit.text)
 	var translated_notes = line_edit.text.split(_translated_notes_separator)
 	print_debug('line_edit.text split by separator:', translated_notes)
