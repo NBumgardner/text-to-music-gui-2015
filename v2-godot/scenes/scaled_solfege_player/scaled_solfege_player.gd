@@ -111,7 +111,12 @@ func _on_button_pressed() -> void:
 		if _ignored_character_ord_list.has(translated_note):
 			continue
 
-		var wrapped_around_note = int(translated_note) % _note_index_modulo
+		var translated_note_chromatic_index = _solfege_note_to_chromatic_index(
+			translated_note
+		)
+		var wrapped_around_note = (
+			int(translated_note_chromatic_index) % _note_index_modulo
+		)
 
 		print_debug(
 			'Append wrapped around note ',
