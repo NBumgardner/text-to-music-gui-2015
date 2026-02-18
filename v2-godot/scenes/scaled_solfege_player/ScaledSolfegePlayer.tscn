@@ -1,29 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5hhhl5t2v4nm"]
+[gd_scene format=3 uid="uid://c5hhhl5t2v4nm"]
 
 [ext_resource type="Script" uid="uid://b0fq4rmr6qyhj" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_cxax3"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
 
-[node name="ScaledSolfegePlayer" type="PanelContainer"]
+[node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
 offset_right = 371.0
 offset_bottom = 31.0
 script = ExtResource("1_cxax3")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=883915260]
 stream = SubResource("AudioStreamGenerator_clsq1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163571453]
 layout_mode = 2
 
-[node name="ScaleName" type="Label" parent="HBoxContainer"]
+[node name="ScaleName" type="Label" parent="HBoxContainer" unique_id=1338124044]
 layout_mode = 2
 text = "Scale"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer" unique_id=1431590144]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2
 text = "Toggle Playing One Infinite First Note"
 

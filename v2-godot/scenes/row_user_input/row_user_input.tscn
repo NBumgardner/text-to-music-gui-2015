@@ -1,19 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl63nkeaw7nt"]
+[gd_scene format=3 uid="uid://dl63nkeaw7nt"]
 
 [ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
 
-[node name="RowUserInput" type="HBoxContainer"]
+[node name="RowUserInput" type="HBoxContainer" unique_id=1405432130]
 script = ExtResource("1_7ehdk")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1668571849]
 layout_mode = 2
 text = "Input Text:"
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="." unique_id=2057487666]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=750956017]
 layout_mode = 2
 text = "Translate"
 

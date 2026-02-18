@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvb7wid1i1vqn"]
+[gd_scene format=3 uid="uid://dvb7wid1i1vqn"]
 
 [ext_resource type="Script" uid="uid://pc1drgbsjmoj" path="res://demos/build_scale/build_scale.gd" id="1_nqoyb"]
 
-[node name="BuildScale" type="Control"]
+[node name="BuildScale" type="Control" unique_id=2107334238]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,38 +11,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nqoyb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1162489180]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=402533876]
 layout_mode = 2
 
-[node name="PrependNoteButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="PrependNoteButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=760700226]
 layout_mode = 2
 text = "Prepend Note C#4"
 
-[node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=686916862]
 layout_mode = 2
 text = "Reset"
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=875792103]
 layout_mode = 2
 text = "Play"
 
-[node name="ContainedNotes" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ContainedNotes" type="HBoxContainer" parent="VBoxContainer" unique_id=2114202385]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/ContainedNotes"]
+[node name="Label" type="Label" parent="VBoxContainer/ContainedNotes" unique_id=1263380415]
 layout_mode = 2
 text = "ContainedNotes:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ContainedNotes"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ContainedNotes" unique_id=1626176986]
 layout_mode = 2
 expand_to_text_length = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1250691075]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PrependNoteButton" to="." method="_on_prepend_note_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

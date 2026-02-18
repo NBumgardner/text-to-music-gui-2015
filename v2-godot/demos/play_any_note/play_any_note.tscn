@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgdinbkusv8kj"]
+[gd_scene format=3 uid="uid://cgdinbkusv8kj"]
 
 [ext_resource type="Script" uid="uid://bmxgo0d411kwe" path="res://demos/play_any_note/play_any_note.gd" id="1_20r11"]
 [ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="1_n0q5y"]
 
-[node name="PlayAnyNote" type="Control"]
+[node name="PlayAnyNote" type="Control" unique_id=495085254]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,44 +12,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_20r11")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=294179386]
 stream = ExtResource("1_n0q5y")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=346211555]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=1824551246]
 layout_mode = 2
 
-[node name="ButtonC4" type="Button" parent="HBoxContainer/GridContainer"]
+[node name="ButtonC4" type="Button" parent="HBoxContainer/GridContainer" unique_id=418054457]
 layout_mode = 2
 text = "C4"
 
-[node name="ButtonD4" type="Button" parent="HBoxContainer/GridContainer"]
+[node name="ButtonD4" type="Button" parent="HBoxContainer/GridContainer" unique_id=1621392459]
 layout_mode = 2
 text = "D4"
 
-[node name="ButtonE4" type="Button" parent="HBoxContainer/GridContainer"]
+[node name="ButtonE4" type="Button" parent="HBoxContainer/GridContainer" unique_id=1357772478]
 layout_mode = 2
 text = "E4"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1965003546]
 layout_mode = 2
 
-[node name="ButtonPlayAllSequentially" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="ButtonPlayAllSequentially" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=767434815]
 layout_mode = 2
 text = "Play All Sequentially"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1616009672]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1614392863]
 layout_mode = 2
 text = "Note indexes remaining:"
 
-[node name="AllNoteIndexes" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="AllNoteIndexes" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=180768277]
 layout_mode = 2
 text = "[1, 2, 3]"
 
