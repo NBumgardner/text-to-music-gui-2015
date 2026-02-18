@@ -76,13 +76,28 @@ layout_mode = 2
 text = "Scaled Solfege Players Below"
 horizontal_alignment = 1
 
-[node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("9_iv8pr")]
+[node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=1996285598 instance=ExtResource("9_iv8pr")]
+layout_mode = 2
+musical_scale = ExtResource("3_ym40v")
+
+[node name="ScaledSolfegePlayer6" parent="MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("2_qhllm")
+
+[node name="ScaledSolfegePlayer7" parent="MarginContainer/VBoxContainer" unique_id=1778609240 instance=ExtResource("9_iv8pr")]
+layout_mode = 2
+musical_scale = ExtResource("5_l0uts")
+
+[node name="ScaledSolfegePlayer8" parent="MarginContainer/VBoxContainer" unique_id=2051491446 instance=ExtResource("9_iv8pr")]
+layout_mode = 2
+musical_scale = ExtResource("6_0swa3")
 
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer2" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer3" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer4" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledIndexPlayer" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer5" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
