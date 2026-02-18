@@ -1,4 +1,4 @@
-class_name ScaledSolfegePlayer extends Control
+class_name ScaledSolfegePlayerFirstNote extends Control
 
 # Copied from demo:
 #  https://github.com/godotengine/godot-demo-projects/blob/4.2-31d1c0c/audio/generator/generator_demo.gd
