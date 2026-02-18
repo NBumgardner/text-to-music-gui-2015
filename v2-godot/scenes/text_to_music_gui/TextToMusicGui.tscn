@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
+[ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/play_button_theme.tres" id="2_iv8pr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
+[ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="4_epnop"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
 [ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="9_iv8pr"]
@@ -31,6 +33,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=208609297]
 layout_mode = 2
+theme = ExtResource("2_iv8pr")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1766561148]
 layout_mode = 2
@@ -39,6 +42,7 @@ horizontal_alignment = 1
 
 [node name="RowUserInput" parent="MarginContainer/VBoxContainer" unique_id=51070308 instance=ExtResource("2_gjebr")]
 layout_mode = 2
+theme = ExtResource("4_epnop")
 
 [node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=1996285598 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
