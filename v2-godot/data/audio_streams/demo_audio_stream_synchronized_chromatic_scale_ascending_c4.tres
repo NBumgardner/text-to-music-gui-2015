@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamSynchronized" load_steps=13 format=3 uid="uid://dbbl00734sbme"]
+[gd_resource type="AudioStreamSynchronized" format=3 uid="uid://dbbl00734sbme"]
 
 [ext_resource type="AudioStream" uid="uid://chr0uui7kgvvb" path="res://audio/c-nat-4.wav" id="1_5l276"]
 [ext_resource type="AudioStream" uid="uid://dqcunvlfaw6v" path="res://audio/d-flat-4.wav" id="2_orfjn"]
