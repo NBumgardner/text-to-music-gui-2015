@@ -115,18 +115,15 @@ func _on_button_pressed() -> void:
 		var translated_note_chromatic_index = _solfege_note_to_chromatic_index(
 			translated_note
 		)
-		var wrapped_around_note = (
-			int(translated_note_chromatic_index) % _note_index_modulo
-		)
 
 		print_debug(
-			'Append wrapped around note ',
+			'Append note ',
 			translated_note,
 			' as ',
-			str(wrapped_around_note)
+			str(translated_note_chromatic_index)
 		)
 		queue_of_note_indexes_to_play.append(
-			wrapped_around_note
+			translated_note_chromatic_index
 		)
 
 
