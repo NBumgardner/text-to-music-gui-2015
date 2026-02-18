@@ -14,9 +14,9 @@ signal play_button_pressed()
 @export var note_length_seconds: float = 0.75
 
 
-## If [false], pressing the Play [Button] will interrupt the scene's currently
-##  playing audio.
-@export var queue_play := true
+## If [true], pressing the Play [Button] will queue up the new audio to play
+##  after the scene's currently playing audio finishes.
+@export var queue_play := false
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
