@@ -6,7 +6,13 @@
 class_name ScaledIndexPlayer extends Control
 
 
+## Time in seconds to play each note.
 @export var note_length_seconds: float = 0.75
+
+
+## If [false], pressing the Play [Button] will interrupt the scene's currently
+##  playing audio.
+@export var queue_play := true
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -97,7 +103,9 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_pressed() -> void:
-	stop_notes()
+	if not queue_play:
+		stop_notes()
+
 	print_debug('line_edit.text:', line_edit.text)
 	var translated_notes = line_edit.text.split(_translated_notes_separator)
 	print_debug('line_edit.text split by separator:', translated_notes)
