@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bgu8attn1nggm"]
+
+[ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_clsq1"]
+
+[node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
+offset_right = 371.0
+offset_bottom = 31.0
+script = ExtResource("1_qs24r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=883915260]
+stream = SubResource("AudioStreamGenerator_clsq1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163571453]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="HBoxContainer" unique_id=1338124044]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer" unique_id=1431590144]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=217465911]
+layout_mode = 2
+text = "Toggle Playing One Infinite First Note"
+
+[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
