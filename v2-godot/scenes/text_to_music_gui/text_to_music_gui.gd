@@ -11,7 +11,7 @@ var converter_methods = Convert.new()
 # Get output rows excluding the first row of user input.
 @onready var play_var_list: Array[Node] = (
 	$MarginContainer/VBoxContainer.get_children()
-		.filter(func (child): return child is ScaledSolfegePlayer)
+		.filter(func (child): return child is ScaledSolfegePlayerFirstNote)
 )
 
 var _scale_in_solfege: Array[ScaleData] = []
