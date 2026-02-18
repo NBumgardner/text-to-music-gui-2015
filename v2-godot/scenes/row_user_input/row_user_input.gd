@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 ## Signal called with the contents of the [LineEdit] when the [i]Translate[/i]
-##  button is pressed.
+##  [Button] is pressed.
 ## [br][br]
 ## Also called when pressing [i]Enter[/i] on a keyboard while focused on the
 ##  [LineEdit].

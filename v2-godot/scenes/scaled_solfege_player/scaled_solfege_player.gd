@@ -6,6 +6,10 @@
 class_name ScaledSolfegePlayer extends Control
 
 
+## Signal called when the [i]Play[/i] [Button] is pressed.
+signal play_button_pressed()
+
+
 ## Time in seconds to play each note.
 @export var note_length_seconds: float = 0.75
 
@@ -100,6 +104,8 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_pressed() -> void:
+	play_button_pressed.emit()
+
 	if not queue_play:
 		stop_notes()
 
