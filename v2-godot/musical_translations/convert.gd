@@ -56,9 +56,7 @@ func myStrToInt(s, scale=12):
 	return result
 
 
-## Prep a string.
-## Takes an input [String].
-## Outputs a caps locked list of strings, where each word is an element.
+## Sanitize an input [String] to become a list of uppercase words.
 ## Removes whitespace characters.
-func prepareStr(s):
-	return s.strip_edges().to_upper().split(' ')
+func sanitizeStringIntoUppercaseWordList(text, separator = ' '):
+	return text.strip_edges().to_upper().split(separator)

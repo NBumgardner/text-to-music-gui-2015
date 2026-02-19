@@ -88,11 +88,18 @@ func _mute_streams():
 
 func _play_note_at_index(note_index: int) -> void:
 	_mute_streams()
+
+	if note_index == -1:
+		# Play silence for unrecognized solfege including [code](rest)[/code].
+		time_since_last_note_started = 0
+		return
+
 	audio_stream_player.stream.set_sync_stream_volume(
 		note_index,
 		VOLUME_NORMAL_DECIBEL % audio_stream_player.stream.get_stream_count()
 	)
 	audio_stream_player.play()
+
 	time_since_last_note_started = 0
 
 
@@ -154,8 +161,12 @@ func _on_line_edit_text_submitted(_new_text):
 	$HBoxContainer/Button.pressed.emit()
 
 
+## Usually called once for each [ScaledSolfegePlayer] when the [i]Translate[/i]
+##  [Button] of a [RowUserInput] is clicked.
 func _on_row_user_input_request_to_translate(raw_text):
-	var sanitized_text = ''.join(_converter_methods.prepareStr(raw_text))
+	var sanitized_text = ''.join(
+		_converter_methods.sanitizeStringIntoUppercaseWordList(raw_text)
+	)
 
 	var translated_text = TRANSLATED_NOTES_SEPARATOR.join(
 		_converter_methods.myStrToInt(
@@ -167,12 +178,14 @@ func _on_row_user_input_request_to_translate(raw_text):
 	_set_line_edit(translated_text)
 
 	print_debug('Parsing: ', raw_text)
-	var upper_cased_word_list: PackedStringArray = _converter_methods.prepareStr(
-		raw_text
+	var uppercase_word_list: PackedStringArray = (
+		_converter_methods.sanitizeStringIntoUppercaseWordList(
+			raw_text
+		)
 	)
 
 	var numbers_translated_from_upper_cased_words_list = (
-		_translate_words_list_into_numbers_list_list(upper_cased_word_list)
+		_translate_words_list_into_numbers_list_list(uppercase_word_list)
 	)
 
 	_set_other_entry_fields(numbers_translated_from_upper_cased_words_list)
