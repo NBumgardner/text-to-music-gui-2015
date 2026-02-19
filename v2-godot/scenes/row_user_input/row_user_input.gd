@@ -7,12 +7,18 @@ extends HBoxContainer
 ##  [LineEdit].
 signal request_to_translate(raw_text)
 
-@onready var input_control_to_translate: LineEdit = (
-	$LineEdit
-)
+
+@onready var input_control_to_translate: LineEdit = $LineEdit
 
 
-func _on_button_pressed():
+## Get [LineEdit] text.
+func get_line_edit_text():
+	return input_control_to_translate.text
+
+
+## Emit signal [request_to_translate] containing the [LineEdit] text to
+##  translate.
+func request_to_translate_line_edit():
 	# Get string to be translated.
 	var raw_text: String = input_control_to_translate.text
 	if raw_text == '': # Guardian.
@@ -21,6 +27,15 @@ func _on_button_pressed():
 
 	print_debug('Requesting to translate: ', raw_text)
 	request_to_translate.emit(raw_text)
+
+
+## Set [LineEdit] text.
+func set_line_edit_text(text):
+	input_control_to_translate.set_text(text)
+
+
+func _on_button_pressed():
+	request_to_translate_line_edit()
 
 
 func _on_line_edit_text_submitted(_new_text):
