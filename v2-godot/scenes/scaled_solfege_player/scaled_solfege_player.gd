@@ -36,14 +36,14 @@ signal play_button_pressed()
 @onready var play_button = $HBoxContainer/Button
 
 
-const _ignored_character_ord_list = [
+const IGNORED_CHARACTER_ORD_LIST = [
 	32, # Single space
 	44, # Comma
-	_translated_notes_separator
+	TRANSLATED_NOTES_SEPARATOR
 ]
-const _translated_notes_separator = ' '
-const _volume_mute_decibel = -60
-const _volume_normal_decibel = 0
+const TRANSLATED_NOTES_SEPARATOR = ' '
+const VOLUME_MUTE_DECIBEL = -60
+const VOLUME_NORMAL_DECIBEL = 0
 
 
 var _converter_methods: Convert = Convert.new()
@@ -83,14 +83,14 @@ func stop_notes():
 
 func _mute_streams():
 	for stream_index in audio_stream_player.stream.get_stream_count():
-		audio_stream_player.stream.set_sync_stream_volume(stream_index, _volume_mute_decibel)
+		audio_stream_player.stream.set_sync_stream_volume(stream_index, VOLUME_MUTE_DECIBEL)
 
 
 func _play_note_at_index(note_index: int) -> void:
 	_mute_streams()
 	audio_stream_player.stream.set_sync_stream_volume(
 		note_index,
-		_volume_normal_decibel % audio_stream_player.stream.get_stream_count()
+		VOLUME_NORMAL_DECIBEL % audio_stream_player.stream.get_stream_count()
 	)
 	audio_stream_player.play()
 	time_since_last_note_started = 0
@@ -103,9 +103,9 @@ func _set_line_edit(text: String) -> void:
 
 func _set_notes_to_play() -> void:
 	var notes_to_play_text_segments = []
-	var translated_notes = line_edit.text.split(_translated_notes_separator)
+	var translated_notes = line_edit.text.split(TRANSLATED_NOTES_SEPARATOR)
 	for translated_note in translated_notes:
-		if _ignored_character_ord_list.has(translated_note):
+		if IGNORED_CHARACTER_ORD_LIST.has(translated_note):
 			continue
 
 		var wrapped_around_note = int(translated_note) % _note_index_modulo
@@ -122,11 +122,11 @@ func _on_button_pressed() -> void:
 		stop_notes()
 
 	print_debug('line_edit.text:', line_edit.text)
-	var translated_notes = line_edit.text.split(_translated_notes_separator)
+	var translated_notes = line_edit.text.split(TRANSLATED_NOTES_SEPARATOR)
 	print_debug('line_edit.text split by separator:', translated_notes)
 
 	for translated_note in translated_notes:
-		if (_ignored_character_ord_list.has(translated_note)
+		if (IGNORED_CHARACTER_ORD_LIST.has(translated_note)
 				or translated_note == ''):
 			continue
 
@@ -157,7 +157,7 @@ func _on_line_edit_text_submitted(_new_text):
 func _on_row_user_input_request_to_translate(raw_text):
 	var sanitized_text = ''.join(_converter_methods.prepareStr(raw_text))
 
-	var translated_text = _translated_notes_separator.join(
+	var translated_text = TRANSLATED_NOTES_SEPARATOR.join(
 		_converter_methods.myStrToInt(
 			sanitized_text,
 			26
