@@ -184,7 +184,7 @@ func set_line_edit_text(incoming_text: String) -> void:
 
 func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 	var solfege_strings = every_pitch_scale_for_playback.solfege_ascending_string.split(
-		" ",
+		TRANSLATED_NOTES_SEPARATOR,
 		false
 	)
 	var has_solfege_string_match = solfege_strings.has(solfege_note)
@@ -212,7 +212,7 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 	var result: String = _converter_methods.iListsToSolfege(
 		numbers_list_list,
-		musical_scale.solfege_ascending_string.split(" ")
+		musical_scale.solfege_ascending_string.split(TRANSLATED_NOTES_SEPARATOR)
 	)
 	set_line_edit_text(result)
 
