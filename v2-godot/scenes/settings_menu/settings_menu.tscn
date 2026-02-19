@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cdl22x1vidibc"]
 
+[ext_resource type="Script" uid="uid://cbwh6jrbbmhe6" path="res://scenes/settings_menu/settings_menu.gd" id="1_j78aw"]
+
 [node name="SettingsMenu" type="MarginContainer" unique_id=1330597206]
 offset_right = 253.0
 offset_bottom = 112.0
+script = ExtResource("1_j78aw")
 
 [node name="Panel" type="Panel" parent="." unique_id=201151292]
 layout_mode = 2
@@ -28,3 +31,5 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=520567130]
 layout_mode = 2
 text = "Developed by Noah Bumgardner"
+
+[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
