@@ -16,7 +16,7 @@ class_name Convert
 ##     iltsolfege([[0, 1, 2], [0,3,4]], "Do Re Mi Fa So La Ti".split())
 ##     ['Do Re Mi', 'Do Fa So']
 ## [/codeblock]
-func iltsolfege(intsList: Array[Array], scaleNames: Array) -> Array:
+func iltsolfege(intsList, scaleNames):
 	var mod = len(scaleNames)
 	var result = []
 	for nums in intsList:
@@ -38,13 +38,13 @@ func iltsolfege(intsList: Array[Array], scaleNames: Array) -> Array:
 ##     iListsToSolfege([[0], [0], [0]], "Do Re Mi Fa So La Ti".split())
 ##     "Do (rest) Do (rest) Do"
 ## [/codeblock]
-func iListsToSolfege(intsLists: Array[Array], scaleNames: Array) -> String:
+func iListsToSolfege(intsLists, scaleNames):
 	var strList = iltsolfege(intsLists, scaleNames)
 	return ' (rest) '.join(strList)
 
 
 ## Takes [scale] for the number of unique tones in the scale used.
-func myStrToInt(s: String, scale = 12) -> Array:
+func myStrToInt(s, scale=12):
 	var result = []
 	# For each character in s
 	for character in s:
@@ -60,5 +60,5 @@ func myStrToInt(s: String, scale = 12) -> Array:
 ## Takes an input [String].
 ## Outputs a caps locked list of strings, where each word is an element.
 ## Removes whitespace characters.
-func prepareStr(s: String) -> Array:
+func prepareStr(s):
 	return s.strip_edges().to_upper().split(' ')
