@@ -198,7 +198,7 @@ func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 
 # Replace other Entry fields.
 # Translates lists of numbers, usually calculated from words, into solfege.
-func _set_other_entry_fields(numbers_list_list) -> void:
+func _set_other_entry_fields(numbers_list_list: Array[Array]) -> void:
 	var scale_list_index: int = 0
 
 	if musical_scale == null:
@@ -215,7 +215,7 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 	print_debug('Translation of ', scale_list_index, ' scales complete.')
 
-func _translate_words_list_into_numbers_list_list(word_list):
+func _translate_words_list_into_numbers_list_list(word_list) -> Array[Array]:
 	# Strict typing of `Array[Array[int]]` is not supported.
 	var numbers_translated_from_word_list = []
 
@@ -224,7 +224,7 @@ func _translate_words_list_into_numbers_list_list(word_list):
 	for word in word_list:
 		# Type of `Array[int]` will be appended into an unsupported type of
 		#  `Array[Array[int]]`.
-		var numbers_in_valid_range_list = converter_methods.myStrToInt(
+		var numbers_in_valid_range_list: Array = converter_methods.myStrToInt(
 			word,
 			26
 		)
