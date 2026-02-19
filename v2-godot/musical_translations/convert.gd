@@ -1,18 +1,21 @@
-# Functions to convert between integers, strings, and solfege strings.
-# Translated from original Python code into GDScript on 8/25/2024.
+## Functions to convert between integers, strings, and solfege strings.
+## [br][br]
+## Translated from original Python code into GDScript on 8/25/2024.
+class_name Convert
 
 
-"""
-Translates each list of integers, within a list, into a
-	string of solfege names.
-N: Currently only for Major scale.
-iltsolfege means Integers_List_To_Solfege
-
->>> iltsolfege([[0, 1, 2]], "Do Re Mi Fa So La Ti".split())
-['Do Re Mi']
->>> iltsolfege([[0, 1, 2], [0,3,4]], "Do Re Mi Fa So La Ti".split())
-['Do Re Mi', 'Do Fa So']
-"""
+## Translates each list of integers, within a list, into a string of
+##  solfege names.
+## N: Currently only for Major scale.
+## iltsolfege means Integers_List_To_Solfege
+## [br][br]
+## [codeblock]
+##     iltsolfege([[0, 1, 2]], "Do Re Mi Fa So La Ti".split())
+##     ['Do Re Mi']
+##
+##     iltsolfege([[0, 1, 2], [0,3,4]], "Do Re Mi Fa So La Ti".split())
+##     ['Do Re Mi', 'Do Fa So']
+## [/codeblock]
 func iltsolfege(intsList, scaleNames):
 	var mod = len(scaleNames)
 	var result = []
@@ -26,23 +29,21 @@ func iltsolfege(intsList, scaleNames):
 	return result
 
 
-"""
-iListsToSolfege means Integers_Lists_To_Solfege
-
->>> iListsToSolfege([[0, 1, 2]], "Do Re Mi Fa So La Ti".split())
-"Do Re Mi"
->>> iListsToSolfege([[0], [0], [0]], "Do Re Mi Fa So La Ti".split())
-"Do (rest) Do (rest) Do"
-"""
+## iListsToSolfege means Integers_Lists_To_Solfege.
+## [br][br]
+## [codeblock]
+##     iListsToSolfege([[0, 1, 2]], "Do Re Mi Fa So La Ti".split())
+##     "Do Re Mi"
+##
+##     iListsToSolfege([[0], [0], [0]], "Do Re Mi Fa So La Ti".split())
+##     "Do (rest) Do (rest) Do"
+## [/codeblock]
 func iListsToSolfege(intsLists, scaleNames):
 	var strList = iltsolfege(intsLists, scaleNames)
 	return ' (rest) '.join(strList)
 
 
-"""
-'scale' means the number of unique tones
-	in the scale used.
-"""
+## Takes [scale] for the number of unique tones in the scale used.
 func myStrToInt(s, scale=12):
 	var result = []
 	# For each character in s
@@ -55,11 +56,9 @@ func myStrToInt(s, scale=12):
 	return result
 
 
-"""
-Input:  String.
-Output: Caps locked list of strings, where each word is
-		an element.
-	Removes whitespace characters.
-"""
+## Prep a string.
+## Takes an input [String].
+## Outputs a caps locked list of strings, where each word is an element.
+## Removes whitespace characters.
 func prepareStr(s):
 	return s.strip_edges().to_upper().split(' ')
