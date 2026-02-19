@@ -21,7 +21,7 @@ const _play_button_text = 'Play'
 const _translated_notes_separator = ' '
 
 
-var _converter_methods = _convert.new()
+var _converter_methods: Convert = _convert.new()
 var _scale_line_edit_list = []
 
 
