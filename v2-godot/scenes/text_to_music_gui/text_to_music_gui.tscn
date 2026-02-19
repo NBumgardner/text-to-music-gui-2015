@@ -9,7 +9,7 @@
 [ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="4_epnop"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
-[ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/ScaledSolfegePlayer.tscn" id="9_iv8pr"]
+[ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/scaled_solfege_player.tscn" id="9_iv8pr"]
 
 [node name="Control" type="Control" unique_id=1523121573]
 layout_mode = 3
