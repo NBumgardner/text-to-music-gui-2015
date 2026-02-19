@@ -178,8 +178,9 @@ func _on_row_user_input_request_to_translate(raw_text):
 	_set_other_entry_fields(numbers_translated_from_upper_cased_words_list)
 
 
-func set_line_edit_text(incoming_text: String) -> void:
-	$HBoxContainer/LineEdit.text = incoming_text
+## Set [LineEdit] text.
+func set_line_edit_text(incoming_text):
+	line_edit.text = incoming_text
 
 
 func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
