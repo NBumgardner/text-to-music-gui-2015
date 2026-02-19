@@ -31,10 +31,14 @@ func _on_scaled_solfege_player_play_button_pressed():
 		scaled_solfege_player.stop_notes()
 
 
-func _on_settings_menu_turbo_mode_toggle_requested(toggled_on):
+func _on_button_mouse_entered():
+	sfx_mouse_hover.play()
+
+
+func _on_settings_menu_playback_speed_toggle_requested(toggled_on, multiplier):
 	# When toggling on, play notes twice as fast by lasting half as long.
-	var note_length_multiplier = 0.5
-	
+	var note_length_multiplier = multiplier
+
 	if not toggled_on:
 		# When toggling off, invert the multiplication to restore original note
 		#  lengths.
@@ -44,7 +48,3 @@ func _on_settings_menu_turbo_mode_toggle_requested(toggled_on):
 		scaled_solfege_player.note_length_seconds = (
 			scaled_solfege_player.note_length_seconds * note_length_multiplier
 		)
-
-
-func _on_button_mouse_entered():
-	sfx_mouse_hover.play()

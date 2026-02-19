@@ -113,3 +113,4 @@ stream = ExtResource("13_pps6h")
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="playback_speed_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]
