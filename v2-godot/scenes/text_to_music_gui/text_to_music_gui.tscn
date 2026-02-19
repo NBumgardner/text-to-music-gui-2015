@@ -53,6 +53,7 @@ text = "Text to Music GUI"
 horizontal_alignment = 1
 
 [node name="ButtonSettings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1446587811]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "🛠"
