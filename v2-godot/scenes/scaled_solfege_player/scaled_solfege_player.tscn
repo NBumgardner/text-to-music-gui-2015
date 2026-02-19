@@ -26,6 +26,7 @@ autowrap_mode = 3
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer" unique_id=1431590144]
 layout_mode = 2
 size_flags_horizontal = 3
+keep_editing_on_text_submit = true
 
 [node name="Button" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2

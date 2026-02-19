@@ -15,6 +15,7 @@ text = "Input Text:"
 [node name="LineEdit" type="LineEdit" parent="." unique_id=2057487666]
 layout_mode = 2
 size_flags_horizontal = 3
+keep_editing_on_text_submit = true
 
 [node name="Button" type="Button" parent="." unique_id=750956017]
 layout_mode = 2
