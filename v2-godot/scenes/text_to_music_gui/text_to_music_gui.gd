@@ -22,3 +22,16 @@ func _on_button_settings_pressed():
 func _on_scaled_solfege_player_play_button_pressed():
 	for scaled_solfege_player in scaled_solfege_player_list:
 		scaled_solfege_player.stop_notes()
+
+
+func _on_settings_menu_turbo_mode_toggle_requested(toggled_on):
+	if toggled_on:
+		for scaled_solfege_player in scaled_solfege_player_list:
+			scaled_solfege_player.note_length_seconds = (
+				scaled_solfege_player.note_length_seconds / 2
+			)
+	else:
+		for scaled_solfege_player in scaled_solfege_player_list:
+			scaled_solfege_player.note_length_seconds = (
+				scaled_solfege_player.note_length_seconds * 2
+			)

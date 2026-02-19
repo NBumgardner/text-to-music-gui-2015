@@ -101,3 +101,4 @@ grow_vertical = 2
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="turbo_mode_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_turbo_mode_toggle_requested"]
