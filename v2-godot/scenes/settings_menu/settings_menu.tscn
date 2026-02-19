@@ -23,14 +23,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Enable Turbo Mode"
 
-[node name="TurboModeDescription" type="Label" parent="VBoxContainer" unique_id=178435131]
-layout_mode = 2
-text = "(x2.0 Playback Speed)"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1972121968]
-layout_mode = 2
-
 [node name="LabelCredits" type="Label" parent="VBoxContainer" unique_id=1849461927]
 layout_mode = 2
 text = "Credits"
