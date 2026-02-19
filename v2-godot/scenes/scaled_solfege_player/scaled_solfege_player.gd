@@ -10,6 +10,13 @@ class_name ScaledSolfegePlayer extends Control
 signal play_button_pressed()
 
 
+## Every pitch scale to decide how to playback solfege.
+## Missing symbols are skipped during playback.
+@export var every_pitch_scale_for_playback: ScaleData = preload(
+	"res://data/scales/chromatic.tres"
+)
+
+
 ## Time in seconds to play each note.
 @export var note_length_seconds: float = 0.75
 
@@ -40,7 +47,15 @@ const _volume_normal_decibel = 0
 
 
 var _converter_methods: Convert = Convert.new()
+
+
+## Number of unique pitches per octave of the [musical_scale] input.
+## [br][br]
+## Used when translating incoming text into solfege.
+## Not used during audio playback.
 var _note_index_modulo = 8
+
+
 var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
 
@@ -168,7 +183,7 @@ func set_line_edit_text(incoming_text: String) -> void:
 
 
 func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
-	var solfege_strings = musical_scale.solfege_ascending_string.split(
+	var solfege_strings = every_pitch_scale_for_playback.solfege_ascending_string.split(
 		" ",
 		false
 	)
@@ -179,13 +194,13 @@ func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 
 	var solfege_string_match_index = solfege_strings.find(solfege_note)
 
-	return musical_scale.solfege_ascending_notes[
+	return every_pitch_scale_for_playback.solfege_ascending_notes[
 		solfege_string_match_index
 	].chromatic_index
 
 
-# Replace other Entry fields.
-# Translates lists of numbers, usually calculated from words, into solfege.
+## Replace other Entry fields.
+## Translates lists of numbers, usually calculated from words, into solfege.
 func _set_other_entry_fields(numbers_list_list) -> void:
 	var scale_list_index: int = 0
 
