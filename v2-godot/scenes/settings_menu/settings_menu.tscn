@@ -18,10 +18,10 @@ layout_mode = 2
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer" unique_id=246409762]
+[node name="CheckBoxPlaybackSpeedFaster" type="CheckBox" parent="VBoxContainer" unique_id=246409762]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Enable Turbo Mode"
+text = "Playback Speed x2"
 
 [node name="LabelCredits" type="Label" parent="VBoxContainer" unique_id=1849461927]
 layout_mode = 2
@@ -32,4 +32,4 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Developed by Noah Bumgardner"
 
-[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_toggled"]
