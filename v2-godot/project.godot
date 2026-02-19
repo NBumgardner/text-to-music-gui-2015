@@ -17,14 +17,6 @@ run/main_scene="res://scenes/text_to_music_gui/text_to_music_gui.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-SoundManager="*uid://c024e0nlh178u"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
