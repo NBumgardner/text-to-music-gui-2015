@@ -86,6 +86,8 @@ func _mute_streams():
 		audio_stream_player.stream.set_sync_stream_volume(stream_index, VOLUME_MUTE_DECIBEL)
 
 
+## Start playing a note at the given index of the
+##  [every_pitch_scale_for_playback].
 func _play_note_at_index(note_index: int) -> void:
 	_mute_streams()
 
