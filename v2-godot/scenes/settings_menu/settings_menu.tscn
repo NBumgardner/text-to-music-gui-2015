@@ -19,9 +19,32 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="CheckBoxPlaybackSpeedFaster" type="CheckBox" parent="VBoxContainer" unique_id=246409762]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Playback Speed x2"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=346074513]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelNoteLength" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1869612957]
+visible = false
+layout_mode = 2
+text = "Note length"
+
+[node name="SpinBoxNoteLength" type="SpinBox" parent="VBoxContainer/HBoxContainer" unique_id=2061851520]
+layout_mode = 2
+max_value = 99.0
+step = 0.0
+value = 0.75
+update_on_text_changed = true
+suffix = "sec"
+custom_arrow_step = 0.25
+
+[node name="LabelPerNote" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=768882975]
+layout_mode = 2
+text = "per note"
 
 [node name="LabelCredits" type="Label" parent="VBoxContainer" unique_id=1849461927]
 layout_mode = 2
