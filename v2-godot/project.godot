@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="Text To Music GUI"
+config/description="Want to hear your name as a song? This GUI turns text into melodies."
+config/tags=PackedStringArray("2d", "audio", "gui")
 run/main_scene="res://scenes/text_to_music_gui/TextToMusicGui.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
