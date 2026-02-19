@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
+[ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_1a0bd"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
 [ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="4_epnop"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
@@ -50,6 +51,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1766561148]
 layout_mode = 2
+theme = ExtResource("3_1a0bd")
 text = "Text to Music GUI"
 horizontal_alignment = 1
 
@@ -101,4 +103,3 @@ grow_vertical = 2
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" to="." method="_on_scaled_solfege_player_play_button_pressed"]
 [connection signal="play_button_pressed" from="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" to="." method="_on_scaled_solfege_player_play_button_pressed"]
-[connection signal="turbo_mode_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_turbo_mode_toggle_requested"]
