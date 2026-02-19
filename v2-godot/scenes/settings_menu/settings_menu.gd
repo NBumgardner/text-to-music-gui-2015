@@ -5,5 +5,5 @@ extends MarginContainer
 signal turbo_mode_toggle_requested(toggled_on: bool)
 
 
-func _on_check_box_toggled(toggled_on: bool) -> void:
+func _on_check_box_playback_speed_faster_toggled(toggled_on):
 	turbo_mode_toggle_requested.emit(toggled_on)

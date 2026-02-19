@@ -32,4 +32,4 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Developed by Noah Bumgardner"
 
-[connection signal="toggled" from="VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]
