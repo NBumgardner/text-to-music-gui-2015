@@ -14,7 +14,10 @@ stream = ExtResource("2_ueegv")
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163571453]
 layout_mode = 2
 
-[node name="ScaleName" type="Label" parent="HBoxContainer" unique_id=1338124044]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=130988935]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="HBoxContainer/MarginContainer" unique_id=1338124044]
 layout_mode = 2
 text = "Scale"
 
