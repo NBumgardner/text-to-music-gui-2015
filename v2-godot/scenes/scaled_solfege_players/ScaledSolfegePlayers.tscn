@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bjwlc1e36708c"]
+
+[ext_resource type="Script" uid="uid://b3igbye2aqgfg" path="res://scenes/scaled_solfege_players/scaled_solfege_players.gd" id="1_qjn5f"]
+[ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_wym5g"]
+
+[node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
+offset_right = 371.0
+offset_bottom = 31.0
+script = ExtResource("1_qjn5f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=640665284]
+stream = ExtResource("2_wym5g")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=437509906]
+layout_mode = 2
+columns = 3
+
+[node name="MarginContainerMajorScale" type="MarginContainer" parent="GridContainer" unique_id=130988935]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="GridContainer/MarginContainerMajorScale" unique_id=1338124044]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEditMajorScale" type="LineEdit" parent="GridContainer" unique_id=1431590144]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonPlay" type="Button" parent="GridContainer" unique_id=217465911]
+layout_mode = 2
+text = " Play ▶ "
+
+[node name="MarginContainerMinor" type="MarginContainer" parent="GridContainer" unique_id=26290041]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="GridContainer/MarginContainerMinor" unique_id=1259366117]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEditMinorScaleRow" type="LineEdit" parent="GridContainer" unique_id=1090627752]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonPlayMinorRow" type="Button" parent="GridContainer" unique_id=528205161]
+layout_mode = 2
+text = " Play ▶ "
+
+[node name="MarginContainerChromatic" type="MarginContainer" parent="GridContainer" unique_id=513522752]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="GridContainer/MarginContainerChromatic" unique_id=831106260]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEditChromaticScaleRow" type="LineEdit" parent="GridContainer" unique_id=1541384329]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonPlayChromaticRow" type="Button" parent="GridContainer" unique_id=1203110024]
+layout_mode = 2
+text = " Play ▶ "
+
+[node name="MarginContainerPentatonic" type="MarginContainer" parent="GridContainer" unique_id=916433847]
+layout_mode = 2
+
+[node name="ScaleName" type="Label" parent="GridContainer/MarginContainerPentatonic" unique_id=1935308426]
+layout_mode = 2
+text = "Scale"
+
+[node name="LineEditPentatonicScale" type="LineEdit" parent="GridContainer" unique_id=2145090508]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonPlayPentatonicScaleRow" type="Button" parent="GridContainer" unique_id=1911604313]
+layout_mode = 2
+text = " Play ▶ "
+
+[connection signal="text_submitted" from="GridContainer/LineEditMajorScale" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="GridContainer/ButtonPlay" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="GridContainer/LineEditMinorScaleRow" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="GridContainer/ButtonPlayMinorRow" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="GridContainer/LineEditChromaticScaleRow" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="GridContainer/ButtonPlayChromaticRow" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="GridContainer/LineEditPentatonicScale" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="GridContainer/ButtonPlayPentatonicScaleRow" to="." method="_on_button_pressed"]
