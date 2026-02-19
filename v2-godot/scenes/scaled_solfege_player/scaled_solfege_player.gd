@@ -29,7 +29,6 @@ signal play_button_pressed()
 @onready var play_button = $HBoxContainer/Button
 
 
-const _convert = preload("../../musical_translations/convert.gd")
 const _ignored_character_ord_list = [
 	32, # Single space
 	44, # Comma
@@ -40,7 +39,7 @@ const _volume_mute_decibel = -60
 const _volume_normal_decibel = 0
 
 
-var _converter_methods = _convert.new()
+var _converter_methods: Convert = Convert.new()
 var _note_index_modulo = 8
 var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
@@ -153,7 +152,7 @@ func _on_row_user_input_request_to_translate(raw_text):
 	_set_line_edit(translated_text)
 
 	print_debug('Parsing: ', raw_text)
-	var upper_cased_word_list: PackedStringArray = converter_methods.prepareStr(
+	var upper_cased_word_list: PackedStringArray = _converter_methods.prepareStr(
 		raw_text
 	)
 
@@ -162,17 +161,6 @@ func _on_row_user_input_request_to_translate(raw_text):
 	)
 
 	_set_other_entry_fields(numbers_translated_from_upper_cased_words_list)
-
-
-
-
-
-
-
-
-const Convert = preload("../../musical_translations/convert.gd")
-
-var converter_methods = Convert.new()
 
 
 func set_line_edit_text(incoming_text: String) -> void:
@@ -207,7 +195,7 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 		)
 		return
 
-	var result: String = converter_methods.iListsToSolfege(
+	var result: String = _converter_methods.iListsToSolfege(
 		numbers_list_list,
 		musical_scale.solfege_ascending_string.split(" ")
 	)
@@ -224,7 +212,7 @@ func _translate_words_list_into_numbers_list_list(word_list):
 	for word in word_list:
 		# Type of `Array[int]` will be appended into an unsupported type of
 		#  `Array[Array[int]]`.
-		var numbers_in_valid_range_list = converter_methods.myStrToInt(
+		var numbers_in_valid_range_list = _converter_methods.myStrToInt(
 			word,
 			26
 		)
