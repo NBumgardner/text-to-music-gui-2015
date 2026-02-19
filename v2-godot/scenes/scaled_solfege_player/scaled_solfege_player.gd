@@ -34,6 +34,7 @@ signal play_button_pressed()
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
 @onready var play_button = $HBoxContainer/Button
+@onready var sfx_mouse_hover = $SfxMouseHover
 
 
 const IGNORED_CHARACTER_ORD_LIST = [
@@ -257,3 +258,7 @@ func _translate_words_list_into_numbers_list_list(word_list):
 	)
 
 	return numbers_translated_from_word_list
+
+
+func _on_button_mouse_entered():
+	sfx_mouse_hover.play()

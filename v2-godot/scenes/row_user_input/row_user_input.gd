@@ -11,6 +11,9 @@ signal request_to_translate(raw_text)
 @onready var input_control_to_translate: LineEdit = $LineEdit
 
 
+@onready var sfx_mouse_hover = $SfxMouseHover
+
+
 ## Get [LineEdit] text.
 func get_line_edit_text():
 	return input_control_to_translate.text
@@ -40,3 +43,7 @@ func _on_button_pressed():
 
 func _on_line_edit_text_submitted(_new_text):
 	$Button.pressed.emit()
+
+
+func _on_button_mouse_entered():
+	sfx_mouse_hover.play()

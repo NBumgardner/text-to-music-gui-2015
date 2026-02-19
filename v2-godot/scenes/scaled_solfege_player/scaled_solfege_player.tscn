@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
 [ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/play_button_theme.tres" id="1_v0arx"]
 [ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_ueegv"]
+[ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="4_q452i"]
 
 [node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
 offset_right = 371.0
@@ -12,6 +13,10 @@ script = ExtResource("1_qs24r")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=640665284]
 stream = ExtResource("2_ueegv")
+
+[node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=1238374871]
+stream = ExtResource("4_q452i")
+volume_db = -8.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163571453]
 layout_mode = 2
@@ -35,4 +40,5 @@ layout_mode = 2
 text = " Play ▶ "
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="mouse_entered" from="HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
