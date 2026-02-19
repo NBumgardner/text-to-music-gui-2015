@@ -20,7 +20,7 @@ func get_line_edit_text():
 ##  translate.
 func request_to_translate_line_edit():
 	# Get string to be translated.
-	var raw_text: String = input_control_to_translate.text
+	var raw_text: String = get_line_edit_text()
 	if raw_text == '': # Guardian.
 		print_debug('NO INPUT FOUND. Please enter text for translation.')
 		return
