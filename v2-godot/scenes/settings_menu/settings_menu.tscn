@@ -42,5 +42,6 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=520567130]
 layout_mode = 2
 text = "Developed by Noah Bumgardner"
+horizontal_alignment = 1
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]
