@@ -54,3 +54,7 @@ func _set_note_lengths_by_multiplier(multiplier):
 		scaled_solfege_player.note_length_seconds = (
 			scaled_solfege_player.note_length_seconds * multiplier
 		)
+
+
+func _on_settings_menu_close_requested():
+	sfx_selection_made.play()

@@ -134,4 +134,5 @@ stream = ExtResource("13_pps6h")
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
+[connection signal="close_requested" from="SettingsMenu" to="." method="_on_settings_menu_close_requested"]
 [connection signal="playback_speed_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]

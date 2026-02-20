@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbwh6jrbbmhe6" path="res://scenes/settings_menu/settings_menu.gd" id="1_j78aw"]
 [ext_resource type="Theme" uid="uid://b1n75s5tdq5w2" path="res://themes/settings_menu_margin_theme.tres" id="1_p28av"]
 [ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_vlvk0"]
+[ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="4_j2s20"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlvk0"]
 bg_color = Color(0.051970966, 0.051970966, 0.051970936, 0.8784314)
@@ -66,5 +67,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "Close"
 
+[node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=1858534165]
+stream = ExtResource("4_j2s20")
+volume_db = -8.0
+
 [connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]
+[connection signal="mouse_entered" from="MarginContainer/ButtonClose" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/ButtonClose" to="." method="_on_button_close_pressed"]
