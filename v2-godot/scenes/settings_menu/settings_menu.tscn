@@ -5,9 +5,8 @@
 [ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_vlvk0"]
 
 [node name="SettingsMenu" type="MarginContainer" unique_id=1330597206]
-offset_right = 253.0
-offset_bottom = 112.0
-theme = ExtResource("1_p28av")
+offset_right = 418.0
+offset_bottom = 348.0
 script = ExtResource("1_j78aw")
 
 [node name="Panel" type="Panel" parent="." unique_id=201151292]
@@ -15,6 +14,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=377624741]
 layout_mode = 2
+theme = ExtResource("1_p28av")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1962916793]
 layout_mode = 2
@@ -56,4 +56,11 @@ text = "Godot-Onscreen-Keyboard plugin by Martin Fuchs
 Roboto font by Christian Robertson"
 horizontal_alignment = 1
 
+[node name="ButtonClose" type="Button" parent="MarginContainer" unique_id=708058425]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Close"
+
 [connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]
+[connection signal="pressed" from="MarginContainer/ButtonClose" to="." method="_on_button_close_pressed"]

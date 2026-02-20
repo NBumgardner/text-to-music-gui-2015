@@ -105,6 +105,7 @@ font_size = 30
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
 [node name="SettingsMenu" parent="." unique_id=1330597206 instance=ExtResource("10_2xp20")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

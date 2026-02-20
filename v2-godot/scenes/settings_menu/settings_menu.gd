@@ -26,5 +26,9 @@ func _ready():
 	)
 
 
+func _on_button_close_pressed():
+	self.hide()
+
+
 func _on_check_box_playback_speed_faster_toggled(toggled_on):
 	playback_speed_toggle_requested.emit(toggled_on, note_length_multiplier)
