@@ -84,7 +84,10 @@ func stop_notes():
 
 func _mute_streams():
 	for stream_index in audio_stream_player.stream.get_stream_count():
-		audio_stream_player.stream.set_sync_stream_volume(stream_index, VOLUME_MUTE_DECIBEL)
+		audio_stream_player.stream.set_sync_stream_volume(
+			stream_index,
+			VOLUME_MUTE_DECIBEL
+		)
 
 
 ## Start playing a note at the given index of the
@@ -200,9 +203,11 @@ func set_line_edit_text(incoming_text):
 
 
 func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
-	var solfege_strings = every_pitch_scale_for_playback.solfege_ascending_string.split(
-		TRANSLATED_NOTES_SEPARATOR,
-		false
+	var solfege_strings = (
+		every_pitch_scale_for_playback.solfege_ascending_string.split(
+			TRANSLATED_NOTES_SEPARATOR,
+			false
+		)
 	)
 	var has_solfege_string_match = solfege_strings.has(solfege_note)
 
