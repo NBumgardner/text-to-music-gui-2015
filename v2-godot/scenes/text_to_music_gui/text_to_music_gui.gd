@@ -1,6 +1,9 @@
 extends Control
 
 
+@onready var onscreen_keyboard_wrapper = $MarginContainerBottomCenter
+
+
 # Get output rows excluding the first row of user input.
 @onready var scaled_solfege_player_list: Array[Node] = (
 	$MarginContainer/VBoxContainer.get_children()
@@ -19,6 +22,9 @@ extends Control
 
 func _ready():
 	settings_menu.visible = false
+
+	if OS.has_feature('pc'):
+		_remove_virtual_keyboard()
 
 
 func _on_button_settings_pressed():
@@ -45,6 +51,12 @@ func _on_settings_menu_playback_speed_toggle_requested(toggled_on, multiplier):
 		note_length_multiplier = 1.0 / note_length_multiplier
 
 	_set_note_lengths_by_multiplier(note_length_multiplier)
+
+
+## Remove virtual keyboard.
+## To be called once for platforms that never need it.
+func _remove_virtual_keyboard():
+	self.remove_child(onscreen_keyboard_wrapper)
 
 
 ## Adjust each [ScaledSolfegePlayer]'s audio playback note length by multiplying
