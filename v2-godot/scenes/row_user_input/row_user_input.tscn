@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="2_lh84x"]
+[ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="3_0wwct"]
 
 [node name="RowUserInput" type="HBoxContainer" unique_id=1405432130]
 script = ExtResource("1_7ehdk")
@@ -25,6 +26,9 @@ text = " Translate "
 [node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=1290965580]
 stream = ExtResource("2_lh84x")
 volume_db = -8.0
+
+[node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=1617690445]
+stream = ExtResource("3_0wwct")
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
