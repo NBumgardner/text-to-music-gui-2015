@@ -61,7 +61,8 @@ horizontal_alignment = 1
 [node name="ButtonSettings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1858140438]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "🛠"
+size_flags_vertical = 0
+text = " Settings "
 
 [node name="RowUserInput" parent="MarginContainer/VBoxContainer" unique_id=1405432130 instance=ExtResource("2_gjebr")]
 layout_mode = 2
