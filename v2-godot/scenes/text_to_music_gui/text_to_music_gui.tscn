@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="12_4gqup"]
 [ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="13_pps6h"]
 
-[node name="Control" type="Control" unique_id=1523121573]
+[node name="Main" type="Control" unique_id=1523121573]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_epnop")
-script = ExtResource("1_o4ijw")
 
 [node name="ColorRectOffScreen" type="ColorRect" parent="." unique_id=1297583770]
 layout_mode = 1
@@ -41,74 +40,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer" unique_id=902948677]
+[node name="Control" type="Control" parent="AspectRatioContainer" unique_id=832724044]
 layout_mode = 2
+script = ExtResource("1_o4ijw")
+
+[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Control" unique_id=902948677]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 720.0
 color = Color(0.23023573, 0.25136867, 0.30629554, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer" unique_id=1965559274]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control" unique_id=1965559274]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 720.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer" unique_id=208609297]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control/MarginContainer" unique_id=208609297]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=1015951040]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=1015951040]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1766561148]
+[node name="Label" type="Label" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/MarginContainer" unique_id=1766561148]
 layout_mode = 2
 theme = ExtResource("3_1a0bd")
 text = "Text to Music GUI"
 horizontal_alignment = 1
 
-[node name="ButtonSettings" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1446587811]
+[node name="ButtonSettings" type="Button" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer/MarginContainer" unique_id=1446587811]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "🛠"
 
-[node name="RowUserInput" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=51070308 instance=ExtResource("2_gjebr")]
+[node name="RowUserInput" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=51070308 instance=ExtResource("2_gjebr")]
 layout_mode = 2
 theme = ExtResource("4_epnop")
 
-[node name="ScaledSolfegePlayer5" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=1996285598 instance=ExtResource("9_iv8pr")]
+[node name="ScaledSolfegePlayer5" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=1996285598 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("3_ym40v")
 
-[node name="ScaledSolfegePlayer6" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("9_iv8pr")]
+[node name="ScaledSolfegePlayer6" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("2_qhllm")
 
-[node name="ScaledSolfegePlayer7" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=1778609240 instance=ExtResource("9_iv8pr")]
+[node name="ScaledSolfegePlayer7" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=1778609240 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("5_l0uts")
 
-[node name="ScaledSolfegePlayer8" parent="AspectRatioContainer/MarginContainer/VBoxContainer" unique_id=2051491446 instance=ExtResource("9_iv8pr")]
+[node name="ScaledSolfegePlayer8" parent="AspectRatioContainer/Control/MarginContainer/VBoxContainer" unique_id=2051491446 instance=ExtResource("9_iv8pr")]
 layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
 
-[node name="SettingsMenu" parent="AspectRatioContainer" unique_id=1005901004 instance=ExtResource("10_2xp20")]
-layout_mode = 2
+[node name="SettingsMenu" parent="AspectRatioContainer/Control" unique_id=1005901004 instance=ExtResource("10_2xp20")]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 259.0
+offset_right = 565.0
+offset_bottom = 461.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=472929582]
+[node name="SfxMouseHover" type="AudioStreamPlayer" parent="AspectRatioContainer/Control" unique_id=472929582]
 stream = ExtResource("12_4gqup")
 volume_db = -8.0
 
-[node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=1912830735]
+[node name="SfxSelectionMade" type="AudioStreamPlayer" parent="AspectRatioContainer/Control" unique_id=1912830735]
 stream = ExtResource("13_pps6h")
 
-[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
-[connection signal="request_to_translate" from="AspectRatioContainer/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer5" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="AspectRatioContainer/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="AspectRatioContainer/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
-[connection signal="request_to_translate" from="AspectRatioContainer/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
-[connection signal="play_button_pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer5" to="." method="_on_scaled_solfege_player_play_button_pressed"]
-[connection signal="play_button_pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer6" to="." method="_on_scaled_solfege_player_play_button_pressed"]
-[connection signal="play_button_pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer7" to="." method="_on_scaled_solfege_player_play_button_pressed"]
-[connection signal="play_button_pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/ScaledSolfegePlayer8" to="." method="_on_scaled_solfege_player_play_button_pressed"]
-[connection signal="playback_speed_toggle_requested" from="AspectRatioContainer/SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]
+[connection signal="mouse_entered" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="AspectRatioContainer/Control" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="AspectRatioContainer/Control" method="_on_button_settings_pressed"]
+[connection signal="request_to_translate" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer5" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/RowUserInput" to="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
+[connection signal="play_button_pressed" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer5" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="play_button_pressed" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer6" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="play_button_pressed" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer7" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="play_button_pressed" from="AspectRatioContainer/Control/MarginContainer/VBoxContainer/ScaledSolfegePlayer8" to="." method="_on_scaled_solfege_player_play_button_pressed"]
+[connection signal="playback_speed_toggle_requested" from="AspectRatioContainer/Control/SettingsMenu" to="AspectRatioContainer/Control" method="_on_settings_menu_playback_speed_toggle_requested"]

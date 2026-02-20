@@ -3,12 +3,12 @@ extends Control
 
 # Get output rows excluding the first row of user input.
 @onready var scaled_solfege_player_list: Array[Node] = (
-	$AspectRatioContainer/MarginContainer/VBoxContainer.get_children()
+	$MarginContainer/VBoxContainer.get_children()
 		.filter(func (child): return child is ScaledSolfegePlayer)
 )
 
 
-@onready var settings_menu = $AspectRatioContainer/SettingsMenu
+@onready var settings_menu = $SettingsMenu
 
 
 @onready var sfx_mouse_hover = $SfxMouseHover
