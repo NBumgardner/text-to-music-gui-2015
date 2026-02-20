@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dt6gugfhdam86"]
 
+[ext_resource type="Theme" uid="uid://ccelkuex2s4r3" path="res://themes/default.tres" id="1_4gqup"]
 [ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="1_o4ijw"]
 [ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="2_gjebr"]
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_4gqup")
 script = ExtResource("1_o4ijw")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=679849911]

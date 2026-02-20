@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://do5m2nvcbssud"]
 
-[ext_resource type="Theme" uid="uid://ccelkuex2s4r3" path="res://themes/default.tres" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dt6gugfhdam86" path="res://scenes/text_to_music_gui/text_to_music_gui.tscn" id="2_k2fmo"]
 
 [node name="Main" type="Control" unique_id=1523121573]
@@ -10,7 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_iuonh")
 
 [node name="ColorRectOffScreen" type="ColorRect" parent="." unique_id=1297583770]
 layout_mode = 1
