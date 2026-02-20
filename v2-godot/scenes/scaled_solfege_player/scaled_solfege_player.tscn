@@ -39,7 +39,7 @@ keep_editing_on_text_submit = true
 [node name="Button" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2
 theme_override_constants/icon_max_width = 30
-text = " Play"
+text = " Play "
 icon = ExtResource("5_dqj3a")
 icon_alignment = 1
 
