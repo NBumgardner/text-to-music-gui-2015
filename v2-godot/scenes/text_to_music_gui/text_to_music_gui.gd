@@ -1,8 +1,9 @@
 extends Control
 
 
-@onready var onscreen_keyboard_wrapper = $MarginContainerBottomCenter
-
+@onready var onscreen_keyboard = (
+	$MarginContainerBottomCenter/MarginContainer/OnscreenKeyboard
+)
 
 # Get output rows excluding the first row of user input.
 @onready var scaled_solfege_player_list: Array[Node] = (
@@ -54,9 +55,10 @@ func _on_settings_menu_playback_speed_toggle_requested(toggled_on, multiplier):
 
 
 ## Remove virtual keyboard.
-## To be called once for platforms that never need it.
+## To be called for platforms that never need it.
 func _remove_virtual_keyboard():
-	self.remove_child(onscreen_keyboard_wrapper)
+	onscreen_keyboard.auto_show = false
+	onscreen_keyboard.hide()
 
 
 ## Adjust each [ScaledSolfegePlayer]'s audio playback note length by multiplying
