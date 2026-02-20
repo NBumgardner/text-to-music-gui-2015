@@ -29,5 +29,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer" unique_id=1782867467]
+layout_mode = 2
+color = Color(0.23023573, 0.25136867, 0.30629554, 1)
+
 [node name="TextToMusicGui" parent="AspectRatioContainer" unique_id=91122744 instance=ExtResource("2_k2fmo")]
 layout_mode = 2
