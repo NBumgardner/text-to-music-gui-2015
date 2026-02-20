@@ -4,6 +4,9 @@
 [ext_resource type="Theme" uid="uid://b1n75s5tdq5w2" path="res://themes/settings_menu_margin_theme.tres" id="1_p28av"]
 [ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_vlvk0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlvk0"]
+bg_color = Color(0.051970966, 0.051970966, 0.051970936, 0.8784314)
+
 [node name="SettingsMenu" type="MarginContainer" unique_id=1330597206]
 offset_right = 418.0
 offset_bottom = 348.0
@@ -11,6 +14,7 @@ script = ExtResource("1_j78aw")
 
 [node name="Panel" type="Panel" parent="." unique_id=201151292]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vlvk0")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=377624741]
 layout_mode = 2
