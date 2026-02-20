@@ -103,6 +103,7 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 script = ExtResource("11_pps6h")
+animate = false
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
 [node name="SettingsMenu" parent="." unique_id=1330597206 instance=ExtResource("10_2xp20")]
