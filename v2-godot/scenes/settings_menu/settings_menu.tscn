@@ -39,9 +39,21 @@ theme = ExtResource("3_vlvk0")
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=520567130]
+[node name="LabelCreditsContent" type="Label" parent="MarginContainer/VBoxContainer" unique_id=520567130]
 layout_mode = 2
 text = "Developed by Noah Bumgardner"
+horizontal_alignment = 1
+
+[node name="LabelAttributions" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2051962407]
+layout_mode = 2
+theme = ExtResource("3_vlvk0")
+text = "Attributions"
+horizontal_alignment = 1
+
+[node name="LabelAttributionsContent" type="Label" parent="MarginContainer/VBoxContainer" unique_id=101915212]
+layout_mode = 2
+text = "Godot-Onscreen-Keyboard plugin by Martin Fuchs
+Roboto font by Christian Robertson"
 horizontal_alignment = 1
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]

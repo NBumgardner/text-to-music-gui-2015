@@ -45,3 +45,13 @@ Below are instructions to run the program:
 
 ## Credits
 `v1-python/textToMusicGUI.py` was first completed on June 6th, 2015 by Noah Bumgardner as a single-file application.
+
+### Attributions
+Open source resources used:
+
+- [Godot-Onscreen-Keyboard](https://github.com/martinfuchs/Godot-Onscreen-Keyboard) plugin by Martin Fuchs and contributors.
+- [Roboto](https://github.com/martinfuchs/Godot-Onscreen-Keyboard) font by Christian Robertson.
+
+Coded using the [Python](https://www.python.org) language and the [Godot](https://godotengine.org) game engine.
+
+The latest stable `main` code branch runs on Godot version 4.6.
