@@ -10,26 +10,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRectOffScreen" type="ColorRect" parent="." unique_id=1297583770]
+[node name="TextToMusicGui" parent="." unique_id=91122744 instance=ExtResource("2_k2fmo")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1109665564]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer" unique_id=1782867467]
-layout_mode = 2
-color = Color(0.23023573, 0.25136867, 0.30629554, 1)
-
-[node name="TextToMusicGui" parent="AspectRatioContainer" unique_id=91122744 instance=ExtResource("2_k2fmo")]
-layout_mode = 2

@@ -22,7 +22,7 @@ config/icon="uid://b32ggkft7vexd"
 window/size/viewport_width=720
 window/size/viewport_height=500
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 window/handheld/orientation=1
 
 [rendering]
