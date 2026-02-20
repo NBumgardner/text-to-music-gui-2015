@@ -100,7 +100,6 @@ visible = false
 layout_mode = 2
 script = ExtResource("11_pps6h")
 animate = false
-custom_layout_file = "res://data/keyboard_layout/keyboard_layout_wide_keys_none_special.json"
 font_size = 30
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
