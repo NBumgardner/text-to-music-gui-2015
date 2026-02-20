@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ScaleData" format=3 uid="uid://wevx6bt8xvmd"]
+
+[ext_resource type="Script" uid="uid://b8hohshqxpt6t" path="res://data/scales/scale_data.gd" id="1_5ukp8"]
+[ext_resource type="Script" uid="uid://bkqb6wl4kumye" path="res://data/solfege_notes/solfege_note_data.gd" id="2_uqlvq"]
+[ext_resource type="Resource" uid="uid://dysdnyd2no3bp" path="res://data/solfege_notes/do.tres" id="3_w5y1y"]
+[ext_resource type="Resource" uid="uid://brbvablsmksun" path="res://data/solfege_notes/di.tres" id="4_gp1j7"]
+[ext_resource type="Resource" uid="uid://t3vhe04h4y86" path="res://data/solfege_notes/ra.tres" id="5_4s35u"]
+[ext_resource type="Resource" uid="uid://ubpu1kgalm4k" path="res://data/solfege_notes/re.tres" id="5_vn7sh"]
+[ext_resource type="Resource" uid="uid://cdicke7ckqvea" path="res://data/solfege_notes/ri.tres" id="6_4s35u"]
+[ext_resource type="Resource" uid="uid://bdtj7kpiwq5lv" path="res://data/solfege_notes/mi.tres" id="7_wvd86"]
+[ext_resource type="Resource" uid="uid://ugnlrgliaggk" path="res://data/solfege_notes/fa.tres" id="8_582u4"]
+[ext_resource type="Resource" uid="uid://cdvw4gga7dj3" path="res://data/solfege_notes/me.tres" id="8_wvd86"]
+[ext_resource type="Resource" uid="uid://0il2l4xwivau" path="res://data/solfege_notes/fi.tres" id="9_ftj7a"]
+[ext_resource type="Resource" uid="uid://bbvgrqondq1rf" path="res://data/solfege_notes/so.tres" id="10_hwmot"]
+[ext_resource type="Resource" uid="uid://78vbbns4bmop" path="res://data/solfege_notes/si.tres" id="11_ufrdp"]
+[ext_resource type="Resource" uid="uid://c1frh7ejw7mc7" path="res://data/solfege_notes/se.tres" id="12_582u4"]
+[ext_resource type="Resource" uid="uid://chptvjj20w6rs" path="res://data/solfege_notes/la.tres" id="12_ptfja"]
+[ext_resource type="Resource" uid="uid://4soyowswqd5w" path="res://data/solfege_notes/li.tres" id="13_r613i"]
+[ext_resource type="Resource" uid="uid://b58aurffso5ak" path="res://data/solfege_notes/ti.tres" id="14_ajxvq"]
+[ext_resource type="Resource" uid="uid://ftawodt7tho5" path="res://data/solfege_notes/le.tres" id="15_ftj7a"]
+[ext_resource type="Resource" uid="uid://rl8wwkxs4p03" path="res://data/solfege_notes/te.tres" id="18_hwmot"]
+
+[resource]
+script = ExtResource("1_5ukp8")
+full_name = "Chromatic with All Flat and Sharp Solfege Names"
+label_name = "Chromatic*"
+solfege_ascending_notes = Array[ExtResource("2_uqlvq")]([ExtResource("3_w5y1y"), ExtResource("4_gp1j7"), ExtResource("5_4s35u"), ExtResource("5_vn7sh"), ExtResource("6_4s35u"), ExtResource("8_wvd86"), ExtResource("7_wvd86"), ExtResource("8_582u4"), ExtResource("9_ftj7a"), ExtResource("12_582u4"), ExtResource("10_hwmot"), ExtResource("11_ufrdp"), ExtResource("15_ftj7a"), ExtResource("12_ptfja"), ExtResource("13_r613i"), ExtResource("18_hwmot"), ExtResource("14_ajxvq")])
+solfege_ascending_string = "Do di ra Re ri me Mi Fa fi se So si le La li te Ti"

@@ -11,4 +11,6 @@ class_name ScaleData extends Resource
 
 ## List each solfege note of the scale in ascending order as a space-delimited
 ##  string. Not yet used.
-@export var solfege_ascending_string = "Do di Re ri Mi Fa fi So si La li Ti"
+@export var solfege_ascending_string = (
+	"Do di ra Re ri me Mi Fa fi se So si le La li te Ti"
+)

@@ -13,7 +13,7 @@ signal play_button_pressed()
 ## Every pitch scale to decide how to playback solfege.
 ## Missing symbols are skipped during playback.
 @export var every_pitch_scale_for_playback: ScaleData = preload(
-	"res://data/scales/chromatic.tres"
+	"res://data/scales/chromatic_with_all_solfege.tres"
 )
 
 
