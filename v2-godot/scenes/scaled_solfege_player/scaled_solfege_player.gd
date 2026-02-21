@@ -84,10 +84,12 @@ func _process(delta: float) -> void:
 	if _time_since_last_note_started < note_length_seconds:
 		return
 
-	if ((_time_since_last_note_started >= note_length_seconds)
-		and not _queue_of_note_indexes_to_play.is_empty()):
+	_current_note_index_playing = null
+
+	if not _queue_of_note_indexes_to_play.is_empty():
 		_current_note_index_playing = _queue_of_note_indexes_to_play.pop_front()
 		_play_note_at_index(_current_note_index_playing)
+		return
 
 
 ## Stop playing all audio notes of the scene.
@@ -95,6 +97,10 @@ func stop_notes():
 	_queue_of_note_indexes_to_play = []
 	_time_since_last_note_started = note_length_seconds
 	audio_stream_player.stop()
+
+
+func _is_audible_note(note_index):
+	return note_index != null and note_index >= 0
 
 
 func _mute_streams():
@@ -140,14 +146,16 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_play_pressed() -> void:
-	if _paused and (_current_note_index_playing == -1 or _current_note_index_playing == null):
-		_paused = false
-		return
-
-	if _paused and _current_note_index_playing >= 0:
+	if _paused and _is_audible_note(_current_note_index_playing):
 		_paused = false
 		_set_audible_volume_and_play_note(_current_note_index_playing)
 		return
+
+	if _paused and _queue_of_note_indexes_to_play.any(_is_audible_note):
+		_paused = false
+		return
+
+	_paused = false
 
 	play_button_pressed.emit()
 
