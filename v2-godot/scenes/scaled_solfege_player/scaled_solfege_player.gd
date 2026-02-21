@@ -128,7 +128,7 @@ func _set_notes_to_play() -> void:
 		)
 
 
-func _on_button_pressed() -> void:
+func _on_button_play_pressed() -> void:
 	play_button_pressed.emit()
 
 	if not queue_play:
