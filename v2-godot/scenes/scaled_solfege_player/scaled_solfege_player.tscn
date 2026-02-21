@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgu8attn1nggm"]
 
 [ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
-[ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/play_button_theme.tres" id="1_v0arx"]
+[ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/button_play_theme.tres" id="1_v0arx"]
 [ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_ueegv"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="4_q452i"]
 [ext_resource type="Texture2D" uid="uid://dcrc7rcx2g4np" path="res://icons/play_arrow_icon.svg" id="5_dqj3a"]
@@ -9,7 +9,6 @@
 [node name="ScaledSolfegePlayer" type="PanelContainer" unique_id=134583324]
 offset_right = 371.0
 offset_bottom = 31.0
-theme = ExtResource("1_v0arx")
 script = ExtResource("1_qs24r")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=640665284]
@@ -36,13 +35,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 keep_editing_on_text_submit = true
 
+[node name="ButtonStop" type="Button" parent="HBoxContainer" unique_id=429221812]
+layout_mode = 2
+text = " Stop "
+
 [node name="ButtonPlay" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2
+theme = ExtResource("1_v0arx")
 theme_override_constants/icon_max_width = 30
 text = " Play "
 icon = ExtResource("5_dqj3a")
 icon_alignment = 1
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/ButtonPlay" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]

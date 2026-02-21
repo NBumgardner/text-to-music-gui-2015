@@ -267,3 +267,7 @@ func _translate_words_list_into_numbers_list_list(word_list):
 
 func _on_button_mouse_entered():
 	sfx_mouse_hover.play()
+
+
+func _on_button_stop_pressed():
+	stop_notes()
