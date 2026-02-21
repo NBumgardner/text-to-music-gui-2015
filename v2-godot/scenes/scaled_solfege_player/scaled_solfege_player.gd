@@ -62,11 +62,11 @@ var _current_note_index_playing = null
 var _note_index_modulo = 8
 
 
-var queue_of_note_indexes_to_play: Array = []
-var time_since_last_note_started: float = 0
-
-
 var _paused = false
+
+
+var _queue_of_note_indexes_to_play: Array = []
+var _time_since_last_note_started: float = 0
 
 
 func _ready():
@@ -79,21 +79,21 @@ func _process(delta: float) -> void:
 	if _paused:
 		return
 
-	time_since_last_note_started += delta
+	_time_since_last_note_started += delta
 
-	if time_since_last_note_started < note_length_seconds:
+	if _time_since_last_note_started < note_length_seconds:
 		return
 
-	if ((time_since_last_note_started >= note_length_seconds)
-		and not queue_of_note_indexes_to_play.is_empty()):
-		_current_note_index_playing = queue_of_note_indexes_to_play.pop_front()
+	if ((_time_since_last_note_started >= note_length_seconds)
+		and not _queue_of_note_indexes_to_play.is_empty()):
+		_current_note_index_playing = _queue_of_note_indexes_to_play.pop_front()
 		_play_note_at_index(_current_note_index_playing)
 
 
 ## Stop playing all audio notes of the scene.
 func stop_notes():
-	queue_of_note_indexes_to_play = []
-	time_since_last_note_started = note_length_seconds
+	_queue_of_note_indexes_to_play = []
+	_time_since_last_note_started = note_length_seconds
 	audio_stream_player.stop()
 
 
@@ -112,12 +112,12 @@ func _play_note_at_index(note_index: int) -> void:
 
 	if note_index == -1:
 		# Play silence for unrecognized solfege including [code](rest)[/code].
-		time_since_last_note_started = 0
+		_time_since_last_note_started = 0
 		return
 
 	_set_audible_volume_and_play_note(note_index)
 
-	time_since_last_note_started = 0
+	_time_since_last_note_started = 0
 
 
 func _set_line_edit(text: String) -> void:
@@ -173,7 +173,7 @@ func _on_button_play_pressed() -> void:
 			' as ',
 			str(translated_note_chromatic_index)
 		)
-		queue_of_note_indexes_to_play.append(
+		_queue_of_note_indexes_to_play.append(
 			translated_note_chromatic_index
 		)
 
