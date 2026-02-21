@@ -50,6 +50,11 @@ const VOLUME_NORMAL_DECIBEL = 0
 var _converter_methods: Convert = Convert.new()
 
 
+## Integer or null to represent the note index being played.
+## Stored in order to resume a paused note.
+var _current_note_index_playing = null
+
+
 ## Number of unique pitches per octave of the [musical_scale] input.
 ## [br][br]
 ## Used when translating incoming text into solfege.
@@ -76,9 +81,13 @@ func _process(delta: float) -> void:
 
 	time_since_last_note_started += delta
 
+	if time_since_last_note_started < note_length_seconds:
+		return
+
 	if ((time_since_last_note_started >= note_length_seconds)
 		and not queue_of_note_indexes_to_play.is_empty()):
-		_play_note_at_index(queue_of_note_indexes_to_play.pop_front())
+		_current_note_index_playing = queue_of_note_indexes_to_play.pop_front()
+		_play_note_at_index(_current_note_index_playing)
 
 
 ## Stop playing all audio notes of the scene.
@@ -106,11 +115,7 @@ func _play_note_at_index(note_index: int) -> void:
 		time_since_last_note_started = 0
 		return
 
-	audio_stream_player.stream.set_sync_stream_volume(
-		note_index,
-		VOLUME_NORMAL_DECIBEL % audio_stream_player.stream.get_stream_count()
-	)
-	audio_stream_player.play()
+	_set_audible_volume_and_play_note(note_index)
 
 	time_since_last_note_started = 0
 
@@ -135,8 +140,13 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_play_pressed() -> void:
-	if _paused:
+	if _paused and (_current_note_index_playing == -1 or _current_note_index_playing == null):
 		_paused = false
+		return
+
+	if _paused and _current_note_index_playing >= 0:
+		_paused = false
+		_set_audible_volume_and_play_note(_current_note_index_playing)
 		return
 
 	play_button_pressed.emit()
@@ -286,3 +296,13 @@ func _on_button_stop_pressed():
 func _on_button_pause_pressed():
 	_paused = true
 	audio_stream_player.stop()
+
+
+## Start or continue playing a note at the given index of the
+##  [every_pitch_scale_for_playback].
+func _set_audible_volume_and_play_note(note_index):
+	audio_stream_player.stream.set_sync_stream_volume(
+		note_index,
+		VOLUME_NORMAL_DECIBEL % audio_stream_player.stream.get_stream_count()
+	)
+	audio_stream_player.play()
