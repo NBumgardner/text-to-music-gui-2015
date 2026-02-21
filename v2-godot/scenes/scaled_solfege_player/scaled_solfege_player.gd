@@ -33,7 +33,8 @@ signal play_button_pressed()
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
-@onready var play_button = $HBoxContainer/Button
+@onready var button_play = $HBoxContainer/ButtonPlay
+@onready var button_pause = $HBoxContainer/ButtonPause
 @onready var sfx_mouse_hover = $SfxMouseHover
 
 
@@ -74,6 +75,8 @@ func _ready():
 		$HBoxContainer/MarginContainer/ScaleName.text = musical_scale.label_name
 		_note_index_modulo = musical_scale.solfege_ascending_notes.size()
 
+	_sync_button_visibility_with_paused()
+
 
 func _process(delta: float) -> void:
 	if _paused:
@@ -83,6 +86,8 @@ func _process(delta: float) -> void:
 
 	if _time_since_last_note_started < note_length_seconds:
 		return
+
+	_sync_button_visibility_with_paused()
 
 	_current_note_index_playing = null
 
@@ -148,14 +153,17 @@ func _set_notes_to_play() -> void:
 func _on_button_play_pressed() -> void:
 	if _paused and _is_audible_note(_current_note_index_playing):
 		_paused = false
+		_sync_button_visibility_with_paused()
 		_set_audible_volume_and_play_note(_current_note_index_playing)
 		return
 
 	if _paused and _queue_of_note_indexes_to_play.any(_is_audible_note):
 		_paused = false
+		_sync_button_visibility_with_paused()
 		return
 
 	_paused = false
+	_sync_button_visibility_with_paused()
 
 	play_button_pressed.emit()
 
@@ -268,6 +276,24 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 	print_debug('Translation of ', scale_list_index, ' scales complete.')
 
+
+func _sync_button_visibility_with_paused() -> void:
+	if _paused:
+		button_pause.hide()
+		button_play.show()
+		return
+
+	if (not _paused
+			and (_is_audible_note(_current_note_index_playing)
+				or _queue_of_note_indexes_to_play.any(_is_audible_note))):
+		button_pause.show()
+		button_play.hide()
+		return
+
+	button_pause.hide()
+	button_play.show()
+
+
 func _translate_words_list_into_numbers_list_list(word_list):
 	# Strict typing of `Array[Array[int]]` is not supported.
 	var numbers_translated_from_word_list = []
@@ -303,6 +329,7 @@ func _on_button_stop_pressed():
 
 func _on_button_pause_pressed():
 	_paused = true
+	_sync_button_visibility_with_paused()
 	audio_stream_player.stop()
 
 
