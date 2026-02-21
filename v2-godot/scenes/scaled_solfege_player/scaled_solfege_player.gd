@@ -61,6 +61,9 @@ var queue_of_note_indexes_to_play: Array = []
 var time_since_last_note_started: float = 0
 
 
+var _paused = false
+
+
 func _ready():
 	if musical_scale != null:
 		$HBoxContainer/MarginContainer/ScaleName.text = musical_scale.label_name
@@ -68,6 +71,9 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	if _paused:
+		return
+
 	time_since_last_note_started += delta
 
 	if ((time_since_last_note_started >= note_length_seconds)
@@ -129,6 +135,10 @@ func _set_notes_to_play() -> void:
 
 
 func _on_button_play_pressed() -> void:
+	if _paused:
+		_paused = false
+		return
+
 	play_button_pressed.emit()
 
 	if not queue_play:
@@ -271,3 +281,8 @@ func _on_button_mouse_entered():
 
 func _on_button_stop_pressed():
 	stop_notes()
+
+
+func _on_button_pause_pressed():
+	_paused = true
+	audio_stream_player.stop()

@@ -39,6 +39,10 @@ keep_editing_on_text_submit = true
 layout_mode = 2
 text = "Stop"
 
+[node name="ButtonPause" type="Button" parent="HBoxContainer" unique_id=1021496926]
+layout_mode = 2
+text = "Pause"
+
 [node name="ButtonPlay" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2
 theme = ExtResource("1_v0arx")
@@ -49,5 +53,6 @@ icon_alignment = 1
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonPause" to="." method="_on_button_pause_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/ButtonPlay" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
