@@ -37,7 +37,7 @@ keep_editing_on_text_submit = true
 
 [node name="ButtonStop" type="Button" parent="HBoxContainer" unique_id=429221812]
 layout_mode = 2
-text = " Stop "
+text = "Stop"
 
 [node name="ButtonPlay" type="Button" parent="HBoxContainer" unique_id=217465911]
 layout_mode = 2
