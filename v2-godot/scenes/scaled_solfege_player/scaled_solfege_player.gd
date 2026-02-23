@@ -18,6 +18,9 @@ signal play_button_pressed()
 
 
 ## Time in seconds to play each note.
+## [br][br]
+## [b]Warning:[/b] Maximum supported length is 1.0 seconds, which is the length
+##  of each [AudioStreamPlayer] sample.
 @export var note_length_seconds: float = 0.75
 
 
