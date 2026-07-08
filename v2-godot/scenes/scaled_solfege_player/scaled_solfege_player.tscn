@@ -35,24 +35,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 keep_editing_on_text_submit = true
 
-[node name="ButtonStop" type="Button" parent="HBoxContainer" unique_id=429221812]
+[node name="MarginContainerButtons" type="MarginContainer" parent="HBoxContainer" unique_id=2034833303]
+custom_minimum_size = Vector2(120, 0)
+custom_maximum_size = Vector2(164, -1)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainerButtons" unique_id=1076543410]
+layout_mode = 2
+
+[node name="ButtonStop" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=429221812]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Stop"
 
-[node name="ButtonPause" type="Button" parent="HBoxContainer" unique_id=1021496926]
+[node name="ButtonPause" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=1021496926]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Pause"
 
-[node name="ButtonPlay" type="Button" parent="HBoxContainer" unique_id=217465911]
+[node name="ButtonPlay" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=217465911]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_v0arx")
 theme_override_constants/icon_max_width = 30
-text = " Play "
+text = "Play"
 icon = ExtResource("5_dqj3a")
 icon_alignment = 1
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
-[connection signal="pressed" from="HBoxContainer/ButtonPause" to="." method="_on_button_pause_pressed"]
-[connection signal="mouse_entered" from="HBoxContainer/ButtonPlay" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPause" to="." method="_on_button_pause_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]

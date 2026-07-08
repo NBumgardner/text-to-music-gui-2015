@@ -36,8 +36,12 @@ signal play_button_pressed()
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
-@onready var button_play = $HBoxContainer/ButtonPlay
-@onready var button_pause = $HBoxContainer/ButtonPause
+@onready var button_play = (
+	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay
+)
+@onready var button_pause = (
+	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPause
+)
 @onready var sfx_mouse_hover = $SfxMouseHover
 
 

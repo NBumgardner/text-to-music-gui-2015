@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="2_qhllm"]
 [ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_1a0bd"]
 [ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="3_ym40v"]
-[ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/translate_button_theme.tres" id="4_epnop"]
+[ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/button_translate_theme.tres" id="4_epnop"]
 [ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="5_l0uts"]
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
 [ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/scaled_solfege_player.tscn" id="9_iv8pr"]
