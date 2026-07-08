@@ -35,12 +35,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Playback Speed x2"
 
-[node name="CheckBoxHideButtonLabels" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1760191652]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Hide Button Labels"
-
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=280805251]
 layout_mode = 2
 
@@ -78,6 +72,5 @@ stream = ExtResource("4_j2s20")
 volume_db = -8.0
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxPlaybackSpeedFaster" to="." method="_on_check_box_playback_speed_faster_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBoxHideButtonLabels" to="." method="_on_check_box_hide_button_labels_toggled"]
 [connection signal="mouse_entered" from="MarginContainer/ButtonClose" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/ButtonClose" to="." method="_on_button_close_pressed"]
