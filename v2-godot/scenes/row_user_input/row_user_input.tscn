@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="2_lh84x"]
+[ext_resource type="Texture2D" uid="uid://cqwov4ncuc7fc" path="res://icons/translate_icon.svg" id="2_qq2gb"]
 [ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="3_0wwct"]
 
 [node name="RowUserInput" type="HBoxContainer" unique_id=1405432130]
@@ -21,7 +22,10 @@ keep_editing_on_text_submit = true
 
 [node name="Button" type="Button" parent="." unique_id=750956017]
 layout_mode = 2
+theme_override_constants/icon_max_width = 90
 text = " Translate "
+icon = ExtResource("2_qq2gb")
+icon_alignment = 1
 
 [node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=1290965580]
 stream = ExtResource("2_lh84x")
