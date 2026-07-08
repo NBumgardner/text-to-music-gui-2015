@@ -1,6 +1,50 @@
 # Text to Music GUI 2015
 Want to hear your name as a song? These Godot/Python GUIs turn text into melodies.
 
+## How to Use
+To create and hear a translation:
+
+1. Type text into the first line labeled _Input Text_.
+2. Press the _Translate_ button, the second button starting from the top-right corner.
+3. The program automatically fills the remaining rows with Solfège correlating to each letter.
+  - _A_ becomes _Do_, the first note of each scale.
+  - _B_ becomes the second note of each scale.
+  - _C_ becomes the third, and so on.
+  - When a letter is beyond the number of notes in the scale, then it wraps back around to _Do_.
+4. Press the _Play_ button of the translated row you wish to hear.
+
+Additionally, Solfège music may be edited by hand, and playback may be sped up within the _Settings_ opened from the top-right corner of the screen.
+
+### Translation Logic
+Each letter to translate is calculated as a modulo of the number of notes in the scale. For example:
+
+  - _A_ becomes _Do_, the first note of each scale.
+  - _B_ becomes the second note of each scale.
+  - _C_ becomes the third, and so on.
+  - The first letter beyond the number of notes in the scale wraps around to the first note of the scale.
+  - The second letter beyond the number of notes in the scale uses the second note of the scale.
+  - The third letter beyond becomes the third, and so on.
+  - This mapping process is repeated A-Z, case-insensitive.
+  - Non-letters become _(rest)_, which is a musical rest of silence.
+
+### Playback Logic
+12 unique pitches of playback are supported. The playback text is currently case sensitive, so if you write music by hand, make sure to capitalize the first letter of each accidental pitch. The list of notes is:
+
+1. Do
+2. di, ra
+3. Re
+4. ri, me
+5. Mi
+6. Fa
+7. fi, se
+8. So
+9. si, le
+10. La
+11. te, li
+12. Ti
+
+Enforcement of spellings could be loosened in future pull requests. The Godot implementation has a list of all legal spellings in file `chromatic_with_all_solfege.tres` property `solfege_ascending_string`.
+
 ## To Run the Program
 You can try it online or set it up locally.
 
