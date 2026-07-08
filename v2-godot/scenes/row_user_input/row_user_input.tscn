@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://dl63nkeaw7nt"]
 
 [ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
-[ext_resource type="Theme" uid="uid://ccelkuex2s4r3" path="res://themes/default.tres" id="1_gnvmx"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="2_lh84x"]
 [ext_resource type="Texture2D" uid="uid://cqwov4ncuc7fc" path="res://icons/translate_icon.svg" id="2_qq2gb"]
 [ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="3_0wwct"]
 [ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/button_translate_theme.tres" id="3_qeukb"]
 
 [node name="RowUserInput" type="HBoxContainer" unique_id=1405432130]
-theme = ExtResource("1_gnvmx")
 script = ExtResource("1_7ehdk")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=692261098]
