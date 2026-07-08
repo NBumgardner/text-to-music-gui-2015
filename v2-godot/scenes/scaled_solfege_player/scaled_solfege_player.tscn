@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
 [ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/button_play_theme.tres" id="1_v0arx"]
 [ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_ueegv"]
+[ext_resource type="Texture2D" uid="uid://ciggibqdnnctc" path="res://icons/stop_icon.svg" id="4_bo65b"]
+[ext_resource type="Texture2D" uid="uid://dlsil0r5i1eh7" path="res://icons/pause_icon.svg" id="4_chvfp"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="4_q452i"]
 [ext_resource type="Texture2D" uid="uid://dcrc7rcx2g4np" path="res://icons/play_arrow_icon.svg" id="5_dqj3a"]
 
@@ -47,13 +49,19 @@ layout_mode = 2
 [node name="ButtonStop" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=429221812]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 26
 text = "Stop"
+icon = ExtResource("4_bo65b")
+icon_alignment = 1
 
 [node name="ButtonPause" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=1021496926]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 30
 text = "Pause"
+icon = ExtResource("4_chvfp")
+icon_alignment = 1
 
 [node name="ButtonPlay" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=217465911]
 custom_minimum_size = Vector2(60, 0)
