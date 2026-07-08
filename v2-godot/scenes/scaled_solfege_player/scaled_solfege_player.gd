@@ -1,8 +1,8 @@
 ## Plays solfege from Do to Ti.
 ##
 ## Spaces and commas are ignored.
-## Unknown characters play index 0.
-## Pressing the [i]Play[/i] [Button] will interrupt the currently playing notes.
+## Unknown characters play index -1 as a rest.
+## Pressing the [i]Pause[/i] [Button] will interrupt the currently playing notes.
 class_name ScaledSolfegePlayer extends Control
 
 
@@ -192,12 +192,26 @@ func _on_button_play_pressed() -> void:
 			translated_note
 		)
 
+		if translated_note_chromatic_index == -1:
+			print_debug(
+				'Append unrecognized note ',
+				translated_note,
+				' as ',
+				str(translated_note_chromatic_index),
+				' (a rest)'
+			)
+			_queue_of_note_indexes_to_play.append(
+				translated_note_chromatic_index
+			)
+			continue
+
 		print_debug(
 			'Append note ',
 			translated_note,
 			' as ',
 			str(translated_note_chromatic_index)
 		)
+
 		_queue_of_note_indexes_to_play.append(
 			translated_note_chromatic_index
 		)
@@ -269,8 +283,6 @@ func _solfege_note_to_chromatic_index(solfege_note: String) -> int:
 ## Replace other Entry fields.
 ## Translates lists of numbers, usually calculated from words, into solfege.
 func _set_other_entry_fields(numbers_list_list) -> void:
-	var scale_list_index: int = 0
-
 	if musical_scale == null:
 		print_debug(
 			'Error: Scaled solfege player is missing a musical_scale.'
@@ -283,7 +295,12 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 	)
 	set_line_edit_text(result)
 
-	print_debug('Translation of ', scale_list_index, ' scales complete.')
+	print_debug(
+		'Translation into ',
+		musical_scale.full_name,
+		' scale complete: ',
+		result
+	)
 
 
 func _sync_button_visibility_with_paused() -> void:
