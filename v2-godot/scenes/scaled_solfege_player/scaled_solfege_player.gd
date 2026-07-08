@@ -21,7 +21,7 @@ signal play_button_pressed()
 ## [br][br]
 ## [b]Warning:[/b] Maximum supported length is 1.0 seconds, which is the length
 ##  of each [AudioStreamPlayer] sample.
-@export var note_length_seconds: float = 0.75
+@export var note_length_seconds: float = 0.5
 
 
 ## If [true], pressing the Play [Button] will queue up the new audio to play
