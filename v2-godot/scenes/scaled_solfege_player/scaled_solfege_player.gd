@@ -103,6 +103,8 @@ func _process(delta: float) -> void:
 		_play_note_at_index(_current_note_index_playing)
 		return
 
+	stop_notes()
+
 
 ## Stop playing all audio notes of the scene.
 func stop_notes():
