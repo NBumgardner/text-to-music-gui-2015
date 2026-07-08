@@ -54,4 +54,4 @@ Open source resources used:
 
 Coded using the [Python](https://www.python.org) language and the [Godot](https://godotengine.org) game engine.
 
-The latest stable `main` code branch runs on Godot version 4.6.
+The latest stable `main` code branch runs on Godot version 4.7.
