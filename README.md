@@ -1,5 +1,11 @@
 # Text to Music GUI 2015
-Want to hear your name as a song? These Godot/Python GUIs turn text into melodies.
+Want to hear your name as a song? The Text to Music GUI(s) can turn text into melodies.
+
+## Available Online
+You can [try the latest version online at itch.io](https://nbumgardner.itch.io/text-to-music-gui).
+
+### Online
+Play on itch.io _(Coming soon)_
 
 ## How to Use
 To create and hear a translation:
@@ -45,11 +51,8 @@ Each letter to translate is calculated as a modulo of the number of notes in the
 
 Enforcement of spellings could be loosened in future pull requests. The Godot implementation has a list of all legal spellings in file `chromatic_with_all_solfege.tres` property `solfege_ascending_string`.
 
-## To Run the Program
-You can try it online or set it up locally.
-
-### Online
-Play on itch.io _(Coming soon)_
+## To Run the Program Locally
+You can also set it up locally if you have Godot or Python installed.
 
 ### Locally with Godot
 You will need to locally install Godot 4.7, then run the Godot project.
@@ -59,7 +62,6 @@ You will need to locally install Godot 4.7, then run the Godot project.
 <img width="720" height="500" alt="image" src="https://github.com/user-attachments/assets/74477525-09b6-42e4-be68-e67f74d0b9e0" />
 
 _**Screenshot 1:** After filling in the top input and clicking Translate, then the music will be filled in and each version may be listened to by clicking a Play button._
-
 
 ### Locally with Python
 You will need to locally install Python 2 or 3, as well as some free libraries, then run the Python file.
