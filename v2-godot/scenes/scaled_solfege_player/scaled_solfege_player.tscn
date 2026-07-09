@@ -49,8 +49,8 @@ layout_mode = 2
 [node name="ButtonStop" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=429221812]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Stop"
 theme_override_constants/icon_max_width = 26
-text = "Stop"
 icon = ExtResource("4_bo65b")
 icon_alignment = 1
 
@@ -58,8 +58,8 @@ icon_alignment = 1
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Pause"
 theme_override_constants/icon_max_width = 26
-text = "Pause"
 icon = ExtResource("4_chvfp")
 icon_alignment = 1
 
@@ -67,9 +67,9 @@ icon_alignment = 1
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Play"
 theme = ExtResource("1_v0arx")
 theme_override_constants/icon_max_width = 30
-text = "Play"
 icon = ExtResource("5_dqj3a")
 icon_alignment = 1
 

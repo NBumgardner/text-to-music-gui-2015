@@ -23,9 +23,9 @@ keep_editing_on_text_submit = true
 
 [node name="Button" type="Button" parent="." unique_id=750956017]
 layout_mode = 2
+tooltip_text = "Translate"
 theme = ExtResource("3_qeukb")
 theme_override_constants/icon_max_width = 90
-text = " Translate "
 icon = ExtResource("2_qq2gb")
 icon_alignment = 1
 
