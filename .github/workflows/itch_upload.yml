@@ -10,7 +10,7 @@ env:
     ITCH_USERNAME: nbumgardner
     ITCH_GAME: text-to-music-gui
     ITCH_CHANNEL: web
-    PROJECT_PATH: game
+    PROJECT_PATH: tool
     BUILD_DIRECTORY: build/web
 
 jobs:
