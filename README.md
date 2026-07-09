@@ -54,6 +54,13 @@ Play on itch.io _(Coming soon)_
 ### Locally with Godot
 You will need to locally install Godot 4.7, then run the Godot project.
 
+#### Screenshots of Godot Version
+
+<img width="720" height="500" alt="image" src="https://github.com/user-attachments/assets/74477525-09b6-42e4-be68-e67f74d0b9e0" />
+
+_**Screenshot 1:** After filling in the top input and clicking Translate, then the music will be filled in and each version may be listened to by clicking a Play button._
+
+
 ### Locally with Python
 You will need to locally install Python 2 or 3, as well as some free libraries, then run the Python file.
 
@@ -84,14 +91,14 @@ Below are instructions to run the program:
   - ... pressing `F5`
   - ... click `Run`, then click `Run Module`
 
-#### Screenshots
+#### Screenshots of Python Version
 Below are a couple of example screenshots of the Python version:
 
 ![example-screenshot-empty](https://user-images.githubusercontent.com/11843918/233766240-24976080-ec2a-44ba-b194-9ae42547dc9e.png)
 ![example-screenshot-abc](https://user-images.githubusercontent.com/11843918/233766241-ff885a4d-7123-4a1a-9c8b-3fe88e7b481e.png)
 
-_**Screenshot 1:** The GUI starts empty, waiting for a string to translate._
-_**Screenshot 2:** After filling in the top input and clicking Translate, then the music will be filled in and each version may be listened to by clicking a Play button._
+_**Screenshot 2:** The GUI starts empty, waiting for a string to translate._
+_**Screenshot 3:** After filling in the top input and clicking Translate, then the music will be filled in and each version may be listened to by clicking a Play button._
 
 ## How to Contribute
 Updating the Godot version is easier since it is made of multiple files.
