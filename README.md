@@ -93,6 +93,22 @@ Below are a couple of example screenshots of the Python version:
 _**Screenshot 1:** The GUI starts empty, waiting for a string to translate._
 _**Screenshot 2:** After filling in the top input and clicking Translate, then the music will be filled in and each version may be listened to by clicking a Play button._
 
+## How to Contribute
+Updating the Godot version is easier since it is made of multiple files.
+
+If a pull request changes how the Godot version looks, then please regenerate the project's icon SVG as part of the pull request:
+
+1. Locally run the `thumbnail` scene.
+2. Take a screenshot.
+3. Open a separate image editor application.
+4. Crop out the gray outer area.
+5. Convert the cropped image into an SVG file.
+6. Replace file `project-icon.svg`.
+7. Replace the Project -> Application -> Config -> Icon path with the new file.
+8. Verify the project list view of the Godot project is updated.
+
+In contrast, the Python version should stay as a single file for simplicity of downloading and using it.
+
 ## Credits
 The original Python version `v1-python/textToMusicGUI.py` was first completed on June 6th, 2015 by Noah Bumgardner as a single-file application.
 
