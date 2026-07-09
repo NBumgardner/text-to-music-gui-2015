@@ -10,7 +10,7 @@ env:
     ITCH_USERNAME: nbumgardner
     ITCH_GAME: text-to-music-gui
     ITCH_CHANNEL: web
-    PROJECT_PATH: tool
+    PROJECT_PATH: v2-godot
     BUILD_DIRECTORY: build/web
 
 jobs:
