@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://s23d7w86r52q"]
+
+[ext_resource type="Theme" uid="uid://ccelkuex2s4r3" path="res://themes/default.tres" id="1_krq7y"]
+[ext_resource type="Script" uid="uid://caifhucc2x0in" path="res://scenes/text_to_music_gui/text_to_music_gui.gd" id="2_c2mfg"]
+[ext_resource type="Theme" uid="uid://b8puw31rhp53r" path="res://themes/header_font_size_theme.tres" id="3_hi56o"]
+[ext_resource type="PackedScene" uid="uid://dl63nkeaw7nt" path="res://scenes/row_user_input/row_user_input.tscn" id="4_5vx23"]
+[ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/scaled_solfege_player.tscn" id="5_i8y8j"]
+[ext_resource type="Resource" uid="uid://ce174jagpmlxr" path="res://data/scales/chromatic.tres" id="6_78033"]
+[ext_resource type="Resource" uid="uid://4b372yksbqwt" path="res://data/scales/major.tres" id="7_30olj"]
+[ext_resource type="Resource" uid="uid://s48avb3dhwdi" path="res://data/scales/minor.tres" id="8_0qgpi"]
+[ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="9_4hte6"]
+[ext_resource type="Script" uid="uid://cuw4rmvrxtt2o" path="res://addons/onscreenkeyboard/addons/onscreenkeyboard/onscreen_keyboard.gd" id="10_h2ft1"]
+[ext_resource type="PackedScene" uid="uid://cdl22x1vidibc" path="res://scenes/settings_menu/settings_menu.tscn" id="11_fjoam"]
+[ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="12_1x65a"]
+[ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="13_p5a75"]
+
+[node name="Thumbnail" type="Control" unique_id=91122744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -304.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_krq7y")
+script = ExtResource("2_c2mfg")
+
+[node name="Background" type="ColorRect" parent="." unique_id=679849911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23023573, 0.25136867, 0.30629554, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=23111909]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=658853018]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1023304065]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1200157841]
+layout_mode = 2
+theme = ExtResource("3_hi56o")
+text = "Text to Music GUI"
+horizontal_alignment = 1
+
+[node name="ButtonSettings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1858140438]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = " Settings "
+
+[node name="RowUserInput" parent="MarginContainer/VBoxContainer" unique_id=1405432130 instance=ExtResource("4_5vx23")]
+layout_mode = 2
+
+[node name="ScaledSolfegePlayer5" parent="MarginContainer/VBoxContainer" unique_id=134583324 instance=ExtResource("5_i8y8j")]
+layout_mode = 2
+musical_scale = ExtResource("6_78033")
+
+[node name="ScaledSolfegePlayer6" parent="MarginContainer/VBoxContainer" unique_id=2134337716 instance=ExtResource("5_i8y8j")]
+layout_mode = 2
+musical_scale = ExtResource("7_30olj")
+
+[node name="ScaledSolfegePlayer7" parent="MarginContainer/VBoxContainer" unique_id=1380187478 instance=ExtResource("5_i8y8j")]
+layout_mode = 2
+musical_scale = ExtResource("8_0qgpi")
+
+[node name="ScaledSolfegePlayer8" parent="MarginContainer/VBoxContainer" unique_id=774055127 instance=ExtResource("5_i8y8j")]
+layout_mode = 2
+musical_scale = ExtResource("9_4hte6")
+
+[node name="MarginContainerBottomCenter" type="MarginContainer" parent="." unique_id=798668134]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenter" unique_id=28758465]
+layout_mode = 2
+
+[node name="OnscreenKeyboard" type="PanelContainer" parent="MarginContainerBottomCenter/MarginContainer" unique_id=1662553288]
+visible = false
+layout_mode = 2
+script = ExtResource("10_h2ft1")
+animate = false
+font_size = 30
+metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
+
+[node name="SettingsMenu" parent="." unique_id=1330597206 instance=ExtResource("11_fjoam")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -101.0
+offset_right = 205.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=52742593]
+stream = ExtResource("12_1x65a")
+volume_db = -8.0
+
+[node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=184017855]
+stream = ExtResource("13_p5a75")
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer5" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
+[connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
+[connection signal="close_requested" from="SettingsMenu" to="." method="_on_settings_menu_close_requested"]
+[connection signal="playback_speed_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]
