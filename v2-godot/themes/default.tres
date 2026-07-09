@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://ccelkuex2s4r3"]
+
+[resource]
+default_font_size = 24
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 2

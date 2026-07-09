@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SolfegeNoteData" load_steps=2 format=3 uid="uid://bbvgrqondq1rf"]
+
+[ext_resource type="Script" uid="uid://bkqb6wl4kumye" path="res://data/solfege_notes/solfege_note_data.gd" id="1_qryqa"]
+
+[resource]
+script = ExtResource("1_qryqa")
+chromatic_index = 7
+full_name = "so"
+tonal_degree_name = "dominant"

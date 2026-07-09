@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dl63nkeaw7nt"]
+
+[ext_resource type="Script" uid="uid://0lm4e7xbbv33" path="res://scenes/row_user_input/row_user_input.gd" id="1_7ehdk"]
+[ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="2_lh84x"]
+[ext_resource type="Texture2D" uid="uid://cqwov4ncuc7fc" path="res://icons/translate_icon.svg" id="2_qq2gb"]
+[ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="3_0wwct"]
+[ext_resource type="Theme" uid="uid://dpcbcdx1w8klq" path="res://themes/button_translate_theme.tres" id="3_qeukb"]
+
+[node name="RowUserInput" type="HBoxContainer" unique_id=1405432130]
+script = ExtResource("1_7ehdk")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=692261098]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1668571849]
+layout_mode = 2
+text = "Input Text:"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=2057487666]
+layout_mode = 2
+size_flags_horizontal = 3
+keep_editing_on_text_submit = true
+
+[node name="Button" type="Button" parent="." unique_id=750956017]
+layout_mode = 2
+tooltip_text = "Translate"
+theme = ExtResource("3_qeukb")
+theme_override_constants/icon_max_width = 90
+icon = ExtResource("2_qq2gb")
+icon_alignment = 1
+
+[node name="SfxMouseHover" type="AudioStreamPlayer" parent="." unique_id=1290965580]
+stream = ExtResource("2_lh84x")
+volume_db = -8.0
+
+[node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=1617690445]
+stream = ExtResource("3_0wwct")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

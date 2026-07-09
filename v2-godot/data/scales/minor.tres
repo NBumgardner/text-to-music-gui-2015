@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ScaleData" format=3 uid="uid://s48avb3dhwdi"]
+
+[ext_resource type="Script" uid="uid://b8hohshqxpt6t" path="res://data/scales/scale_data.gd" id="1_7lcy0"]
+[ext_resource type="Script" uid="uid://bkqb6wl4kumye" path="res://data/solfege_notes/solfege_note_data.gd" id="2_vqk4r"]
+[ext_resource type="Resource" uid="uid://dysdnyd2no3bp" path="res://data/solfege_notes/do.tres" id="3_fgyb2"]
+[ext_resource type="Resource" uid="uid://ubpu1kgalm4k" path="res://data/solfege_notes/re.tres" id="4_fcyqn"]
+[ext_resource type="Resource" uid="uid://cdvw4gga7dj3" path="res://data/solfege_notes/me.tres" id="5_h5vfd"]
+[ext_resource type="Resource" uid="uid://ugnlrgliaggk" path="res://data/solfege_notes/fa.tres" id="6_dl0ei"]
+[ext_resource type="Resource" uid="uid://bbvgrqondq1rf" path="res://data/solfege_notes/so.tres" id="7_13l6u"]
+[ext_resource type="Resource" uid="uid://ftawodt7tho5" path="res://data/solfege_notes/le.tres" id="8_xuet7"]
+[ext_resource type="Resource" uid="uid://rl8wwkxs4p03" path="res://data/solfege_notes/te.tres" id="9_pbhgd"]
+
+[resource]
+script = ExtResource("1_7lcy0")
+full_name = "Minor"
+label_name = "Minor"
+solfege_ascending_notes = Array[ExtResource("2_vqk4r")]([ExtResource("3_fgyb2"), ExtResource("4_fcyqn"), ExtResource("5_h5vfd"), ExtResource("6_dl0ei"), ExtResource("7_13l6u"), ExtResource("8_xuet7"), ExtResource("9_pbhgd")])
+solfege_ascending_string = "Do Re me Fa So le te"
