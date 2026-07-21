@@ -34,7 +34,7 @@ Each letter to translate is calculated as a modulo of the number of notes in the
   - Non-letters become _(rest)_, which is a musical rest of silence.
 
 ### Playback Logic
-12 unique pitches of playback are supported. The playback text is currently case sensitive, so if you write music by hand, make sure to capitalize the first letter of each accidental pitch. The list of notes is:
+12 unique pitches of playback are supported. The playback text is currently case sensitive, so if you write music by hand, make sure to capitalize the first letter of each non-accidental pitch. The list of notes is:
 
 1. Do
 2. di, ra
