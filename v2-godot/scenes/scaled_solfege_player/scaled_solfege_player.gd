@@ -305,19 +305,37 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 func _sync_button_visibility_with_paused() -> void:
 	if _paused:
+		if not button_pause.has_focus():
+			button_pause.hide()
+			button_play.show()
+			return
+
 		button_pause.hide()
 		button_play.show()
+		button_play.grab_focus()
 		return
 
 	if (not _paused
 			and (_is_audible_note(_current_note_index_playing)
 				or _queue_of_note_indexes_to_play.any(_is_audible_note))):
+		if not button_pause.has_focus():
+			button_pause.show()
+			button_play.hide()
+			return
+
 		button_pause.show()
 		button_play.hide()
+		button_pause.grab_focus()
+		return
+
+	if not button_pause.has_focus():
+		button_pause.hide()
+		button_play.show()
 		return
 
 	button_pause.hide()
 	button_play.show()
+	button_play.grab_focus()
 
 
 func _translate_words_list_into_numbers_list_list(word_list):
