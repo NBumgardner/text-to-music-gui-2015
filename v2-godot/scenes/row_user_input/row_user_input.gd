@@ -22,6 +22,11 @@ func get_line_edit_text():
 	return input_control_to_translate.text
 
 
+## Grab focus on the default first control.
+func grab_focus_default():
+	input_control_to_translate.grab_focus()
+
+
 ## Emit signal [request_to_translate] containing the [LineEdit] text to
 ##  translate.
 func request_to_translate_line_edit():

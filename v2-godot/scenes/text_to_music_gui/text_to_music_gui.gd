@@ -1,6 +1,9 @@
 extends Control
 
 
+@onready var row_user_input = $MarginContainer/VBoxContainer/RowUserInput
+
+
 # Get output rows excluding the first row of user input.
 @onready var scaled_solfege_player_list: Array[Node] = (
 	$MarginContainer/VBoxContainer.get_children()
@@ -19,6 +22,11 @@ extends Control
 
 func _ready():
 	settings_menu.visible = false
+
+
+## Grab focus on the default first control.
+func grab_focus_default():
+	row_user_input.grab_focus_default()
 
 
 func _on_button_settings_pressed():
