@@ -71,6 +71,7 @@ var _note_index_modulo = 8
 
 
 var _paused = false
+var _playing = false
 
 
 var _queue_of_note_indexes_to_play: Array = []
@@ -86,7 +87,7 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	if _paused:
+	if not _playing or _paused:
 		return
 
 	_time_since_last_note_started += delta
@@ -109,6 +110,7 @@ func _process(delta: float) -> void:
 ## Stop playing all audio notes of the scene.
 func stop_notes():
 	_queue_of_note_indexes_to_play = []
+	_playing = false
 	_time_since_last_note_started = note_length_seconds
 	audio_stream_player.stop()
 
@@ -162,16 +164,19 @@ func _set_notes_to_play() -> void:
 func _on_button_play_pressed() -> void:
 	if _paused and _is_audible_note(_current_note_index_playing):
 		_paused = false
+		_playing = true
 		_sync_button_visibility_with_paused()
 		_set_audible_volume_and_play_note(_current_note_index_playing)
 		return
 
 	if _paused and _queue_of_note_indexes_to_play.any(_is_audible_note):
 		_paused = false
+		_playing = true
 		_sync_button_visibility_with_paused()
 		return
 
 	_paused = false
+	_playing = true
 	_sync_button_visibility_with_paused()
 
 	play_button_pressed.emit()
@@ -305,8 +310,7 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 func _sync_button_visibility_with_paused() -> void:
 	if _paused:
-		button_pause.hide()
-		button_play.show()
+		_visually_replace_button_pause_with_play()
 		return
 
 	if (not _paused
@@ -316,8 +320,7 @@ func _sync_button_visibility_with_paused() -> void:
 		button_play.hide()
 		return
 
-	button_pause.hide()
-	button_play.show()
+	_visually_replace_button_pause_with_play()
 
 
 func _translate_words_list_into_numbers_list_list(word_list):
@@ -343,6 +346,26 @@ func _translate_words_list_into_numbers_list_list(word_list):
 	)
 
 	return numbers_translated_from_word_list
+
+
+func _visually_replace_button_pause_with_play():
+	var button_to_visually_replace_is_focused = button_pause.has_focus()
+
+	button_pause.hide()
+	button_play.show()
+
+	if button_to_visually_replace_is_focused:
+		button_play.grab_focus()
+
+
+func _visually_replace_button_play_with_pause():
+	var button_to_visually_replace_is_focused = button_play.has_focus()
+
+	button_pause.show()
+	button_play.hide()
+
+	if button_to_visually_replace_is_focused:
+		button_pause.grab_focus()
 
 
 func _on_button_mouse_entered():
