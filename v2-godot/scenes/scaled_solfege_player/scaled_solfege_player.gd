@@ -36,11 +36,14 @@ signal play_button_pressed()
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var line_edit: LineEdit = $HBoxContainer/LineEdit
-@onready var button_play = (
-	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay
+@onready var button_pause_play = (
+	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay
 )
-@onready var button_pause = (
-	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPause
+@onready var button_pause_play_icon_pause = (
+	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay/Icons/IconPause
+)
+@onready var button_pause_play_icon_play = (
+	$HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay/Icons/IconPlay
 )
 @onready var sfx_mouse_hover = $SfxMouseHover
 
@@ -305,19 +308,19 @@ func _set_other_entry_fields(numbers_list_list) -> void:
 
 func _sync_button_visibility_with_paused() -> void:
 	if _paused:
-		button_pause.hide()
-		button_play.show()
+		button_pause_play_icon_pause.hide()
+		button_pause_play_icon_play.show()
 		return
 
 	if (not _paused
 			and (_is_audible_note(_current_note_index_playing)
 				or _queue_of_note_indexes_to_play.any(_is_audible_note))):
-		button_pause.show()
-		button_play.hide()
+		button_pause_play_icon_pause.show()
+		button_pause_play_icon_play.hide()
 		return
 
-	button_pause.hide()
-	button_play.show()
+	button_pause_play_icon_pause.hide()
+	button_pause_play_icon_play.show()
 
 
 func _translate_words_list_into_numbers_list_list(word_list):
@@ -367,3 +370,15 @@ func _set_audible_volume_and_play_note(note_index):
 		VOLUME_NORMAL_DECIBEL % audio_stream_player.stream.get_stream_count()
 	)
 	audio_stream_player.play()
+
+
+func _on_button_pause_play_pressed():
+	if button_pause_play_icon_pause.visible:
+		_on_button_pause_pressed()
+		return
+
+	if button_pause_play_icon_play.visible:
+		_on_button_play_pressed()
+		return
+
+	print_debug("Warning: Button was pressed without an icon visible.")

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bgu8attn1nggm"]
 
 [ext_resource type="Script" uid="uid://0prkehvd5tef" path="res://scenes/scaled_solfege_player/scaled_solfege_player.gd" id="1_qs24r"]
-[ext_resource type="Theme" uid="uid://bcn1l0yktj2nh" path="res://themes/button_play_theme.tres" id="1_v0arx"]
 [ext_resource type="AudioStream" uid="uid://dbbl00734sbme" path="res://data/audio_streams/demo_audio_stream_synchronized_chromatic_scale_ascending_c4.tres" id="2_ueegv"]
 [ext_resource type="Texture2D" uid="uid://ciggibqdnnctc" path="res://icons/stop_icon.svg" id="4_bo65b"]
 [ext_resource type="Texture2D" uid="uid://dlsil0r5i1eh7" path="res://icons/pause_icon.svg" id="4_chvfp"]
@@ -54,27 +53,39 @@ theme_override_constants/icon_max_width = 26
 icon = ExtResource("4_bo65b")
 icon_alignment = 1
 
-[node name="ButtonPause" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=1021496926]
+[node name="ButtonPausePlay" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=1550065032]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Pause"
 theme_override_constants/icon_max_width = 26
-icon = ExtResource("4_chvfp")
-icon_alignment = 1
 
-[node name="ButtonPlay" type="Button" parent="HBoxContainer/MarginContainerButtons/HBoxContainer" unique_id=217465911]
-custom_minimum_size = Vector2(60, 0)
+[node name="Icons" type="HBoxContainer" parent="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay" unique_id=1901950560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -13.0
+offset_right = 28.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="IconPause" type="TextureRect" parent="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay/Icons" unique_id=1254031689]
+visible = false
+custom_maximum_size = Vector2(26, 26)
 layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "Play"
-theme = ExtResource("1_v0arx")
-theme_override_constants/icon_max_width = 30
-icon = ExtResource("5_dqj3a")
-icon_alignment = 1
+texture = ExtResource("4_chvfp")
+
+[node name="IconPlay" type="TextureRect" parent="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay/Icons" unique_id=1446081431]
+custom_maximum_size = Vector2(26, 26)
+layout_mode = 2
+texture = ExtResource("5_dqj3a")
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
-[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPause" to="." method="_on_button_pause_pressed"]
-[connection signal="mouse_entered" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay" to="." method="_on_button_pause_play_pressed"]
