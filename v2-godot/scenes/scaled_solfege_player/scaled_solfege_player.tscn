@@ -88,4 +88,5 @@ texture = ExtResource("5_dqj3a")
 
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonStop" to="." method="_on_button_stop_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/MarginContainerButtons/HBoxContainer/ButtonPausePlay" to="." method="_on_button_pause_play_pressed"]
