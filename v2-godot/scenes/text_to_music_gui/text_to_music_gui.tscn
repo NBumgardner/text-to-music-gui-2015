@@ -104,6 +104,7 @@ font_size = 30
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
 [node name="SettingsMenuBackground" type="MarginContainer" parent="." unique_id=640820818]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
