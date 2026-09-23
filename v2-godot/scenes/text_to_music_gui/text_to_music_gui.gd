@@ -1,6 +1,11 @@
 extends Control
 
 
+@onready var button_settings = (
+	$MarginContainer/VBoxContainer/MarginContainer/ButtonSettings
+)
+
+
 @onready var row_user_input = $MarginContainer/VBoxContainer/RowUserInput
 
 
@@ -14,6 +19,9 @@ extends Control
 @onready var settings_menu = $SettingsMenu
 
 
+@onready var settings_menu_background = $SettingsMenuBackground
+
+
 @onready var sfx_mouse_hover = $SfxMouseHover
 
 
@@ -22,6 +30,7 @@ extends Control
 
 func _ready():
 	settings_menu.visible = false
+	settings_menu_background.hide()
 
 
 ## Grab focus on the default first control.
@@ -32,6 +41,11 @@ func grab_focus_default():
 func _on_button_settings_pressed():
 	sfx_selection_made.play()
 	settings_menu.visible = !settings_menu.visible
+
+	if settings_menu.visible:
+		settings_menu_background.show()
+	else:
+		settings_menu_background.hide()
 
 
 func _on_scaled_solfege_player_play_button_pressed():
@@ -66,3 +80,6 @@ func _set_note_lengths_by_multiplier(multiplier):
 
 func _on_settings_menu_close_requested():
 	sfx_selection_made.play()
+	settings_menu_background.hide()
+
+	button_settings.grab_focus()
