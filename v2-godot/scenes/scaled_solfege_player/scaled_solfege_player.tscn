@@ -34,6 +34,7 @@ autowrap_mode = 3
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer" unique_id=1431590144]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../MarginContainerButtons/HBoxContainer/ButtonStop")
 keep_editing_on_text_submit = true
 
 [node name="MarginContainerButtons" type="MarginContainer" parent="HBoxContainer" unique_id=2034833303]
@@ -49,6 +50,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Stop"
+focus_neighbor_left = NodePath("../../../LineEdit")
 theme_override_constants/icon_max_width = 26
 icon = ExtResource("4_bo65b")
 icon_alignment = 1
