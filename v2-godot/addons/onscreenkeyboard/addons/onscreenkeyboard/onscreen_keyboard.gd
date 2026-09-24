@@ -1,11 +1,6 @@
 @tool
 extends PanelContainer
 
-enum Direction {
-	UP,
-	DOWN
-}
-
 ###########################
 ## SETTINGS
 ###########################
@@ -83,13 +78,6 @@ func _enter_tree():
 func _input(event):
 	_update_auto_display_on_input(event)
 
-	if keyboard_visible:
-		if not sending_event:
-			if event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
-				get_tree().set_input_as_handled()
-				_handle_key_events(event)
-		elif event is InputEventKey and event.scancode == KEY_ENTER and is_keyboard_focus_object(focus_object):
-			_hide_keyboard()
 
 func size_changed():
 	if auto_show and visible:
@@ -104,15 +92,8 @@ var KeyListHandler
 
 var layouts = []
 var keys = []
-var layout_keys = {}
-var focus_keys = null
 var capslock_keys = []
 var uppercase = false
-
-var focused_key_x = 0
-var focused_key_y = 0
-var keyboard_visible = false
-var sending_event = false
 
 var tween_position
 var tween_speed = .2
@@ -158,6 +139,7 @@ func _update_auto_display_on_input(event):
 		if released == false:
 			return
 
+		var focus_object = get_viewport().gui_get_focus_owner()
 		if focus_object != null:
 			var click_on_input = Rect2(focus_object.global_position, focus_object.size).has_point(get_global_mouse_position())
 			var click_on_keyboard = Rect2(global_position, size).has_point(get_global_mouse_position())
@@ -165,11 +147,21 @@ func _update_auto_display_on_input(event):
 			if click_on_input:
 				if is_keyboard_focus_object(focus_object):
 					_show_keyboard()
-			elif not click_on_keyboard:
+			elif click_on_keyboard:
+				_show_keyboard()
+			else:
 				_hide_keyboard()
 
+	if event is InputEventKey:
+		var focus_object = get_viewport().gui_get_focus_owner()
+		if focus_object != null:
+			if event.keycode == KEY_ENTER:
+				if is_keyboard_focus_object_complete_on_enter(focus_object):
+					focus_object.release_focus()
+					_hide_keyboard()
 
-func _hide_keyboard(key_data=null, x=null, y=null):
+
+func _hide_keyboard(key_data=null):
 	if animate:
 		var new_y_pos = get_viewport().get_visible_rect().size.y + 10
 		animate_position(Vector2(position.x, new_y_pos), true)
@@ -177,7 +169,7 @@ func _hide_keyboard(key_data=null, x=null, y=null):
 		change_visibility(false)
 
 
-func _show_keyboard(key_data=null, x=null, y=null):
+func _show_keyboard(key_data=null):
 	change_visibility(true)
 	if animate:
 		var new_y_pos = get_viewport().get_visible_rect().size.y - size.y
@@ -194,22 +186,6 @@ func animate_position(new_position, trigger_visibility:bool=false):
 		tween_speed
 	).set_trans(Tween.TRANS_SINE)
 
-func _handle_key_events(event):
-	# Selection
-	if event.is_action_pressed("ui_left"):
-		focusKey(focused_key_x - 1, focused_key_y)
-	elif event.is_action_pressed("ui_right"):
-		focusKey(focused_key_x + 1, focused_key_y)
-	elif event.is_action_pressed("ui_up"):
-		focusKeyDir(Direction.UP)
-	elif event.is_action_pressed("ui_down"):
-		focusKeyDir(Direction.DOWN)
-	elif event.is_action_pressed("ui_accept"):
-		focus_keys[focused_key_y][focused_key_x].pressing = true
-	elif event.is_action_released("ui_accept"):
-		focus_keys[focused_key_y][focused_key_x].pressing = false
-	elif event.is_action_pressed("ui_cancel"):
-		_hide_keyboard()
 
 func change_visibility(value):
 	if value:
@@ -217,9 +193,7 @@ func change_visibility(value):
 	else:
 		_set_caps_lock(false)
 		super.hide()
-
-	keyboard_visible = value
-	visibility_changed.emit(keyboard_visible)
+	visibility_changed.emit()
 
 
 ###########################
@@ -241,22 +215,13 @@ func set_active_layout_by_name(name):
 func _show_layout(layout):
 	layout.show()
 	current_layout = layout
-	# Old key, unfocus
-	var key = focus_keys[focused_key_y][focused_key_x]
-	key.focused = false
-	focus_keys = layout_keys[layout]
-	# Focus new key on different layout
-	focused_key_x = 0
-	focused_key_y = 0
-	focus_keys[focused_key_y][focused_key_x].focused = true
 
 
 func _hide_layout(layout):
 	layout.hide()
 
 
-func _switch_layout(key_data, x, y):
-	await get_tree().process_frame
+func _switch_layout(key_data):
 	prev_prev_layout = previous_layout
 	previous_layout = current_layout
 	layout_changed.emit(key_data.get("layout-name"))
@@ -295,16 +260,12 @@ func _set_caps_lock(value: bool):
 		key.change_uppercase(value)
 
 
-func _trigger_uppercase(key_data, x, y):
+func _trigger_uppercase(key_data):
 	uppercase = !uppercase
 	_set_caps_lock(uppercase)
 
 
-func _key_down(key_data,x,y):
-	focusKey(x,y)
-
-
-func _key_released(key_data,x,y):
+func _key_released(key_data):
 	if key_data.has("output"):
 		var key_value = key_data.get("output")
 
@@ -326,10 +287,7 @@ func _key_released(key_data,x,y):
 		input_event_key.keycode = key
 		input_event_key.unicode = key
 
-		sending_event = true
 		Input.parse_input_event(input_event_key)
-		await get_tree().process_frame
-		sending_event = false
 
 		###########################
 		## DISABLE CAPSLOCK AFTER 
@@ -393,14 +351,7 @@ func _create_keyboard(layout_data):
 		# theme override for spacing
 		base_vbox.add_theme_constant_override("separation", separation.y)
 
-		var loop_layout_keys = []
-		layout_keys[layout_container] = loop_layout_keys
-		if focus_keys == null:
-			focus_keys = layout_keys[layout_container]
-
 		for row in layout.get("rows"):
-			var focus_row_keys = []
-			loop_layout_keys.push_back(focus_row_keys)
 
 			var key_row = HBoxContainer.new()
 			key_row.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -409,9 +360,6 @@ func _create_keyboard(layout_data):
 
 			for key in row.get("keys"):
 				var new_key = KeyboardButton.new(key)
-				new_key.id_x = focus_row_keys.size()
-				new_key.id_y = loop_layout_keys.size()-1
-				focus_row_keys.push_back(new_key)
 
 				_set_key_style("normal",new_key, style_normal)
 				_set_key_style("hover",new_key, style_hover)
@@ -426,7 +374,6 @@ func _create_keyboard(layout_data):
 					new_key.set('theme_override_colors/font_pressed_color', font_color_pressed)
 					new_key.set('theme_override_colors/font_disabled_color', font_color_normal)
 
-				new_key.down.connect(_key_down)
 				new_key.released.connect(_key_released)
 
 				if key.has("type"):
@@ -521,42 +468,3 @@ func is_keyboard_focus_object(focus_object):
 	if focus_object is LineEdit or focus_object is TextEdit:
 		return true
 	return false
-
-func focusKey(x, y):
-	# Unfocus previous key
-	var key = focus_keys[focused_key_y][focused_key_x]
-	key.focused = false
-	if x != focused_key_x or y != focused_key_y:
-		key.pressing = false
-	
-	if y < 0:
-		y = focus_keys.size() - 1
-	elif y >= focus_keys.size():
-		y = 0
-	if x < 0:
-		x = focus_keys[y].size() - 1
-	elif x >= focus_keys[y].size():
-		x = 0
-
-	# Focus new key
-	focused_key_x = x
-	focused_key_y = y
-	focus_keys[focused_key_y][focused_key_x].focused = true
-
-func focusKeyDir(dir):
-	var curr_key = focus_keys[focused_key_y][focused_key_x]
-	var center = curr_key.rect_global_position + curr_key.rect_size / 2
-	
-	var idx = focused_key_y + 1 if dir == Direction.DOWN else focused_key_y - 1
-	if idx == -1:
-		idx = focus_keys.size()-1
-	elif idx == focus_keys.size():
-		idx = 0
-	for key in focus_keys[idx]:
-		var left_pos = key.rect_global_position.x
-		var right_pos = left_pos + key.rect_size.x
-		if (dir == Direction.UP and right_pos > center.x) or \
-			(dir == Direction.DOWN and left_pos > center.x) or \
-			(left_pos <= center.x and center.x <= right_pos):
-			focusKey(key.id_x, key.id_y)
-			return
