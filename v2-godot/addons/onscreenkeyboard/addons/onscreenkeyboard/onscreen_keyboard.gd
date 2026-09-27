@@ -152,24 +152,23 @@ func hide():
 
 var released = true
 func _update_auto_display_on_input(event):
-	if auto_show == false:
+	if auto_show == false or event is not InputEventMouseButton:
 		return
 
-	if event is InputEventMouseButton:
-		released = !released
-		if released == false:
-			return
+	released = !released
+	if released == false:
+		return
 
-		var focus_object = get_viewport().gui_get_focus_owner()
-		if focus_object != null:
-			var click_on_input = Rect2(focus_object.global_position, focus_object.size).has_point(get_global_mouse_position())
-			var click_on_keyboard = Rect2(global_position, size).has_point(get_global_mouse_position())
+	var focus_object = get_viewport().gui_get_focus_owner()
+	if focus_object != null:
+		var click_on_input = Rect2(focus_object.global_position, focus_object.size).has_point(get_global_mouse_position())
+		var click_on_keyboard = Rect2(global_position, size).has_point(get_global_mouse_position())
 
-			if click_on_input:
-				if is_keyboard_focus_object(focus_object):
-					_show_keyboard()
-			elif not click_on_keyboard:
-				_hide_keyboard()
+		if click_on_input:
+			if is_keyboard_focus_object(focus_object):
+				_show_keyboard()
+		elif not click_on_keyboard:
+			_hide_keyboard()
 
 
 func _hide_keyboard(key_data=null, x=null, y=null):
