@@ -88,7 +88,7 @@ func _input(event):
 
 	if not sending_event:
 		if event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 			_handle_key_events(event)
 	elif event is InputEventKey and event.scancode == KEY_ENTER and is_keyboard_focus_object(focus_object):
 		_hide_keyboard()
