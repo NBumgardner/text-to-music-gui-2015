@@ -32,6 +32,9 @@ func _ready():
 	settings_menu.visible = false
 	settings_menu_background.hide()
 
+	if self == get_tree().current_scene:
+		grab_focus_default()
+
 
 ## Grab focus on the default first control.
 func grab_focus_default():
