@@ -161,6 +161,7 @@ func _update_auto_display_on_input(event):
 		if released == false:
 			return
 
+		var focus_object = get_viewport().gui_get_focus_owner()
 		if focus_object != null:
 			var click_on_input = Rect2(focus_object.global_position, focus_object.size).has_point(get_global_mouse_position())
 			var click_on_keyboard = Rect2(global_position, size).has_point(get_global_mouse_position())
