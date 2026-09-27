@@ -50,7 +50,6 @@ func _draw():
 	var font = get_theme_font("font")
 	var text_ofs = ((size - style.get_minimum_size() - font.get_string_size(text)) / 2.0) + style.get_offset();
 	text_ofs.y += font.get_ascent();
-	font.draw(get_canvas_item(), text_ofs, text)
 
 func _init(_key_data):
 	key_data = _key_data
