@@ -83,13 +83,15 @@ func _enter_tree():
 func _input(event):
 	_update_auto_display_on_input(event)
 
-	if keyboard_visible:
-		if not sending_event:
-			if event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
-				get_tree().set_input_as_handled()
-				_handle_key_events(event)
-		elif event is InputEventKey and event.scancode == KEY_ENTER and is_keyboard_focus_object(focus_object):
-			_hide_keyboard()
+	if not keyboard_visible:
+		return
+
+	if not sending_event:
+		if event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
+			get_tree().set_input_as_handled()
+			_handle_key_events(event)
+	elif event is InputEventKey and event.scancode == KEY_ENTER and is_keyboard_focus_object(focus_object):
+		_hide_keyboard()
 
 func size_changed():
 	if auto_show and visible:
