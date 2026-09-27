@@ -20,7 +20,7 @@ var icon_tex_rect
 var id_x = 0
 var id_y = 0
 
-func set_focused(_focused):
+func grab_focused(_focused):
 	focused = _focused
 	queue_redraw()
 
