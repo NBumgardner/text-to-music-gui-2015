@@ -24,7 +24,7 @@ func grab_focused(_focused):
 	focused = _focused
 	queue_redraw()
 
-func set_pressing(_pressing):
+func set_pressed(_pressing):
 	if pressing != _pressing:
 		if _pressing:
 			emit_signal("button_down")
