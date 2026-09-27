@@ -90,7 +90,7 @@ func _input(event):
 		if event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
 			get_viewport().set_input_as_handled()
 			_handle_key_events(event)
-	elif event is InputEventKey and event.scancode == KEY_ENTER and is_keyboard_focus_object(focus_object):
+	elif event is InputEventKey and event.keycode == KEY_ENTER and is_keyboard_focus_object(focus_object):
 		_hide_keyboard()
 
 func size_changed():
