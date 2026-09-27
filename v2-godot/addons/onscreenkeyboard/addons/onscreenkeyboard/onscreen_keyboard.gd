@@ -82,6 +82,9 @@ func _enter_tree():
 
 func _input(event):
 	_update_auto_display_on_input(event)
+	
+	if not (event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion):
+		return
 
 	if keyboard_visible:
 		if not sending_event:
