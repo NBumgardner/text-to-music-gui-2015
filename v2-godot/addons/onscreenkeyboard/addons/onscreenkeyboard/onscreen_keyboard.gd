@@ -131,7 +131,7 @@ func _init_keyboard():
 	# init positioning without animation
 	var tmp_anim = animate
 	animate = false
-	if auto_show and visible:
+	if visible:
 		_hide_keyboard()
 	elif visible:
 		_show_keyboard()
