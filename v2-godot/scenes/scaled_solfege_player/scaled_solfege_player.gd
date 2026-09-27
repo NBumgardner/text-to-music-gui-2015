@@ -87,9 +87,6 @@ func _ready():
 
 	_sync_button_visibility_with_paused()
 
-	if self == get_tree().current_scene:
-		grab_focus_default()
-
 
 func _process(delta: float) -> void:
 	if _paused:
@@ -110,10 +107,6 @@ func _process(delta: float) -> void:
 		return
 
 	stop_notes()
-
-
-func grab_focus_default():
-	line_edit.grab_focus()
 
 
 ## Stop playing all audio notes of the scene.

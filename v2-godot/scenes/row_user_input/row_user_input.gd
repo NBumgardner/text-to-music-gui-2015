@@ -17,11 +17,6 @@ signal request_to_translate(raw_text)
 @onready var sfx_selection_made = $SfxSelectionMade
 
 
-func _ready():
-	if self == get_tree().current_scene:
-		grab_focus_default()
-
-
 ## Get [LineEdit] text.
 func get_line_edit_text():
 	return input_control_to_translate.text
