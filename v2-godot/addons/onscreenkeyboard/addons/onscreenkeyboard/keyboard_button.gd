@@ -7,8 +7,6 @@ signal down
 
 var icon_tex_rect
 
-const DEFAULT_FONT_WIDTH = -1
-
 @export var focused:bool = false:
 	set(new_val):
 		focused = new_val
@@ -52,7 +50,7 @@ func _draw():
 	var font = self.get_theme_font("font")
 	var text_ofs = ((size - style.get_minimum_size() - font.get_string_size(text)) / 2.0) + style.get_offset()
 	text_ofs.y += font.get_ascent()
-	draw_string(font, text_ofs, text, HORIZONTAL_ALIGNMENT_CENTER, DEFAULT_FONT_WIDTH, get_theme_font_size("font"))
+	draw_string(font, text_ofs, text)
 
 func _init(_key_data):
 	key_data = _key_data

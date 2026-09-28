@@ -421,7 +421,7 @@ func _create_keyboard(layout_data):
 				_set_key_style("hover",new_key, style_hover)
 				_set_key_style("pressed",new_key, style_pressed)
 
-				new_key.add_theme_font_size_override("font_size", font_size)
+				new_key.set('theme_override_font_sizes/font_size', font_size)
 				if font != null:
 					new_key.set('theme_override_fonts/font', font)
 				if font_color_normal != null:
