@@ -421,14 +421,14 @@ func _create_keyboard(layout_data):
 				_set_key_style("hover",new_key, style_hover)
 				_set_key_style("pressed",new_key, style_pressed)
 
-				new_key.set('theme_override_font_sizes/font_size', font_size)
+				new_key.add_theme_font_size_override("font_size", font_size)
 				if font != null:
-					new_key.set('theme_override_fonts/font', font)
+					new_key.add_theme_font_override("font", font)
 				if font_color_normal != null:
-					new_key.set('theme_override_colors/font_color', font_color_normal)
-					new_key.set('theme_override_colors/font_hover_color', font_color_hover)
-					new_key.set('theme_override_colors/font_pressed_color', font_color_pressed)
-					new_key.set('theme_override_colors/font_disabled_color', font_color_normal)
+					new_key.add_theme_color_override("font_color", font_color_normal)
+					new_key.add_theme_color_override("font_hover_color", font_color_hover)
+					new_key.add_theme_color_override("font_pressed_color", font_color_pressed)
+					new_key.add_theme_color_override("font_disabled_color", font_color_normal)
 
 				new_key.down.connect(_key_down)
 				new_key.released.connect(_key_released)
