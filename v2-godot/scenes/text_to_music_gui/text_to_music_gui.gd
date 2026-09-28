@@ -6,11 +6,6 @@ extends Control
 )
 
 
-@onready var onscreen_keyboard = (
-	$MarginContainerBottomCenter/MarginContainer/OnscreenKeyboard
-)
-
-
 @onready var row_user_input = $MarginContainer/VBoxContainer/RowUserInput
 
 
@@ -88,8 +83,3 @@ func _on_settings_menu_close_requested():
 	settings_menu_background.hide()
 
 	button_settings.grab_focus()
-
-
-func _on_row_user_input_editing_toggled(toggled_on):
-	if toggled_on:
-		onscreen_keyboard.show()
