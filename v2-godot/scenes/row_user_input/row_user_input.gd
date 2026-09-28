@@ -64,3 +64,8 @@ func _on_button_mouse_entered():
 
 func _on_line_edit_editing_toggled(toggled_on):
 	editing_toggled.emit(toggled_on)
+
+
+func _on_line_edit_gui_input(event):
+	print('DEBUG01 event:', event)
+	pass # Replace with function body.
