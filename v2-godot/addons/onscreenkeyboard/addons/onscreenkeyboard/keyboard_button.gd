@@ -42,17 +42,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _draw():
-	var style = get_theme_stylebox("normal")
 	if pressing or get_draw_mode() == DRAW_PRESSED or (toggle_mode and pressed):
 		draw_style_box(get_theme_stylebox("pressed"), Rect2(Vector2.ZERO, size))
-	else:
-		draw_style_box(style, Rect2(Vector2.ZERO, size))
+
 	if focused:
 		draw_style_box(get_theme_stylebox("focus"), Rect2(Vector2.ZERO, size))
-	var font = get_theme_font("font")
-	var text_ofs = ((size - style.get_minimum_size() - font.get_string_size(text)) / 2.0) + style.get_offset()
-	text_ofs.y += font.get_ascent()
-	draw_string(font, text_ofs, text)
 
 func _init(_key_data):
 	key_data = _key_data
