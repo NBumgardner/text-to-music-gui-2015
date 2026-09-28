@@ -1,5 +1,9 @@
 extends HBoxContainer
 
+## Signal called when the [LineEdit] starts or stops being edited.
+signal editing_toggled(toggled_on: bool)
+
+
 ## Signal called with the contents of the [LineEdit] when the [i]Translate[/i]
 ##  [Button] is pressed.
 ## [br][br]
@@ -56,3 +60,7 @@ func _on_line_edit_text_submitted(_new_text):
 
 func _on_button_mouse_entered():
 	sfx_mouse_hover.play()
+
+
+func _on_line_edit_editing_toggled(toggled_on):
+	editing_toggled.emit(toggled_on)
