@@ -10,11 +10,13 @@ var icon_tex_rect
 @export var focused:bool = false:
 	set(new_val):
 		focused = new_val
+		queue_redraw()
 	get:
 		return focused
 @export var pressing:bool = false:
 	set(new_val):
 		pressing = new_val
+		queue_redraw()
 	get:
 		return pressing
 var id_x = 0
