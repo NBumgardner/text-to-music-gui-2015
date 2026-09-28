@@ -49,7 +49,7 @@ func _draw():
 		draw_style_box(style, Rect2(Vector2.ZERO, size))
 	if focused:
 		draw_style_box(get_theme_stylebox("focus"), Rect2(Vector2.ZERO, size))
-	var font = self.get_theme_font("font")
+	var font = get_theme_font("font")
 	var text_ofs = ((size - style.get_minimum_size() - font.get_string_size(text)) / 2.0) + style.get_offset()
 	text_ofs.y += font.get_ascent()
 	draw_string(font, text_ofs, text)
