@@ -201,13 +201,13 @@ func animate_position(new_position, trigger_visibility:bool=false):
 func _handle_key_events(event):
 	# Selection
 	if event.is_action_pressed("ui_left"):
-		focusKey(focused_key_x - 1, focused_key_y)
+		focus_key(focused_key_x - 1, focused_key_y)
 	elif event.is_action_pressed("ui_right"):
-		focusKey(focused_key_x + 1, focused_key_y)
+		focus_key(focused_key_x + 1, focused_key_y)
 	elif event.is_action_pressed("ui_up"):
-		focusKeyDir(Direction.UP)
+		focus_key_dir(Direction.UP)
 	elif event.is_action_pressed("ui_down"):
-		focusKeyDir(Direction.DOWN)
+		focus_key_dir(Direction.DOWN)
 	elif event.is_action_pressed("ui_accept"):
 		focus_keys[focused_key_y][focused_key_x].pressing = true
 	elif event.is_action_released("ui_accept"):
@@ -305,7 +305,7 @@ func _trigger_uppercase(key_data, x, y):
 
 
 func _key_down(key_data,x,y):
-	focusKey(x,y)
+	focus_key(x,y)
 
 
 func _key_released(key_data,x,y):
@@ -526,7 +526,7 @@ func is_keyboard_focus_object(focus_object):
 		return true
 	return false
 
-func focusKey(x, y):
+func focus_key(x, y):
 	# Unfocus previous key
 	var key = focus_keys[focused_key_y][focused_key_x]
 	key.focused = false
@@ -547,7 +547,7 @@ func focusKey(x, y):
 	focused_key_y = y
 	focus_keys[focused_key_y][focused_key_x].focused = true
 
-func focusKeyDir(dir):
+func focus_key_dir(dir):
 	var curr_key = focus_keys[focused_key_y][focused_key_x]
 	var center = curr_key.global_position + curr_key.size / 2
 	
@@ -562,5 +562,5 @@ func focusKeyDir(dir):
 		if (dir == Direction.UP and right_pos > center.x) or \
 			(dir == Direction.DOWN and left_pos > center.x) or \
 			(left_pos <= center.x and center.x <= right_pos):
-			focusKey(key.id_x, key.id_y)
+			focus_key(key.id_x, key.id_y)
 			return
