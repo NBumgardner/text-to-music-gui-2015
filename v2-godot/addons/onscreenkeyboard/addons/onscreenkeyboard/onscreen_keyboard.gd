@@ -549,7 +549,7 @@ func focusKey(x, y):
 
 func focusKeyDir(dir):
 	var curr_key = focus_keys[focused_key_y][focused_key_x]
-	var center = curr_key.rect_global_position + curr_key.rect_size / 2
+	var center = curr_key.global_position + curr_key.size / 2
 	
 	var idx = focused_key_y + 1 if dir == Direction.DOWN else focused_key_y - 1
 	if idx == -1:
@@ -557,8 +557,8 @@ func focusKeyDir(dir):
 	elif idx == focus_keys.size():
 		idx = 0
 	for key in focus_keys[idx]:
-		var left_pos = key.rect_global_position.x
-		var right_pos = left_pos + key.rect_size.x
+		var left_pos = key.global_position.x
+		var right_pos = left_pos + key.size.x
 		if (dir == Direction.UP and right_pos > center.x) or \
 			(dir == Direction.DOWN and left_pos > center.x) or \
 			(left_pos <= center.x and center.x <= right_pos):
