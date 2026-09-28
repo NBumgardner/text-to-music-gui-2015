@@ -222,8 +222,11 @@ func change_visibility(value):
 		_set_caps_lock(false)
 		super.hide()
 
+	if value == keyboard_visible:
+		return
+
 	keyboard_visible = value
-	visibility_changed.emit(keyboard_visible)
+	visibility_changed.emit()
 
 
 ###########################
