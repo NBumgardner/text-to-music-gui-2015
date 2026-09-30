@@ -98,7 +98,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenter" unique_id=28758465]
-custom_maximum_size = Vector2(-1, 190)
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -108,10 +107,8 @@ layout_mode = 2
 theme = ExtResource("11_qosx1")
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="MarginContainerBottomCenter/MarginContainer" unique_id=338765912]
-visible = false
 layout_mode = 2
 script = ExtResource("12_qosx1")
-auto_show = false
 animate = false
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
