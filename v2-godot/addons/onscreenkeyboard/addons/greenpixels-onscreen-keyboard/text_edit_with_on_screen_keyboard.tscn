@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bt0iwvnblvssu"]
 
-[ext_resource type="Script" uid="uid://daej56n1gvhij" path="res://addons/greenpixels-onscreen-keyboard/text_edit_with_on_screen_keyboard.gd" id="1_f00dj"]
-[ext_resource type="Texture2D" uid="uid://rgiaimng4kd5" path="res://addons/greenpixels-onscreen-keyboard/keyboard-icon.png" id="2_q8r3g"]
+[ext_resource type="Script" uid="uid://daej56n1gvhij" path="res://addons/onscreenkeyboard/addons/greenpixels-onscreen-keyboard/text_edit_with_on_screen_keyboard.gd" id="1_f00dj"]
+[ext_resource type="Texture2D" uid="uid://rgiaimng4kd5" path="res://addons/onscreenkeyboard/addons/greenpixels-onscreen-keyboard/keyboard-icon.png" id="2_q8r3g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttm8u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7ana"]
 
-[node name="TextEditWithOnScreenKeyboard" type="PanelContainer"]
+[node name="TextEditWithOnScreenKeyboard" type="PanelContainer" unique_id=2100820885]
 offset_left = 163.0
 offset_top = 94.0
 offset_right = 583.0
@@ -16,21 +16,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_f00dj")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=778447403]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=915934274]
 layout_mode = 2
 
-[node name="TextInputContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TextInputContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1326379484]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/TextInputContainer"]
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/TextInputContainer" unique_id=110765481]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -38,12 +38,12 @@ focus_mode = 1
 placeholder_text = "Input text ..."
 scroll_fit_content_height = true
 
-[node name="KeyboardButton" type="Button" parent="MarginContainer/VBoxContainer/TextInputContainer"]
-clip_contents = true
+[node name="KeyboardButton" type="Button" parent="MarginContainer/VBoxContainer/TextInputContainer" unique_id=1344695221]
 custom_minimum_size = Vector2(48, 0)
+clip_contents = true
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TextInputContainer/KeyboardButton"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TextInputContainer/KeyboardButton" unique_id=811997707]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +54,7 @@ mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="KeyboardTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TextInputContainer/KeyboardButton/MarginContainer"]
+[node name="KeyboardTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TextInputContainer/KeyboardButton/MarginContainer" unique_id=1323282564]
 custom_minimum_size = Vector2(32, 1)
 layout_mode = 2
 mouse_filter = 2
@@ -62,77 +62,77 @@ texture = ExtResource("2_q8r3g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1303706394]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NumberKeys" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls"]
+[node name="NumberKeys" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls" unique_id=824294488]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 10
 
-[node name="1" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="1" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=256989355]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "1"
 
-[node name="2" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="2" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=285647594]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "2"
 
-[node name="3" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="3" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=1335252922]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "3"
 
-[node name="4" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="4" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=1706605937]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "4"
 
-[node name="5" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="5" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=419355621]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "5"
 
-[node name="6" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="6" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=2139429560]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "6"
 
-[node name="7" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="7" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=392691803]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "7"
 
-[node name="8" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="8" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=477685214]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "8"
 
-[node name="9" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="9" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=1331723047]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "9"
 
-[node name="10" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys"]
+[node name="10" type="Button" parent="MarginContainer/VBoxContainer/Controls/NumberKeys" unique_id=1424911128]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Keyboards" type="TabContainer" parent="MarginContainer/VBoxContainer/Controls"]
+[node name="Keyboards" type="TabContainer" parent="MarginContainer/VBoxContainer/Controls" unique_id=1415315271]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -141,7 +141,7 @@ current_tab = 0
 clip_tabs = false
 tabs_visible = false
 
-[node name="Qwerty" type="TabContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards"]
+[node name="Qwerty" type="TabContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards" unique_id=989604978]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_t7ana")
 current_tab = 1
@@ -149,617 +149,620 @@ clip_tabs = false
 tabs_visible = false
 metadata/_tab_index = 0
 
-[node name="LettersBig" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty"]
+[node name="LettersBig" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty" unique_id=1389970024]
 visible = false
 layout_mode = 2
 columns = 10
 metadata/_tab_index = 0
 
-[node name="Q" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Q" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1698501513]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Q"
 
-[node name="W" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="W" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1999731937]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "W"
 
-[node name="E" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="E" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1715813433]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "E"
 
-[node name="R" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="R" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1359613473]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "R"
 
-[node name="T" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="T" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=178431153]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "T"
 
-[node name="Y" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Y" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=50787253]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Y"
 
-[node name="U" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="U" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=538640930]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "U"
 
-[node name="I" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="I" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=114759230]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "I"
 
-[node name="O" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="O" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=206149159]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "O"
 
-[node name="P" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="P" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=799491179]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "P"
 
-[node name="A" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="A" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=76639131]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "A"
 
-[node name="S" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="S" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=746029960]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "S"
 
-[node name="D" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="D" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=905792211]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "D"
 
-[node name="F" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="F" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=472262116]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "F"
 
-[node name="G" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="G" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1276791220]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "G"
 
-[node name="H" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="H" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=966778567]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "H"
 
-[node name="J" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="J" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1744296748]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "J"
 
-[node name="K" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="K" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=2016187558]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "K"
 
-[node name="L" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="L" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1820991472]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "L"
 
-[node name="Gravis" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Gravis" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=858360325]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "´"
 
-[node name="Z" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Z" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1551352782]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Z"
 
-[node name="X" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="X" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1729223392]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "X"
 
-[node name="C" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="C" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=81817187]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "C"
 
-[node name="V" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="V" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=441611952]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "V"
 
-[node name="B" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="B" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=384724250]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "B"
 
-[node name="N" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="N" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1470413560]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "N"
 
-[node name="M" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="M" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1660092795]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "M"
 
-[node name="Dot" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Dot" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=1540502282]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "."
 
-[node name="Comma" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Comma" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=639812374]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ","
 
-[node name="Questionmark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig"]
+[node name="Questionmark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersBig" unique_id=759992269]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "?"
 
-[node name="LettersSmall" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty"]
+[node name="LettersSmall" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty" unique_id=2094562728]
 layout_mode = 2
 columns = 10
 metadata/_tab_index = 1
 
-[node name="Q" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Q" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=71397626]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "q"
 
-[node name="W" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="W" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1992261280]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "w"
 
-[node name="E" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="E" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=736823313]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "e"
 
-[node name="R" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="R" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=224704187]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "r"
 
-[node name="T" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="T" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=345658368]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "t"
 
-[node name="Y" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Y" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1195581794]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "y"
 
-[node name="U" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="U" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=2069240193]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "u"
 
-[node name="I" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="I" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=2003161394]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "i"
 
-[node name="O" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="O" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=569245380]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "o"
 
-[node name="P" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="P" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=2103348450]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "p"
 
-[node name="A" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="A" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=633170867]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "a"
 
-[node name="S" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="S" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1182075206]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "s"
 
-[node name="D" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="D" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1953521520]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "d"
 
-[node name="F" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="F" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1595551389]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "f"
 
-[node name="G" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="G" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=966630149]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "g"
 
-[node name="H" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="H" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=879288948]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "h"
 
-[node name="J" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="J" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=338850402]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "j"
 
-[node name="K" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="K" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=455299795]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "k"
 
-[node name="L" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="L" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=613584043]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "l"
 
-[node name="GraveAccent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="GraveAccent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1590033505]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "´"
 
-[node name="Z" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Z" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=972353754]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "z"
 
-[node name="X" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="X" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1189117514]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "x"
 
-[node name="C" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="C" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1173185807]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "c"
 
-[node name="V" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="V" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=693189439]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "v"
 
-[node name="B" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="B" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=908079173]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "b"
 
-[node name="N" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="N" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1273263940]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "n"
 
-[node name="M" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="M" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1458205976]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "m"
 
-[node name="Dot" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Dot" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1803428843]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "."
 
-[node name="Comma" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Comma" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=40682428]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ","
 
-[node name="Questionmark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall"]
+[node name="Questionmark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/LettersSmall" unique_id=1948944838]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "?"
 
-[node name="Symbols" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty"]
+[node name="Symbols" type="GridContainer" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty" unique_id=1157199908]
 visible = false
 layout_mode = 2
 columns = 10
 metadata/_tab_index = 2
 
-[node name="ExclamationMark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="ExclamationMark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1522501304]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "!"
 
-[node name="AtSign" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="AtSign" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1979595554]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "@"
 
-[node name="Hashtag" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Hashtag" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=632109195]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "#"
 
-[node name="Dollar" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Dollar" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1770114378]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "$"
 
-[node name="Percent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Percent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1021527633]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "%"
 
-[node name="Circumflex" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Circumflex" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1360973029]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "^"
 
-[node name="Ampersand" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Ampersand" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1694237287]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "&"
 
-[node name="Asterisk" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Asterisk" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=504968956]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "*"
 
-[node name="RoundBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="RoundBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1420015066]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "("
 
-[node name="RoundBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="RoundBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=628063121]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "P"
 
-[node name="Minus" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Minus" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1970374051]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "-"
 
-[node name="Underline" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Underline" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1783800781]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "_"
 
-[node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1116038623]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "+"
 
-[node name="Equal" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Equal" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=680739478]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "="
 
-[node name="ForwardSlash" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="ForwardSlash" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1528526993]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "/"
 
-[node name="BackSlash" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="BackSlash" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=553735366]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "\\"
 
-[node name="CurlyBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="CurlyBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1794365968]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "{"
 
-[node name="CurlyBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="CurlyBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=315879007]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "}"
 
-[node name="SquareBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="SquareBracketOpen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1481005958]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "["
 
-[node name="SquareBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="SquareBracketClose" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1639365912]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "]"
 
-[node name="LowerThan" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="LowerThan" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=658701814]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "<"
 
-[node name="GreaterThan" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="GreaterThan" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=612294856]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ">"
 
-[node name="Semicolon" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Semicolon" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=914464037]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ";"
 
-[node name="Colon" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Colon" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1260897302]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ":"
 
-[node name="QuotationMark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="QuotationMark" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1805315553]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "\""
 
-[node name="AcuteAccent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="AcuteAccent" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1434091275]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "`"
 
-[node name="VerticalBar" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="VerticalBar" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=1935904045]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "|"
 
-[node name="Tilde" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Tilde" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=988012417]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "~"
 
-[node name="Pound" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Pound" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=247836167]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "£"
 
-[node name="Yen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols"]
+[node name="Yen" type="Button" parent="MarginContainer/VBoxContainer/Controls/Keyboards/Qwerty/Symbols" unique_id=874786874]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "¥"
 
-[node name="ManipulationButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controls"]
+[node name="ManipulationButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controls" unique_id=870801244]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ShiftButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons"]
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=1001243892]
 unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="ShiftButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=1140729717]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Shift"
 
-[node name="SymbolsButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons"]
+[node name="SymbolsButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=1384047335]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Symbols"
 
-[node name="SpaceButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons"]
+[node name="SpaceButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=652242153]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Space"
 
-[node name="BackspaceButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons"]
+[node name="BackspaceButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=792884574]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Delete"
 
-[node name="MetaButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controls"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/MetaButtons"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Cancel"
-
-[node name="FillSpace" type="Control" parent="MarginContainer/VBoxContainer/Controls/MetaButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/MetaButtons"]
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer/Controls/ManipulationButtons" unique_id=1311826348]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Submit"
 
+[node name="MetaButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controls" unique_id=399235157]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FillSpace" type="Control" parent="MarginContainer/VBoxContainer/Controls/MetaButtons" unique_id=767532403]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TextInputContainer/KeyboardButton" to="." method="_on_keyboard_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/ShiftButton" to="." method="_on_shift_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/SymbolsButton" to="." method="_on_symbols_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/SpaceButton" to="." method="_on_space_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/BackspaceButton" to="." method="_on_backspace_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/MetaButtons/CancelButton" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/MetaButtons/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ManipulationButtons/SubmitButton" to="." method="_on_submit_button_pressed"]

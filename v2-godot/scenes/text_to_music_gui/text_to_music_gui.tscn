@@ -10,7 +10,8 @@
 [ext_resource type="Resource" uid="uid://draq241ds48g0" path="res://data/scales/pentatonic.tres" id="6_0swa3"]
 [ext_resource type="PackedScene" uid="uid://bgu8attn1nggm" path="res://scenes/scaled_solfege_player/scaled_solfege_player.tscn" id="9_iv8pr"]
 [ext_resource type="PackedScene" uid="uid://cdl22x1vidibc" path="res://scenes/settings_menu/settings_menu.tscn" id="10_2xp20"]
-[ext_resource type="Script" uid="uid://cuw4rmvrxtt2o" path="res://addons/onscreenkeyboard/addons/onscreenkeyboard/onscreen_keyboard.gd" id="11_pps6h"]
+[ext_resource type="PackedScene" uid="uid://bt0iwvnblvssu" path="res://addons/onscreenkeyboard/addons/greenpixels-onscreen-keyboard/text_edit_with_on_screen_keyboard.tscn" id="11_1iqba"]
+[ext_resource type="Theme" uid="uid://lmcg3omob1f" path="res://themes/onscreen_keyboard_font_size_theme.tres" id="11_qosx1"]
 [ext_resource type="AudioStream" uid="uid://m1ay0labthbs" path="res://audio/001_sfx_click.wav" id="12_4gqup"]
 [ext_resource type="AudioStream" uid="uid://buhxmdoa7mfjd" path="res://audio/002_sfx_click.wav" id="13_pps6h"]
 [ext_resource type="Theme" uid="uid://dlkdxuf2f0bko" path="res://themes/settings_menu_background_margin_none_theme.tres" id="14_pps6h"]
@@ -89,19 +90,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -190.0
+offset_right = -331.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenter" unique_id=28758465]
+custom_maximum_size = Vector2(-1, 190)
 layout_mode = 2
 
-[node name="OnscreenKeyboard" type="PanelContainer" parent="MarginContainerBottomCenter/MarginContainer" unique_id=1662553288]
-visible = false
+[node name="TextEditWithOnScreenKeyboard" parent="MarginContainerBottomCenter/MarginContainer" unique_id=1648144330 instance=ExtResource("11_1iqba")]
 layout_mode = 2
-script = ExtResource("11_pps6h")
-animate = false
-font_size = 30
-metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
+theme = ExtResource("11_qosx1")
 
 [node name="SettingsMenuBackground" type="MarginContainer" parent="." unique_id=640820818]
 visible = false
@@ -139,6 +140,14 @@ volume_db = -8.0
 
 [node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=184017855]
 stream = ExtResource("13_pps6h")
+
+[node name="TextEditWithOnScreenKeyboard" parent="." unique_id=1174218439 instance=ExtResource("11_1iqba")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 420.0
+offset_bottom = 43.0
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
