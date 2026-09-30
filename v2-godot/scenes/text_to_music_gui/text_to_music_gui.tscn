@@ -107,9 +107,30 @@ layout_mode = 2
 theme = ExtResource("11_qosx1")
 
 [node name="OnscreenKeyboard" type="PanelContainer" parent="MarginContainerBottomCenter/MarginContainer" unique_id=338765912]
+visible = false
 layout_mode = 2
 script = ExtResource("12_qosx1")
 animate = false
+metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
+
+[node name="MarginContainerBottomCenterTouch" type="MarginContainer" parent="." unique_id=34067048]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenterTouch" unique_id=1339587236]
+layout_mode = 2
+
+[node name="OnscreenKeyboard" type="PanelContainer" parent="MarginContainerBottomCenterTouch/MarginContainer" unique_id=1425543146]
+visible = false
+layout_mode = 2
+script = ExtResource("12_qosx1")
+animate = false
+font_size = 30
 metadata/_custom_type_script = "uid://cuw4rmvrxtt2o"
 
 [node name="SettingsMenuBackground" type="MarginContainer" parent="." unique_id=640820818]
