@@ -156,5 +156,6 @@ offset_bottom = 43.0
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
+[connection signal="on_submit_pressed" from="MarginContainerBottomCenter/MarginContainer/TextEditWithOnScreenKeyboard" to="." method="_on_text_edit_with_on_screen_keyboard_on_submit_pressed"]
 [connection signal="close_requested" from="SettingsMenu" to="." method="_on_settings_menu_close_requested"]
 [connection signal="playback_speed_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]

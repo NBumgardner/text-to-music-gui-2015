@@ -83,3 +83,7 @@ func _on_settings_menu_close_requested():
 	settings_menu_background.hide()
 
 	button_settings.grab_focus()
+
+
+func _on_text_edit_with_on_screen_keyboard_on_submit_pressed(text):
+	row_user_input.set_line_edit_text(text)
