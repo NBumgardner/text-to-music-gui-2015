@@ -36,6 +36,7 @@ volume_db = -8.0
 [node name="SfxSelectionMade" type="AudioStreamPlayer" parent="." unique_id=1617690445]
 stream = ExtResource("3_0wwct")
 
+[connection signal="editing_toggled" from="LineEdit" to="." method="_on_line_edit_editing_toggled"]
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

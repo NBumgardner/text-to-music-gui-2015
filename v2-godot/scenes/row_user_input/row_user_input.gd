@@ -56,3 +56,12 @@ func _on_line_edit_text_submitted(_new_text):
 
 func _on_button_mouse_entered():
 	sfx_mouse_hover.play()
+
+
+func _on_line_edit_editing_toggled(toggled_on):
+	print("DEBUG01")
+
+
+func _unhandled_input(event):
+	if Input.is_action_pressed("ui_select_line_edit"):
+		print("DEBUG02 event:", event)
