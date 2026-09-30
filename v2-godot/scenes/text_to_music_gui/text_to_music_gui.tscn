@@ -102,6 +102,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="TextEditWithOnScreenKeyboard" parent="MarginContainerBottomCenter/MarginContainer" unique_id=1648144330 instance=ExtResource("11_1iqba")]
+visible = false
 layout_mode = 2
 theme = ExtResource("11_qosx1")
 
