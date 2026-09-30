@@ -85,7 +85,7 @@ musical_scale = ExtResource("5_l0uts")
 layout_mode = 2
 musical_scale = ExtResource("6_0swa3")
 
-[node name="MarginContainerBottomCenterLeftGamepad" type="MarginContainer" parent="." unique_id=798668134]
+[node name="MarginContainerBottomCenterGamepad" type="MarginContainer" parent="." unique_id=798668134]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -95,11 +95,11 @@ offset_top = -200.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenterLeftGamepad" unique_id=28758465]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainerBottomCenterGamepad" unique_id=28758465]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="TextEditWithOnScreenKeyboard" parent="MarginContainerBottomCenterLeftGamepad/MarginContainer" unique_id=1648144330 instance=ExtResource("11_1iqba")]
+[node name="TextEditWithOnScreenKeyboard" parent="MarginContainerBottomCenterGamepad/MarginContainer" unique_id=1648144330 instance=ExtResource("11_1iqba")]
 layout_mode = 2
 theme = ExtResource("11_qosx1")
 
@@ -174,6 +174,6 @@ offset_bottom = 43.0
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer6" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer7" method="_on_row_user_input_request_to_translate"]
 [connection signal="request_to_translate" from="MarginContainer/VBoxContainer/RowUserInput" to="MarginContainer/VBoxContainer/ScaledSolfegePlayer8" method="_on_row_user_input_request_to_translate"]
-[connection signal="on_submit_pressed" from="MarginContainerBottomCenterLeftGamepad/MarginContainer/TextEditWithOnScreenKeyboard" to="." method="_on_text_edit_with_on_screen_keyboard_on_submit_pressed"]
+[connection signal="on_submit_pressed" from="MarginContainerBottomCenterGamepad/MarginContainer/TextEditWithOnScreenKeyboard" to="." method="_on_text_edit_with_on_screen_keyboard_on_submit_pressed"]
 [connection signal="close_requested" from="SettingsMenu" to="." method="_on_settings_menu_close_requested"]
 [connection signal="playback_speed_toggle_requested" from="SettingsMenu" to="." method="_on_settings_menu_playback_speed_toggle_requested"]

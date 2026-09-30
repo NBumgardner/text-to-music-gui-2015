@@ -6,6 +6,9 @@ extends Control
 )
 
 
+@onready var onscreen_keyboard_gamepad = $MarginContainerBottomCenterGamepad
+
+
 @onready var row_user_input = $MarginContainer/VBoxContainer/RowUserInput
 
 
@@ -36,6 +39,16 @@ func _ready():
 ## Grab focus on the default first control.
 func grab_focus_default():
 	row_user_input.grab_focus_default()
+
+
+## Hide the onscreen keyboard designed for gamepads.
+func hide_onscreen_keyboard_for_gamepads():
+	onscreen_keyboard_gamepad.hide()
+
+
+## Show the onscreen keyboard designed for gamepads.
+func show_onscreen_keyboard_for_gamepads():
+	onscreen_keyboard_gamepad.show()
 
 
 func _on_button_settings_pressed():
